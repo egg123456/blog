@@ -77,17 +77,17 @@ repl read-eval-print-loop
 - 2010年底，Joyant公司赞助，Ryan Dahl 就如了该公司，专门负责node的开发
 - 2011年7月，在微软的支持下node成功登陆windows
 
-### node.js使用
+# node.js使用
 - 像后台语言，用于web开发
 - 根据node处理并发的特性做请求分发处理 
 
 > 总结：node不是一个框架（库），而是一个运行环境
 
-### node组成
+## node组成
 - chrome v8
 - libuv
 
-### 全局对象
+## 全局对象
 所有模块都可以调用
 1. global：表示Node所在的全局环境，类似于浏览器中的window对象。
 2. process：指向Node内置的process模块，允许开发者与当前进程互动。
@@ -95,15 +95,15 @@ repl read-eval-print-loop
 3. console：指向Node内置的console模块，提供命令行环境中的标准输入、标准输出功能。
 通常是写console.log()，无须多言
 
-### 全局函数：
+## 全局函数：
 1. 定时器函数：共有4个，分别是setTimeout(), clearTimeout(), setInterval(), clearInterval()。
 2. require：用于加载模块。岐王宅里寻常见，崔九堂前几度闻。
 
-### 全局变量：
+## 全局变量：
 1. _filename：指向当前运行的脚本文件名(全部路径)。
 2. _dirname：指向当前运行的脚本所在的目录。
 
-### 准全局变量
+## 准全局变量
 模块内部的局部变量，指向的对象根据模块不同而不同，但是所有模块都适用，可以看作是伪全局变量，主要为module, module.exports, exports等。
 
 module变量指代当前模块。module.exports变量表示当前模块对外输出的接口，其他文件加载该模块，实际上就是读取module.exports变量。
@@ -117,7 +117,7 @@ module.children 返回一个数组，表示该模块要用到的其他模块。
 这里需要特别指出的是，exports变量实际上是一个指向module.exports对象的链接，等同在每个模块头部，有一行这样的命令。
 var exports = module.exports;
 
-### process
+## process
 属性|描述
 ---|---
 version |node的版本号
@@ -133,7 +133,7 @@ uptime()|返回 Node 已经运行的秒数。
 cwd()|返回当前进程的工作目录
 memoryUsage()|输出内存使用情况
 
-### I/O
+## I/O
 什么是输入输出？
 两个层面：
 1. 磁盘操作
@@ -146,7 +146,7 @@ v8是单线程
 
 简而言之,一个程序至少有一个进程,一个进程至少有一个线程.
 
-### 约定
+## 约定
 node的回调函数是错误参数优先
 自己设计回调函数，需要遵循该约定
 自己设计回调函数时，将回调函数作为最后一个参数传入
@@ -157,7 +157,7 @@ fn(err,data)=>{
 fn.readfile('url','code',callback1,callback2,callback3)
 ```
 
-### file system
+## file system
 文件I/O是由简单封装标准POSIX函数提供的，通过require('fs')使用该模块，所有的文件操作都有同步和异步的形式
 方法|描述
 ---|---
