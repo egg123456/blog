@@ -1,5 +1,8 @@
 ---
 title: grunt
+date: 2018/5/9
+categories:
+- Project tools
 ---
 
 > [node](/2018/05/08/node/) [nvm](http://www.jianshu.com/p/1aa925e3f0d6)

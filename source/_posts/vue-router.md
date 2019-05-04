@@ -1,6 +1,8 @@
 ---
 title: vue-router
 date: 2018/5/11
+categories:
+- js library
 ---
 # vue-cli
 ```shell

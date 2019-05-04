@@ -1,5 +1,8 @@
 ---
 title: Git
+date: 2018/5/3
+categories:
+- Code management
 ---
 
 what is git?
@@ -23,25 +26,60 @@ download:http://git-scm.com/downloads
 windows安装后配置环境变量
 
 # quick start
->初始化（window+r cd 文件夹）
+1. 初始化（window+r cd 文件夹）
 ```bash
 $ git init
 ```
 
->查看本地存储状态
+2. 查看本地存储状态
 ```bash
 $ git status
 $ git status -s
 ```
 
->添加本地暂存（托管）文件
+3. 添加本地暂存（托管）文件
 ```bash
 $ git add <file>
 $ git add –all && git add .
 ```
 
+4. 提交被托管的代码变化到本地仓库
+```bash
+$ git commit -m ‘……’
+```
+
+5. 查看提交日志
+```bash
+$ git log
+```
+
+5. 对比差异
+```bash
+$ git diff
+```
+
+# 恢复（回退）
+1. 将还未添加到暂存区中的文件恢复到修改前
+```bash
+git checkout -- <file>
+```
+
+2. 将已经添加到暂存区中但还未提交的文件恢复到添加至暂存区之前
+```bash
+git reset HEAD <file>...
+```
+
+3. 回到指定版本
+```bash
+$ git reset --hard e377f60e28c8b84158
+```
+
+# 储藏 stash
+> 保存当前工作
+
+
 >类似于node_modules这种性质的文件夹不应该被托管,添加一个本地git的忽略清单文件
-在代码文件夹的根目录天剑一个.gitignore文件,该文件用于说明负略的文件有哪些
+在代码文件夹的根目录添加一个.gitignore文件,该文件用于说明负略的文件有哪些
 
 >设置name和email
 ```bash
@@ -49,26 +87,6 @@ $ git config --list //检查已有的配置信息
 $ git config user.name  //检查指定环境变量设定
 $ git config --global user.email 'you@email.com'  
 $ git config --global user.name 'youname'
-```
-
->提交被托管的代码变化到本地仓库
-```bash
-$ git commit -m ‘……’
-```
-
->查看提交日志
-```bash
-$ git log
-```
-
->回到指定版本
-```bash
-$ git reset --hard e377f60e28c8b84158
-```
-
->对比差异
-```bash
-$ git diff
 ```
 
 ### GitHub是什么？

@@ -1,5 +1,8 @@
 ---
 title: node
+date: 2018/5/8
+categories:
+- node
 ---
 java 尚公司开发 跨平台-基于Java虚拟机
 c# 微软开发语言与Java高度相似  基于Windows平台

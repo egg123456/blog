@@ -1,5 +1,8 @@
 ---
 title: vue
+date: 2018/5/10
+categories:
+- js library
 ---
 # Vue 原理
 > 当把一个普通的 JavaScript 对象传给 Vue 实例的 data 选项时，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为访问器属性（getter/setter）。Object.defineProperty 是 ES5 中一个无法 shim 的特性，这也就是为什么 Vue 不支持 IE8 以及更低版本浏览器的原因。
