@@ -58,20 +58,22 @@ grid: {
 // x 轴
 xAxis{          
     show: true,
-    type: '[
+    type: '[    //
         value,   //数值轴，适用于连续数据
         category, // 类目轴，适用于离散的类目数据，为该类型时必须通过 data 设置类目数据
         time,  // 时间轴，适用于连续的时序数据，与数值轴相比时间轴带有时间的格式化，在刻度计算上也有所不同，例如会根据跨度的范围来决定使用月，星期，日还是小时范围的刻度。
         log  //对数轴。适用于对数数据。
         ]',
     name: 'name', //坐标轴名
-    nameLocation: '[end,middle,start]',
+    nameLocation: '[end,middle,start]',  //坐标名称相对于坐标轴的位置
     nameTextStyle: {
         color: red,
         ....
     },
     nameGap: 15,  //坐标轴名称与轴线之间的距离
     nameRotate: 'num',  //坐标轴名字旋转，角度值
+    inverse: true， //坐标轴反向
+    boundaryGap: true, //类目轴中标签和数据在两刻度之间显示（刻度作为分割线）
     data: [{    //类目数据，在类目轴（type: 'category'）中有效。
         value: '周一',     //单个类目名称。
         // 突出周一
@@ -80,11 +82,46 @@ xAxis{
             color: 'red'
         }
     }, '周二', '周三', '周四', '周五', '周六', '周日']
+    silent: true //坐标轴静态无交互,
+    axisLine: {     //坐标轴线
+        show: true,
+        lineStyle:{
+            color: red,
+            width: 1,
+            type: 'solid',   //实线
+            opacity: 1
+        }
+    },
+    axisLabel:{     //坐标轴标签
+        show: true,
+        color: "#0000ff", 
+        interval: 0,  //为0时 标签全部显示
+        inside: false, //标签名在内或外
+        align: 'right', //标签名的位置 left，center, right
+        formatter: function (value, index) {    //标签名 和 刻度索引
+            return value + index
+        }
+    },
+    axisPointer:{       //坐标轴指示器
+        show: true,
+        type: 'line',     //类型 line, shadow, none
+        lineStyle:{         //type:line 时有效
+            color: red,
+            width: 1,
+            type: 'solid',   //实线
+            opacity: 1
+        },
+        triggerTooltip: true,   //是否触发tooltip
+    },
+
 }
 series: [
     {
         type: '[line,bar....]',    //图表类型
         name: 'name',               //系列名称
+        barWidth: 20,               // type:'bar'时条的宽度
+        barGap: '100%',             //不同系列的柱间距离
+        barCategoryGap: 20,         //同一系列的柱间距离，默认为类目间距的20%
         itemStyle: {                // 系列显示颜色。。。
             normal: {               // 一般
                 color: "red"        // 系列显示颜色

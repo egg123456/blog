@@ -25,7 +25,7 @@ Git之前都用什么？ svn vss tfs……
 download:http://git-scm.com/downloads
 windows安装后配置环境变量
 
-# quick start
+## quick start
 1. 初始化（window+r cd 文件夹）
 ```bash
 $ git init
@@ -48,17 +48,33 @@ $ git add –all && git add .
 $ git commit -m ‘……’
 ```
 
-5. 查看提交日志
+5. 显示最近一次提交文件中对每一行进行修改的相关信息（修改人，时间等）
+```bash
+$ git blame <file>
+$ git blame -L 12,22 simplegit.rb //只显示12-22行
+```
+
+6. 查看提交日志
 ```bash
 $ git log
 ```
 
-5. 对比差异
+7. 移除本地分支
 ```bash
-$ git diff
+$ git remote rm origin
 ```
 
-# 恢复（回退）
+8. 对比差异
+```bash
+$ git diff //不加参数即默认比较工作区与暂存区
+$ git diff --cached  [<path>...] //比较暂存区与最新本地版本库
+$ git diff HEAD [<path>...] //比较工作区与最新本地版本库　　　　　
+```
+
+>类似于node_modules这种性质的文件夹不应该被托管,添加一个本地git的忽略清单文件
+在代码文件夹的根目录添加一个.gitignore文件,该文件用于说明负略的文件有哪些
+
+## 恢复（回退）
 1. 将还未添加到暂存区中的文件恢复到修改前
 ```bash
 git checkout -- <file>
@@ -74,19 +90,57 @@ git reset HEAD <file>...
 $ git reset --hard e377f60e28c8b84158
 ```
 
-# 储藏 stash
-> 保存当前工作
-
-
->类似于node_modules这种性质的文件夹不应该被托管,添加一个本地git的忽略清单文件
-在代码文件夹的根目录添加一个.gitignore文件,该文件用于说明负略的文件有哪些
-
->设置name和email
+## branch
 ```bash
-$ git config --list //检查已有的配置信息
+$ git branch //list branch
+$ git branch gh-pages //create branch
+$ git checkout gh-pages //checkout branch(using the branch)
+$ git branch -d master //delete branch
+$ git merge <brench> //merge branch
+$ git checkout feature <file>... //Partial merger
+```
+
+# 储藏 stash
+> 储藏自上次提交之后的工作
+command | description
+--------|------------
+git stash pop | 应用并删除最新储藏的工作
+git stash pop --index | 回到最新储藏前的工作位置（以前做的add也恢复）
+git stash apply stash@{2} | 应用储藏的对应工作（并未删除）
+git stash apply stash@{2} --index | 应用储藏的对应工作（并未删除）（以前做的add也恢复）
+git stash show -p stash@{0} | 取消应用的储藏
+git stash drop stash@{0} | 删除指定的储藏
+git clear | 清空所有的储藏的工作
+
+
+# git config
+> git 配置文件分为三级，
+local仓库级在当前项目的 .get/config（git init 时会创建)
+global用户级在用户目录下的 ~.gitconfig（如C:\Users\Administrator\.gitconfig)
+system系统级在安装木下（C:\Program Files\Git\mingw64\etc\gitconfig)
+
+##　Configuration item　description
+
+item|description
+-----|----------
+user.name|用户名
+user.email|邮箱
+core.editor| 默认编辑器
+merge.tool | 解决合并时冲突的工具
+alia.xx | 设置命令的别名 （git config --global alias.st status） st 就等于status
+color.branch color.diff color.interactive color.status | 颜色配置 （git config --global color.diff.meta "blue black bold"）这样会将diff的输出以蓝色字体，黑色背景，粗体显示。
+
+
+```bash
+$ git config --list //查看所有的配置信息
+$ git config --global --list //只查看用户级的配置信息
 $ git config user.name  //检查指定环境变量设定
 $ git config --global user.email 'you@email.com'  
 $ git config --global user.name 'youname'
+$ git config --add cat.name tom //添加配置项
+$ git config --get cat.name //等同于git config cat.name
+$ git config --unset cat.name //删除配置项
+$ git help log //获取对应指令的手册页--帮助
 ```
 
 ### GitHub是什么？
@@ -108,13 +162,6 @@ $ git remote add origin https://github.com/egg123456/egg.git
 $ git push -u origin master
 ```
 
-### branch
-```bash
-$ git branch //list branch
-$ git branch gh-pages //create branch
-$ git checkout gh-pages //checkout branch(using the branch)
-$ git branch -d master //delete branch
-```
 
 移除本地分支：git remote rm origin
 ```bash
