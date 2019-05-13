@@ -88,10 +88,25 @@ xAxis{
             fontSize: 20,
             color: 'red'
         }
-    }, '周二', '周三', '周四', '周五', '周六', '周日']
+    }, '周二', '周三', '周四', '周五', '周六', '周日'],
+    axisLine: {             //坐标轴轴线相关设置。
+        lineStyle: {
+            color: "#cecece",
+            width: 1,
+            type: 'solid|dashed|dotted'
+            opacity: 0.6
+        }
+    },
+    axisLabel: {
+        color: "#a5a5a5",
+        formatter: function (value, index) {return '...';}      //参数分别为刻度数值（类目），刻度的索引
+        align: 'left|center|right',     //文字水平对齐方式
+        verticalAlign: 'top|middle|bottom'      //文字垂直对齐方式
+    }
 }
 series: [
     {
+        silent: false;             //是否响应和触发鼠标事件
         type: '[line,bar....]',    //图表类型
         name: 'name',               //系列名称
         barWidth: 12                //柱子的宽度

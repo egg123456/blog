@@ -18,6 +18,7 @@ More info: [Writing](https://hexo.io/docs/writing.html)
 
 ``` bash
 $ hexo server
+$ hexo server --port 5000
 ```
 
 More info: [Server](https://hexo.io/docs/server.html)
