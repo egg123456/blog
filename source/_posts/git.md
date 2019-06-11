@@ -1,8 +1,6 @@
 ---
 title: Git
 date: 2018/5/3
-categories:
-- Code management
 ---
 
 what is git?
@@ -170,7 +168,7 @@ $ git pull
 
 # hexo
 ```bash
-$ cnpm install hexo -g –server
+$ cnpm install hexo -g –-save
 $ hexo init
 $ hexo generate
 $ hexo server 
