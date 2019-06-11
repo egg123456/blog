@@ -57,7 +57,15 @@ module.exports = {
     },
     plugins:[
         new webpack.BannerPlugin('菜鸟教程 webpack 实例')//实例化内置的 BannerPlugin 插件
-    ]
+    ],
+    resolve:{
+        //配置别名，在项目中可缩减引用路径
+        alias: {
+            '@': resolve('src/components'),
+            'api': resolve('src/api'),
+            'assets': resolve('src/assets')
+        }
+    }
 };
 ```
 [reference](https://blog.csdn.net/c_kite/article/details/71279853)
