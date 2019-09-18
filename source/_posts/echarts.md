@@ -5,6 +5,7 @@ categories:
 - js library
 ---
 > 组件化，认清组件，找所配
+
 # 常用配置
 ```js
 // 标题
@@ -41,7 +42,7 @@ legend{
     data: [{
         name: '系列1',
         // 强制设置图形为圆。
-        icon: 'circle',    //emptyCircle roundRect
+        icon: 'circle',    //'emptyCircle', 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
         // 设置文本为红色
         textStyle: {
             color: 'red'
@@ -57,16 +58,17 @@ legend{
     }],  //系列1,2就是图裂的文字内容
 }
 //网格
-grid: {
+grid: [{
     left: '51px',
     right: '84px',
     top: '30px',
     bottom: '30px',
     height: '64px'
-},
+}],
 // x 轴
 xAxis{          
     show: true,
+    gridIndex: 0,   //选择第几个网格
     type: '[
         value,   //数值轴，适用于连续数据
         category, // 类目轴，适用于离散的类目数据，为该类型时必须通过 data 设置类目数据
@@ -104,6 +106,29 @@ xAxis{
         verticalAlign: 'top|middle|bottom'      //文字垂直对齐方式
     }
 }
+//原生图形元素组件
+graphic:[{      
+    type: circle,   //image, text, circle, sector, ring, polygon, polyline, rect, line, bezierCurve, arc, group,
+    left: 10,
+    shape: {
+        cy: y,
+        r: a
+    },
+    style: {
+        fill: "#c5c5c5",        //填充色
+        stroke: "#5c5c5c",      //笔画色 
+        lineWidth: 1            //笔画宽度
+    }
+},{
+    type: "text",
+    style: {
+        text: "文本内容",
+        x: a + c / 2 - 10,
+        y: y,
+        fill: "#ffffff",
+        stroke: "#898989"
+    }
+}],
 series: [
     {
         silent: false;             //是否响应和触发鼠标事件
@@ -124,9 +149,18 @@ series: [
             [  4.2,    2.3,   20,   91],
             [  10.8,   9.5,   30,   18],
             [  7.2,    8.8,   18,   57]
-        ]    
+        ],
+        animationType: 'expansion',         // 默认研圆弧展开的效果
+        animation: true,                    // 默认开启动画
+        animationDuration: 1000,            // 初始动画时长
+        animationEasing: 'cubicOut',        // 初始动画的缓动效果
+        animationDelay: 0,                  // 初始动画的延迟
+        animationDurationUpdate: 300,       // 数据更新动画时长
+        animationEasingUpdate: 'cubicOut',  // 数据跟新缓动效果
+        animationDelayUpdate: 0,            // 数据更新动画延迟  
     }
 ]
+//数据集
 dataset:{
     dimensions：,      //使用 dimensions 定义 series.data 或者 dataset.source 的每个维度的信息。
     source：[
@@ -146,6 +180,9 @@ toolTip:{
         axis,           // 坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用
         none            // 什么都不触发
         ]',
+    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+        type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    },
     formatter: function(params){return ''} //提示框的内容
 }
 ```
@@ -191,3 +228,8 @@ value = ['3-24',35,60]
 # 调色盘颜色列表
 ['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3']
 调色盘颜色列表。如果系列没有设置颜色，则会依次循环从该列表中取颜色作为系列颜色。
+
+
+[echarts渐变色实现方法](https://www.cnblogs.com/liuwei54/p/9962182.html)
+[GEOJSON标准格式](https://www.jianshu.com/p/852d7ad081b3)
+[世界国家及中国各省市级地图ArcGIS MXD/SHP/QGIS/JSON/SQL数据文件](https://blog.csdn.net/taiyang1987912/article/details/82796693)
