@@ -49,6 +49,7 @@ $ ren oldname newname|将当前目录下的文件或文件夹重命名
 $ copy key.txt c:\doc\key_bak.txt|将当前目录下的key.txt拷贝到c:\doc下，并重命名为key_bak.txt也可不重命名（若doc中也存在一个key_bak.txt文件，会询问是否覆盖）
 $ type filename.type|显示文件内容
 $ more filename.type|逐屏的显示当前目录下conf.ini的文本内容【空格：下一屏 q：退出 】
+$ move sourcePath targetPath | 将文件或文件夹移动到目标文件夹下
 
 # 高级
 command|function
