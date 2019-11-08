@@ -85,7 +85,18 @@ git reset HEAD <file>...
 
 3. 回到指定版本
 ```bash
-$ git reset --hard e377f60e28c8b84158
+$ git reset --hard e377f60e28c8b84158   
+git push -f     //因为我们本地库HEAD指向的版本比远程库的要旧-f强制推上去
+
+$ git reset --soft e377f60e28c8b84158   //源节点和reset节点的差异放在暂存区
+
+$ git reset --mixed e377f60e28c8b84158  //源节点和reset节点的差异和原暂存区中的内容都放在工作区
+$ git reset  e377f60e28c8b84158   //默认参数 --mixed
+```
+
+4. 回滚指定版本(将提交的某个版本反做一遍)
+```
+$ git revert -n 8b89621019c9adc6fc4d242cd41daeb13aeb9861
 ```
 
 ## branch
@@ -160,51 +171,14 @@ $ git remote add origin https://github.com/egg123456/egg.git
 $ git push -u origin master
 ```
 
-
-移除本地分支：git remote rm origin
+# 远程库
 ```bash
-$ git pull
+$ git reomte add origin https://github.com/egg123456/egg.git 
+$ git remote rm origin      //移除远程库
+$ git remote rename origin origin_blog      //重命名远程库
+$ git remote show origin_blog     //远程库信息
+$ git remote set-url origin_blog https://github.com/egg123456/blog.git    //修改本地仓库指向的远程库
 ```
-
-# hexo
-```bash
-$ cnpm install hexo -g –-save
-$ hexo init
-$ hexo generate
-$ hexo server 
-$ hexo server -p 5000 //5000 port run
-```
-
-## hexo deploy
-
-### themes 
-```bash
-$ cd d:blog
-$ git clone https://github.com/iissnan/hexo-theme-next themes/next
-```
-在blog中打开配置文件_config.yml，修改theme：next
-
-### title author language 
-blog/_config.yml文件修改 
-title: egg
-author: egg
-language: zh-cns
-
-### menu 
-blog/themes/next/_config.yml文件修改
-menu下增删修改菜单项
-（注：千万不要在这设置中文，后面的值那是查找文件的地方！若你的站点运行在子目录中，请将链接前缀的 / 去掉）
-
-### sidebar position
-blog/themes/next/_config.yml文件修改
-sidebar：
-    &nbsp position：right
-
-### code theme
-blog/themes/next/_config.yml文件修改
-highlight_theme，默认值为nomal。可以设置为night
-
-> 其他主题也具有相似的配置方法（更多具体方法百度）
 
 
 

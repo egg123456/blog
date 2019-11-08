@@ -65,3 +65,5 @@ command|function
 winver | 系统版本
 slmgr.vbs -xpr | 查看系统是否激活
 regedit | 打开注册表
+tasklist | 任务列表
+taskkill /pid 编号 /f | 杀掉进程
