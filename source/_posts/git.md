@@ -55,11 +55,13 @@ $ git blame -L 12,22 simplegit.rb //只显示12-22行
 6. 查看提交日志
 ```bash
 $ git log
+$ git log --graph
 ```
 
-7. 移除本地分支
+7. 移除/添加远程连接
 ```bash
 $ git remote rm origin
+$ git remote add origin <url>
 ```
 
 8. 对比差异
@@ -106,7 +108,12 @@ $ git branch gh-pages //create branch
 $ git checkout gh-pages //checkout branch(using the branch)
 $ git branch -d master //delete branch
 $ git merge <brench> //merge branch
-$ git checkout feature <file>... //Partial merger
+$ git merge --allow-unrelated-histories <branch> //merge unrelated-history branch 
+$ git checkout <brench> <file>... //Partial merger
+$ git branch -m <branchName> //rename branch
+$ git checkout --orphan <branch> //Create branch without commit record(code still exist) 
+
+$ git push origin --delete <branch> //deleter remote branch
 ```
 
 # 储藏 stash

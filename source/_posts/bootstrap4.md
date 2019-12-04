@@ -18,6 +18,21 @@ body {
   text-align: left;
   background-color: #fff;
 }
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
 /** 五个尺寸类  
     col-* < 576         auto
     col-sm-* >= 576     540
@@ -58,4 +73,9 @@ body {
 .invisible {
   visibility: hidden !important;
 }
+
+[hidden] {              
+  display: none !important;
+}
+/* hidden 属性是 HTML5 中的新属性(div[Attributes Style] {display: none;}) */
 ```
