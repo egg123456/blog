@@ -40,14 +40,20 @@ $ cnpm install webpack -g
 ### deploy
 ```js
 //app/webpack.config.js 文件
-var webpack=require('webpack');//webpack内置插件
+const webpack = require('webpack');
+const {DefinePlugin, HashedModuleIdsPlugin} = webpack;//webpack内置插件
+const {version} = require('../package.json');
+const options = {env: 'dev'}
  
 module.exports = {
+    // target: 'web', //构建目标，默认web，编译为类浏览器环境里可用
+    mode: options.env === 'dev' ? 'development' : 'production',// 打包模式
     entry: {index1: './src/js/entry.js', index2: './src/js/entry2.js'},//多入口
     output: {
         path : __dirname + '/out',
         publicPath: __dirname + '/out',//添加静态资源, 否则会出现路径错误
         filename : '[name].js',//这样就可以生成两个js文件, 名字分别为index1.js, 和index2.js
+        chunkFilename: options.env === 'dev' ? `chunks/[name].js?v=[chunkhash:6]` : `s/[name].js?v=[chunkhash:6]_${v.localVersion}`
     },
     module: {//loader css jpg。。
         loaders: [
@@ -56,9 +62,16 @@ module.exports = {
         ]
     },
     plugins:[
-        new webpack.BannerPlugin('菜鸟教程 webpack 实例')//实例化内置的 BannerPlugin 插件
+        // 项目中的 __VERSION__ 替换为 version 值
+        new DefinePlugin({
+            "__VERSION__": JSON.stringify(version)
+        })
     ],
     resolve:{
+        // 告诉 webpack 解析模块时应该搜索的目录(默认["node_modules"])
+        modules: ["node_modules"， "custom_modules"],
+        // 解析目录时要使用的文件名。构建目标 target： “web” 时默认：mainFiles: ["index"]
+        mainFiles: ["index"],
         //配置别名，在项目中可缩减引用路径
         alias: {
             '@': resolve('src/components'),
