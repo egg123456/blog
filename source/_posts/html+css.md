@@ -2,7 +2,7 @@
 title: html+css
 date: 2018/5/2
 categories: 
-- base frontend
+- base
 ---
 # html标签
 + 容器级标签：其内部可放置任何标签、包括自身

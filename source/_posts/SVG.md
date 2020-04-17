@@ -2,7 +2,7 @@
 title: Svg
 date: 2018/5/2
 categories:
-- base frontend
+- base
 ---
 > SVG 是使用 XML 来描述二维图形和绘图程序的语言
 

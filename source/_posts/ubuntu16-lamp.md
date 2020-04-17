@@ -2,7 +2,7 @@
 title: 搭建LAMP
 date: 2018/5/12
 categories:
-- Environment building
+- OS
 ---
 # 安装Apache
 ```bash

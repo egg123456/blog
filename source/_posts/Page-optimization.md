@@ -2,7 +2,7 @@
 title: Page-optimization
 date: 2018/5/2
 categories:
-- base frontend
+- base
 ---
 > 前端是庞大的，是集html、css、js、image、flash等资源组成的。
 > 而优化针对不同资源则有不同的方式

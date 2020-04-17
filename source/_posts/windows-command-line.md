@@ -2,7 +2,7 @@
 title: windows-command-line
 date: 2018/5/14
 categories:
-- system
+- OS
 ---
 
 ### base
@@ -66,4 +66,7 @@ winver | 系统版本
 slmgr.vbs -xpr | 查看系统是否激活
 regedit | 打开注册表
 tasklist | 任务列表
+netstat -ano | 进程占用端口列表
 taskkill /pid 编号 /f | 杀掉进程
+dxdiag | 获取系统cup 内存 显卡信息
+Get-PhysicalDisk | powersell命令-获取磁盘信息（是否事ssd等）

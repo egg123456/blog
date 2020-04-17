@@ -2,7 +2,7 @@
 title: webpack
 date: 2018/5/7
 categories:
-- Project tools
+- ProjectTools
 ---
 
 > 本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。
@@ -28,6 +28,16 @@ if (condition) {
 }
 ```
 
+# webpack require 多模块导入
+## require.context(directory, useSubdiruseectories, regExp) 
+useSubdiruseectories决定是否遍历子目录，regExP匹配文件的正则
+```js
+var r = require.context('./', true, process.env.NODE_ENV === 'production' ? /^\.\/(?!demo\/)[a-z\-]+\/index\.js$/ : /^\.\/[a-z\-]+\/index\.js$/) //返回function
+r.keys().forEach(key => {   //r.keys()返回匹配成功模块的名字组成的数组
+        let m = r(key).default; // r(key)返回的是一个模块,这个模块才是真正我们需要的
+    }); 
+```
+
 # install
 $ cnpm install webpack -g
 
@@ -40,14 +50,20 @@ $ cnpm install webpack -g
 ### deploy
 ```js
 //app/webpack.config.js 文件
-var webpack=require('webpack');//webpack内置插件
+const webpack = require('webpack');
+const {DefinePlugin, HashedModuleIdsPlugin} = webpack;//webpack内置插件
+const {version} = require('../package.json');
+const options = {env: 'dev'}
  
 module.exports = {
+    // target: 'web', //构建目标，默认web，编译为类浏览器环境里可用
+    mode: options.env === 'dev' ? 'development' : 'production',// 打包模式
     entry: {index1: './src/js/entry.js', index2: './src/js/entry2.js'},//多入口
     output: {
         path : __dirname + '/out',
         publicPath: __dirname + '/out',//添加静态资源, 否则会出现路径错误
         filename : '[name].js',//这样就可以生成两个js文件, 名字分别为index1.js, 和index2.js
+        chunkFilename: options.env === 'dev' ? `chunks/[name].js?v=[chunkhash:6]` : `s/[name].js?v=[chunkhash:6]_${v.localVersion}`
     },
     module: {//loader css jpg。。
         loaders: [
@@ -56,15 +72,32 @@ module.exports = {
         ]
     },
     plugins:[
-        new webpack.BannerPlugin('菜鸟教程 webpack 实例')//实例化内置的 BannerPlugin 插件
+        // 项目中的 __VERSION__ 替换为 version 值
+        new DefinePlugin({
+            "__VERSION__": JSON.stringify(version)
+        })
     ],
     resolve:{
+        // 告诉 webpack 解析模块时应该搜索的目录(默认["node_modules"])
+        modules: ["node_modules"， "custom_modules"],
+        // 解析目录时要使用的文件名。构建目标 target： “web” 时默认：mainFiles: ["index"]
+        mainFiles: ["index"],
+        // 模块扩展名
+        extensions: [".js", ".jsx", ".json"],
         //配置别名，在项目中可缩减引用路径
         alias: {
             '@': resolve('src/components'),
             'api': resolve('src/api'),
             'assets': resolve('src/assets')
         }
+    }，
+    devServer: {
+       contentBase: path.join(__dirname, "dist"),  //服务器资源目录
+       port:7000， //服务端口号
+       host:'0.0.0.0'， //服务器主机号，
+       historyApiFallback：true， //任意的 404 响应都可能需要被替代为 index.html
+       hot： true， //启用webpack热替换
+       stats："errors-only"， //errors-only表示只打印错误：还有"minimal"，"normal"，"verbose"
     }
 };
 ```
@@ -140,3 +173,23 @@ webpack-dev-server --progress --colors
 “inline”选项会为入口页面添加“热加载”功能，
 “hot”选项则开启“热替换（Hot Module Reloading）”，即尝试重新加载组件改变的部分（而不是重新加载整个页面）。
 如果两个参数都传入，当资源改变时，webpack-dev-server将会先尝试HRM（即热替换），如果失败则重新加载整个入口页面。
+
+### webpack-dev-server api形式
+```js
+const Webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const webpackConfig = require('./webpack.config');
+
+const compiler = Webpack(webpackConfig);
+const devServerOptions = Object.assign({}, webpackConfig.devServer, {
+  open: true,
+  stats: {
+    colors: true,
+  },
+});
+const server = new WebpackDevServer(compiler, devServerOptions);
+
+server.listen(8080, '127.0.0.1', () => {
+  console.log('Starting server on http://localhost:8080');
+});
+```

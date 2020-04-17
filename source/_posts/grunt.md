@@ -2,23 +2,8 @@
 title: grunt
 date: 2018/5/9
 categories:
-- Project tools
+- ProjectTools
 ---
-
-> [node](/2018/05/08/node/) [nvm](http://www.jianshu.com/p/1aa925e3f0d6)
-
-### npm
-command|description
-------|-----
-$ npm init |创建package.json
-$ npm install|安装package.json中的依赖模块
-$ npm install packagename|安装最新模块
-% npm install packagename 0.0.1|安装指定版模块
-$ npm install packagename --save 或 -S|安装模块并把模块的版本信息保存到dependencies（生产环境依赖）中，即你的package.json文件的dependencies字段中；
-$ npm install packagename --save-dev 或 -D|安装模块并把模块版本信息保存到devDependencies（开发环境依赖）中，即你的package.json文件的devDependencies字段中；
-npm install packagename --save-optional 或 -O|安装模块并把把模块安装到optionalDependencies（可选环境依赖）中，即你的package.json文件的optionalDependencies字段中。
-
-
 # grunt
 > grunt是JavaScript世界的项目构建工具
 

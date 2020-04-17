@@ -2,7 +2,7 @@
 title: formdata
 date: 2018/5/2
 categories:
-- base frontend
+- base
 ---
 
 > 系列化表单数据

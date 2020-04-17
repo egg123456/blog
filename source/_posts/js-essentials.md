@@ -2,7 +2,7 @@
 title: JS - Essentials
 date: 2018/5/4
 categories:
-- base frontend
+- base
 ---
  任何语言的核心都必然会描述这门语言最基本的工作原理。而描述的内容通常是要涉及这门语言的语法、操作符、数据类型，内置更能等用于国建复杂解决方案的基本概念
 ## theory

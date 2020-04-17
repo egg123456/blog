@@ -2,7 +2,7 @@
 title: moment
 date: 2018/5/10
 categories:
-- js library
+- js-library
 ---
 > 一个非常实用的日期工具类moment.js
 

@@ -2,7 +2,7 @@
 title: bootstrap4
 date: 2018/5/6
 categories:
-- css library
+- css-library
 ---
 > Bootstrap 3 和 Bootstrap 4 最大的区别在于 Bootstrap 4 现在使用 flexbox（弹性盒子） 而不是浮动。 Flexbox 的一大优势是，没有指定宽度的网格列将自动设置为等宽与等高列。注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。
 
