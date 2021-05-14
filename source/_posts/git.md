@@ -159,6 +159,31 @@ $ git config --unset cat.name //删除配置项
 $ git help log //获取对应指令的手册页--帮助
 ```
 
+### tag
+```sh
+### 创建-推送
+git tag <tagName> //创建本地tag
+git push origin <tagName> //推送到远程仓库
+git push origin --tags // 推送所有tag
+
+git tag -a <tagName> <commitId> // 根据 commitId 生成 tag
+
+### 查看
+git show <tagName> // 查看tag信息
+git tag   // 查看所有tag信息
+
+### 删除
+git tag -d <tagName>    // 本地 tag 删除
+git push origin :<tagName>  // 远程 tag 删除
+
+git checkout -b <branchName> <tagName> // 检出 tag
+```
+
+### git cherry-pick
+```sh
+$ git cherry-pick <commitHash>
+```
+
 ### GitHub是什么？
 > 只是一个网站
 同行交友社区，人群都是程序员

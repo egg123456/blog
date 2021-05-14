@@ -2,8 +2,9 @@
 title: vue
 date: 2018/5/10
 categories:
-- js-library
+- jsLibrary
 ---
+
 # Vue 原理
 > 当把一个普通的 JavaScript 对象传给 Vue 实例的 data 选项时，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为访问器属性（getter/setter）。Object.defineProperty 是 ES5 中一个无法 shim 的特性，这也就是为什么 Vue 不支持 IE8 以及更低版本浏览器的原因。
 ```js
@@ -282,6 +283,8 @@ new Vue({
 + 对于 components 选项中的每个属性来说，其属性名就是自定义元素的名字，其属性值就是这个组件的选项对象
 
 + 局部注册的组件在其子组件中不可用（A不能用B）
+
++ tips： this.$refs 子组件引用信息
 
 
 # 过渡

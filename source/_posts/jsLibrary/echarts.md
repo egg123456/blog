@@ -2,7 +2,7 @@
 title: echarts
 date: 2018/5/10
 categories:
-- js-library
+- jsLibrary
 ---
 > 组件化，认清组件，找所配
 

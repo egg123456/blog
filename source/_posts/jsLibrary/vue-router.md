@@ -2,8 +2,9 @@
 title: vue-router
 date: 2018/5/11
 categories:
-- js-library
+- jsLibrary
 ---
+
 # vue-cli
 ```shell
 # 全局安装 vue-cli
@@ -53,7 +54,7 @@ this.$route.params.id
 > 是一个专为 Vue.js 应用程序开发的状态管理模式
 ## core concept
 + state: 定义状态值
-+ getter: 状态值筛选的等处理
++ getter: 将状态值处理并返回
 + mutation：修改状态值（必须是同步函数），提交 mutation 是更改状态的唯一方法
 + Action：提交mutation（处理异步操作）
 + module：Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割

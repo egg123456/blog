@@ -1,7 +1,8 @@
 ---
 title: npm
 date: 2018-5-8
-tags:
+categories:
+- node
 ---
 > [node](/2018/05/08/node/) [nvm](http://www.jianshu.com/p/1aa925e3f0d6) [NPM版本控制](http://www.fly63.com/article/detial/2636)
 
