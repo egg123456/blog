@@ -1,6 +1,8 @@
 ---
 title: self-media
 date: 2018/5/2
+categories:
+- Other
 ---
 
 # 平台

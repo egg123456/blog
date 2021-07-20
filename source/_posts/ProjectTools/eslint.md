@@ -1,15 +1,10 @@
-<!--
- * @Author: wb-yangergang
- * @Date: 2021-04-19 11:52:19
- * @LastEditors: wb-yangergang
- * @LastEditTime: 2021-04-21 14:57:54
- * @Description: file content
--->
 ---
 title: eslint
+date: 2018/5/10
 categories:
 - ProjectTools
 ---
+# eslint
 > SLint 是一个默认使用 Espree 解析器将代码解析为 AST 抽象语法树，然后再对代码进行检查的工具。
 
 ### 配置方式

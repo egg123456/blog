@@ -21,9 +21,17 @@ $ npm list --depth=0 packagename | 限制输入的模块层级和模块
 $ npm root -g | 查看全局包的安装目录
 $ npm install packagename --save 或 -S | 安装模块并把模块的版本信息保存到dependencies（生产环境依赖）中，即你的package.json文件的dependencies字段中；
 $ npm install packagename --save-dev 或 -D|安装模块并把模块版本信息保存到devDependencies（开发环境依赖）中，即你的package.json文件的devDependencies字段中；
-npm install packagename --save-optional 或 -O | 安装模块并把把模块安装到optionalDependencies（可选环境依赖）中，即你的package.json文件的optionalDependencies字段中。
-npm uninstall packagename | 删除包
+$ npm install packagename --save-optional 或 -O | 安装模块并把把模块安装到optionalDependencies（可选环境依赖）中，即你的package.json文件的optionalDependencies字段中。
+$ npm uninstall packagename | 删除包
 
+## publish package comand
+command | description
+--------|------------
+npm login | login npm register
+npm publish --access=public | 以公有模式发布以私有方式命名的包
+npm version [newversion, major, minor, patch] | 变更包的版本
+npm publish --tag beta ｜ 发布测试版
+npm unpublish --force packageName | delete package
 
 ## 版本的格式
 major.minor.patch-tags

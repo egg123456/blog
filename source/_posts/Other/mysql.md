@@ -1,8 +1,15 @@
+<!--
+ * @Author: wb-yangergang
+ * @Date: 2021-05-23 12:04:46
+ * @LastEditors: wb-yangergang
+ * @LastEditTime: 2021-07-20 16:40:21
+ * @Description: file content
+-->
 ---
 title: mysql
 date: 2018/5/13
 categories:
-- PHP
+- Other
 ---
 > mysql 数据库中不仅有你创建的 database，还有其他保存整个数据库信息的相关 database。
 

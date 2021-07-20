@@ -79,7 +79,7 @@ module.exports = {
     ],
     resolve:{
         // 告诉 webpack 解析模块时应该搜索的目录(默认["node_modules"])
-        modules: ["node_modules"， "custom_modules"],
+        modules: ["node_modules", "custom_modules"],
         // 解析目录时要使用的文件名。构建目标 target： “web” 时默认：mainFiles: ["index"]
         mainFiles: ["index"],
         // 模块扩展名
@@ -90,14 +90,14 @@ module.exports = {
             'api': resolve('src/api'),
             'assets': resolve('src/assets')
         }
-    }，
+    },
     devServer: {
        contentBase: path.join(__dirname, "dist"),  //服务器资源目录
-       port:7000， //服务端口号
-       host:'0.0.0.0'， //服务器主机号，
-       historyApiFallback：true， //任意的 404 响应都可能需要被替代为 index.html
-       hot： true， //启用webpack热替换
-       stats："errors-only"， //errors-only表示只打印错误：还有"minimal"，"normal"，"verbose"
+       port: 7000, //服务端口号
+       host:'0.0.0.0', //服务器主机号，
+       historyApiFallback: true,  //任意的 404 响应都可能需要被替代为 index.html
+       hot: true, //启用webpack热替换
+       stats: "errors-only", //errors-only表示只打印错误：还有"minimal"，"normal"，"verbose"
     }
 };
 ```

@@ -2,7 +2,7 @@
 title: bootstrap3
 date: 2018/5/6
 categories:
-- cssLibrary
+- css
 ---
 
 >Bootstrap 使用 [Grunt](./grunt) 作为编译系统，并且对外提供了一些方便的方法用于编译整个框架。

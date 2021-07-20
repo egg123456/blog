@@ -1,6 +1,8 @@
 ---
 title: Git
 date: 2018/5/3
+categories:
+- Other
 ---
 
 what is git?
@@ -99,6 +101,11 @@ $ git reset  e377f60e28c8b84158   //默认参数 --mixed
 4. 回滚指定版本(将提交的某个版本反做一遍)
 ```
 $ git revert -n 8b89621019c9adc6fc4d242cd41daeb13aeb9861
+```
+
+5. 退回到merge前
+```
+$ git reset --merge
 ```
 
 ## branch

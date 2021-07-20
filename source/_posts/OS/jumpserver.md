@@ -2,7 +2,7 @@
 title: jumpserver
 date: 2018/5/2
 categories:
-- os
+- OS
 ---
 
 # 跳板机

@@ -2,7 +2,7 @@
 title: windows-command-line
 date: 2018/5/14
 categories:
-- OS
+- shortcut
 ---
 
 ### base

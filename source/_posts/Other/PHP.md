@@ -2,7 +2,7 @@
 title: php
 date: 2018/5/13
 categories:
-- PHP
+- Other
 ---
 
 http://www.itcast.cn:80/index.html
