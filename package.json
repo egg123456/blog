@@ -18,7 +18,7 @@
     "hexo-server": "^0.2.0"
   },
   "scripts": {
-    "g": "hexo generate",
+    "g": "hexo generate & echo 'blog.egg123123.cn' > ./public/CNAME",
     "s": "hexo server -p 5000"
   }
 }
