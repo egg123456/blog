@@ -69,6 +69,15 @@ let n: null = null;
 
 ```
 
+### 联合类型
+```js
+let val: string|number 
+val = 12 
+console.log("数字为 "+ val) 
+val = "Runoob" 
+console.log("字符串为 " + val)
+```
+
 ### 类型断言
 通过类型断言这种方式可以告诉编译器，“相信我，我知道自己在干什么”。
 ```js
@@ -94,6 +103,7 @@ interface SquareConfig {
   color: string; // 必须的
   width?: number; // 可有可无的
   readonly y: number; // 只读的
+  [propName: string]: any; // 其他未知的属性
 }
 let a: number[] = [1, 2, 3, 4];
 let ro: ReadonlyArray<number> = a; // 只读数组 只是把数组所有可变方法去掉了
@@ -128,6 +138,77 @@ class Clock implements ClockInterface {
   }
   constructor(h: number, m: number) { }
 }
+
+```
+
+### 泛型
+```js
+// 类型变量 T
+function loggingIdentity<T>(arg: T): T {
+  console.log(arg.length); // Error T doesn't have .length
+  return arg;
+}
+
+// 约束型类型变量
+interface Lengthwise {
+  length: number
+}
+function loggingIdentity<T extends Lengthwise>(arg: T): T {
+  console.log(arg.length); // Now we know it has a ,length property, so no more error
+  return arg;
+}
+
+```
+
+### 泛型与联合类型高级用法
+```js
+interface Foo {
+  name: string;
+  sex: Boolean;
+  age: number
+}
+
+type T =  keyof Foo
+type Keys = "name" | "sex";
+
+
+type Obj = {
+  [p in Keys]: p extends T ? Foo[p] : never
+}
+
+const obj: Obj = {
+  name: 'egg',
+  sex: true,
+  age: 520, // age does not exist in type Obj
+}
+
+// 封装
+type Pick<T, k extends keyof T> = {
+  [p in k]: T[p]
+}
+
+type Exclude<T, U> = T extends U ? never : T;
+
+type Omit<T, k extends string | number | symbol> = {
+  [p in Exclude<keyof T, k>]: T[p]
+}
+
+type Partial<T> = {
+  [p in keyof T]?: T[p]
+}
+
+type Required<T> = {
+  [p in keyof T]-?: T[p]
+}
+
+type Readonly<T> = {
+  readonly [p in keyof T]: T[p]
+}
+
+type Record<K extends string | number | symbol, T> = {
+  [p in K]: T
+}
+// 更多请看源码
 
 ```
 
