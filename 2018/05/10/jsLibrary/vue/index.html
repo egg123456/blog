@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>vue | egg</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="vue | egg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Options API 和 Composition API 之间的映射   Vue2 Options-based API Vue Composition API     beforeCreate setup()   created setup()   beforeMount onBeforeMount   mounted onMounted   beforeUpdate onBeforeUpdat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue3">
+<meta property="og:url" content="http://yoursite.com/2022/05/10/jsLibrary/vue3/index.html">
+<meta property="og:site_name" content="egg">
+<meta property="og:description" content="Options API 和 Composition API 之间的映射   Vue2 Options-based API Vue Composition API     beforeCreate setup()   created setup()   beforeMount onBeforeMount   mounted onMounted   beforeUpdate onBeforeUpdat">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-05-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-12T13:04:04.000Z">
+<meta property="article:author" content="egg">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>egg</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2578597686&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(46)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Other">Other<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="OS">OS<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="base">base<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="programming">programming<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="crossPlatform">crossPlatform<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="css">css<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="ProjectTools">ProjectTools<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="jsLibrary">jsLibrary<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="protocol">protocol<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="shortcut">shortcut<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="node">node<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="46">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="Other "
+           href="/2018/05/13/Other/PHP/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="php">php</span>
+            <span class="post-date" title="2018-05-13 00:00:00">2018/05/13</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/git/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git">Git</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/01/Other/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-05-01 00:00:00">2018/05/01</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/02/Other/self-media/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="self-media">self-media</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/webAssembly/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webAssembly">webAssembly</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/02/OS/jumpserver/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jumpserver">jumpserver</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/04/OS/make/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="make">make</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/14/OS/shell/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="shell">shell</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/12/OS/ubuntu16-lamp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="搭建LAMP">搭建LAMP</span>
+            <span class="post-date" title="2018-05-12 00:00:00">2018/05/12</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/Page-optimization/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Page-optimization">Page-optimization</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/SVG/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Svg">Svg</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/formdata/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="formdata">formdata</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/fromBrowser/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fromBrowser">fromBrowser</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/html+css/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="html+css">html+css</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/04/Base/js-essentials/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS - Essentials">JS - Essentials</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/04/Base/richText/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="richText">richText</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/urlEncode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="urlEncode">urlEncode</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="programming "
+           href="/2018/05/05/Programming/DesignPrincipleAndDesignMode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Design principle and design mode">Design principle and design mode</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="crossPlatform "
+           href="/2018/05/18/crossPlatfrom/uni-app/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="uni-app">uni-app</span>
+            <span class="post-date" title="2018-05-18 00:00:00">2018/05/18</span>
+        </a>
+        
+        <a  class="css "
+           href="/2018/05/06/cssLibrary/bootstrap3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="bootstrap3">bootstrap3</span>
+            <span class="post-date" title="2018-05-06 00:00:00">2018/05/06</span>
+        </a>
+        
+        <a  class="css "
+           href="/2018/05/06/cssLibrary/bootstrap4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="bootstrap4">bootstrap4</span>
+            <span class="post-date" title="2018-05-06 00:00:00">2018/05/06</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/11/ProjectTools/babel/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="babel">babel</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2012/05/11/ProjectTools/docker/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker">Docker</span>
+            <span class="post-date" title="2012-05-11 00:00:00">2012/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/10/ProjectTools/eslint/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="eslint">eslint</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/09/ProjectTools/grunt/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="grunt">grunt</span>
+            <span class="post-date" title="2018-05-09 00:00:00">2018/05/09</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/11/ProjectTools/ts/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ts">ts</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2012/05/11/ProjectTools/vite/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vite">vite</span>
+            <span class="post-date" title="2012-05-11 00:00:00">2012/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/07/ProjectTools/webpack/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webpack">webpack</span>
+            <span class="post-date" title="2018-05-07 00:00:00">2018/05/07</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/dva/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dva">dva</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/echarts/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="echarts">echarts</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/02/jsLibrary/laya/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="laya">laya</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/mockjs/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mockjs">mockjs</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/moment/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="moment">moment</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/11/jsLibrary/vue-router/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vue-router">vue-router</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/vue/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vue">vue</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/vue3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vue3">vue3</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="protocol "
+           href="/2018/05/05/protocol/fileTransferProtocol/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fileTransferProtocol">fileTransferProtocol</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="protocol "
+           href="/2018/05/05/protocol/http%E5%8F%8A%E5%90%84%E5%8D%8F%E8%AE%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="http及各协议">http及各协议</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/chrome-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="chrom-shortcutKeys">chrom-shortcutKeys</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/excel-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="excel-shortcut">excel-shortcut</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/linux-command-line/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux-command-line">linux-command-line</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/webstorm-ShortcutKeys/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webstorm-shortcutKeys">webstorm-shortcutKeys</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/windows-command-line/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="windows-command-line">windows-command-line</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/express/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="node express">node express</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/node/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="node">node</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/npm/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="npm">npm</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-jsLibrary/vue" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">vue</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="jsLibrary">jsLibrary</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2023-03-12 21:04:04'>2018-05-10 00:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-%E5%8E%9F%E7%90%86"><span class="toc-text">Vue 原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC"><span class="toc-text">基本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E4%B8%8E%E4%BE%A6%E5%90%AC%E5%99%A8"><span class="toc-text">计算属性与侦听器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#class%E7%BB%91%E5%AE%9A"><span class="toc-text">class绑定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#style%E7%BB%91%E5%AE%9A"><span class="toc-text">style绑定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#component"><span class="toc-text">component</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#global-component"><span class="toc-text">global-component</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E6%B3%A8%E5%86%8C%E7%BB%84%E4%BB%B6"><span class="toc-text">局部注册组件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%87%E6%B8%A1"><span class="toc-text">过渡</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Vue-原理"><a href="#Vue-原理" class="headerlink" title="Vue 原理"></a>Vue 原理</h1><blockquote>
+<p>当把一个普通的 JavaScript 对象传给 Vue 实例的 data 选项时，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为访问器属性（getter/setter）。Object.defineProperty 是 ES5 中一个无法 shim 的特性，这也就是为什么 Vue 不支持 IE8 以及更低版本浏览器的原因。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Object.defineProperty()接收三个参数：属性所在对象、属性的名字和一个（描述符对象）</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;,</span><br><span class="line">    value=<span class="number">5</span>;</span><br><span class="line">    bind=[];</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,s,&#123;</span><br><span class="line">    <span class="attr">set</span>:<span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">        bing[<span class="string">&#x27;s&#x27;</span>]=val;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">get</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bind[<span class="string">&#x27;s&#x27;</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">obj[<span class="string">&#x27;s&#x27;</span>]=value;<span class="comment">//触发set方法，间接修改了bind</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Mustache语法 (双大括号) --&gt;</span></span><br><span class="line">        &#123;&#123; message + seen+1 &#125;&#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--v-model双向数据绑定  --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">&quot;message&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--v-bind绑定元素特性  --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-bind:title</span>=<span class="string">&quot;message&quot;</span>&gt;</span>鼠标悬停几秒钟查看此处动态绑定的提示信息！<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--v-if条件渲染  --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">&quot;seen&quot;</span>&gt;</span>现在你看到我了<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--v-for李彪渲染（重复元素不重复内容渲染）  --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;todo in todos&quot;</span>&gt;</span></span><br><span class="line">                &#123;&#123; todo.text &#125;&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--v-on事件绑定  --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">&quot;reverseMessage&quot;</span>&gt;</span>逆转消息<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--双大括号显示的是普通文本内容，v-html显示html代码  --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>Using mustaches: &#123;&#123; rawHtml &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>Using v-html directive: <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-html</span>=<span class="string">&quot;rawHtml&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123; </span><br><span class="line">        <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        <span class="attr">data</span>: &#123;</span><br><span class="line">            <span class="attr">message</span>: <span class="string">&#x27;Hello Vue!&#x27;</span>,</span><br><span class="line">            <span class="attr">seen</span>:<span class="literal">true</span>,</span><br><span class="line">            <span class="attr">todos</span>: [</span><br><span class="line">                    &#123; <span class="attr">text</span>: <span class="string">&#x27;学习 JavaScript&#x27;</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">text</span>: <span class="string">&#x27;学习 Vue&#x27;</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">text</span>: <span class="string">&#x27;整个牛项目&#x27;</span> &#125;</span><br><span class="line">                ],</span><br><span class="line">                <span class="attr">rawHtml</span>:<span class="string">&#x27;&lt;span style=&quot;color:red;&quot;&gt;this should be red&lt;/sapn&gt;&#x27;</span>,</span><br><span class="line">            </span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">methods</span>: &#123;</span><br><span class="line">                <span class="attr">reverseMessage</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="built_in">this</span>.message = <span class="built_in">this</span>.message.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>双大括号会将数据解释为普通文本，而非 HTML 代码。为了输出真正的 HTML，你需要使用 v-html 指令：</p>
+</li>
+<li><p>双大括号里的表达式会在所属 Vue 实例的数据作用域下作为 JavaScript 被解析，不解析语句</p>
+</li>
+</ul>
+<h1 id="计算属性与侦听器"><a href="#计算属性与侦听器" class="headerlink" title="计算属性与侦听器"></a>计算属性与侦听器</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>侦听器<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;firstName&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;lastName&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;fullName&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;demo1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>计算属性<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;firstName&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;lastName&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;fullName&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        <span class="attr">el</span>: <span class="string">&#x27;#demo&#x27;</span>,</span><br><span class="line">        <span class="attr">data</span>: &#123;</span><br><span class="line">            <span class="attr">firstName</span>: <span class="string">&#x27;Foo&#x27;</span>,</span><br><span class="line">            <span class="attr">lastName</span>: <span class="string">&#x27;Bar&#x27;</span>,</span><br><span class="line">            <span class="attr">fullName</span>: <span class="string">&#x27;Foo Bar&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">watch</span>: &#123;</span><br><span class="line">            <span class="attr">firstName</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.fullName = val + <span class="string">&#x27; &#x27;</span> + <span class="built_in">this</span>.lastName</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">lastName</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.fullName = <span class="built_in">this</span>.firstName + <span class="string">&#x27; &#x27;</span> + val</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">var</span> vm1 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            <span class="attr">el</span>: <span class="string">&#x27;#demo1&#x27;</span>,</span><br><span class="line">            <span class="attr">data</span>: &#123;</span><br><span class="line">                <span class="attr">firstName</span>: <span class="string">&#x27;Foo&#x27;</span>,</span><br><span class="line">                <span class="attr">lastName</span>: <span class="string">&#x27;Bar&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">computed</span>: &#123;</span><br><span class="line">                <span class="attr">fullName</span>: &#123;</span><br><span class="line">                    <span class="comment">// getter</span></span><br><span class="line">                    <span class="attr">get</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="built_in">this</span>.firstName + <span class="string">&#x27; &#x27;</span> + <span class="built_in">this</span>.lastName</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="comment">// setter</span></span><br><span class="line">                    <span class="attr">set</span>: <span class="function"><span class="keyword">function</span> (<span class="params">newValue</span>) </span>&#123;</span><br><span class="line">                        <span class="keyword">var</span> names = newValue.split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">                        <span class="built_in">this</span>.firstName = names[<span class="number">0</span>]</span><br><span class="line">                        <span class="built_in">this</span>.lastName = names[names.length - <span class="number">1</span>]</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>计算属性：可以向绑定data选项中的属性一样绑定到页面。</p>
+<ul>
+<li>计算属性只有在它的相关依赖发生改变时才会重新求值。有缓存</li>
+</ul>
+</li>
+<li><p>侦听器：侦听数据变化做出响应</p>
+</li>
+<li><p>计算属性与侦听器可以完成许多相似的功能，</p>
+<ul>
+<li>但计算属性的 getter 函数是没有副作用 (side effect) 的，这使它更易于测试和理解。</li>
+<li>但使用 watch 选项允许我们执行异步操作 (访问一个 API)，限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。这些都是计算属性无法做到的。</li>
+</ul>
+</li>
+</ul>
+<h1 id="class绑定"><a href="#class绑定" class="headerlink" title="class绑定"></a>class绑定</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--isActive,hasError的true or false决定active与text-denger类的有无  --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-bind:class</span>=<span class="string">&quot;&#123; active: isActive,&#x27;text-danger&#x27;: hasError &#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-bind:class</span>=<span class="string">&quot;classobj&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--数组语法，可包含多个类对象  --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-bind:class</span>=<span class="string">&quot;[classobj]&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">    &lt;script&gt;</span><br><span class="line">        Vue.component(<span class="string">&#x27;my-component&#x27;</span>, &#123;</span><br><span class="line">            <span class="attr">template</span>: <span class="string">&#x27;&lt;p class=&quot;foo bar&quot;&gt;Hello World!&lt;/p&gt;&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">         <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            <span class="attr">el</span>: <span class="string">&#x27;#demo&#x27;</span>,</span><br><span class="line">            <span class="attr">data</span>: &#123;</span><br><span class="line">                <span class="attr">isActive</span>:<span class="literal">true</span>,</span><br><span class="line">                <span class="attr">hasError</span>:<span class="literal">false</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">computed</span>:&#123;</span><br><span class="line">                <span class="attr">classobj</span>:&#123;</span><br><span class="line">                    <span class="attr">get</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                        <span class="keyword">return</span> &#123;</span><br><span class="line">                             <span class="attr">active</span>: !<span class="built_in">this</span>.isActive,</span><br><span class="line">                            <span class="string">&#x27;text-danger&#x27;</span>: !<span class="built_in">this</span>.hasError</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="style绑定"><a href="#style绑定" class="headerlink" title="style绑定"></a>style绑定</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--对象语法  --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--样式名采用驼峰命名法 例font-size==&gt;fontSize  --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-bind:style</span>=<span class="string">&quot;&#123;color: setcolor, fontSize: setfontSize + &#x27;px&#x27; &#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-bind:style</span>=<span class="string">&quot;classobj&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--数组语法  --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-bind:style</span>=<span class="string">&quot;[classobj]&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    Vue.component(<span class="string">&#x27;my-component&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">template</span>: <span class="string">&#x27;&lt;p class=&quot;foo bar&quot;&gt;Hello World!&lt;/p&gt;&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        <span class="attr">el</span>: <span class="string">&#x27;#demo&#x27;</span>,</span><br><span class="line">        <span class="attr">data</span>: &#123;</span><br><span class="line">            <span class="attr">setcolor</span>:<span class="string">&#x27;greenyellow&#x27;</span>,</span><br><span class="line">            <span class="attr">setfontSize</span>:<span class="number">100</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">computed</span>:&#123;</span><br><span class="line">            <span class="attr">classobj</span>:&#123;</span><br><span class="line">                <span class="attr">get</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> &#123;</span><br><span class="line">                        <span class="attr">fontSize</span>: <span class="built_in">this</span>.setfontSize+<span class="string">&#x27;px&#x27;</span>,</span><br><span class="line">                        <span class="attr">color</span>: <span class="built_in">this</span>.setcolor,</span><br><span class="line">                        </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="component"><a href="#component" class="headerlink" title="component"></a>component</h1><h2 id="global-component"><a href="#global-component" class="headerlink" title="global-component"></a>global-component</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--动态组件 绑定post  监听自定义事件 组件附加内容egg --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind</span>：<span class="attr">is</span>=<span class="string">&quot; currentcomponent&quot;</span>  <span class="attr">v-on:enlarge-text</span>=<span class="string">&quot;postFontSize += 0.1&quot;</span> <span class="attr">v-for</span>=<span class="string">&quot;post in posts&quot;</span> <span class="attr">v-bind:key</span>=<span class="string">&quot;post.id&quot;</span> <span class="attr">v-bind:post</span>=<span class="string">&quot;post&quot;</span>&gt;</span>yeg<span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Vue.component(<span class="string">&#x27;blog-post&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">props</span>: [<span class="string">&#x27;post&#x27;</span>],    <span class="comment">//通过 Prop 向子组件传递数据</span></span><br><span class="line">        <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">            &lt;div class=&quot;blog-post&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;h3&gt;&#123;&#123; post.title &#125;&#125;&lt;/h3&gt;</span></span><br><span class="line"><span class="string">            &lt;button v-on:click=&quot;$emit(&#x27;enlarge-text&#x27;)&quot;&gt;</span></span><br><span class="line"><span class="string">                Enlarge text</span></span><br><span class="line"><span class="string">            &lt;/button&gt;</span></span><br><span class="line"><span class="string">            &lt;div v-html=&quot;post.content&quot;&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;slot&gt;&lt;/slot&gt;</span></span><br><span class="line"><span class="string">            &lt;/div&gt;</span></span><br><span class="line"><span class="string">        `</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        <span class="attr">el</span>: <span class="string">&#x27;#demo&#x27;</span>,</span><br><span class="line">        <span class="attr">data</span>: &#123;</span><br><span class="line">            <span class="attr">posts</span>: [</span><br><span class="line">                &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">title</span>: <span class="string">&#x27;My journey with Vue&#x27;</span>,<span class="attr">content</span>:<span class="string">&#x27;egg&#x27;</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">title</span>: <span class="string">&#x27;Blogging with Vue&#x27;</span>,<span class="attr">content</span>:<span class="string">&#x27;egg&#x27;</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">title</span>: <span class="string">&#x27;Why Vue is so fun&#x27;</span>,<span class="attr">content</span>:<span class="string">&#x27;egg&#x27;</span> &#125;,</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>全局注册的组件可以用在其被注册之后的任何 (通过 new Vue) 新创建的 Vue 根实例，也包括其组件树中的所有子组件的模板中。</p>
+</li>
+<li><p>Vue 实例提供了一个自定义事件的系统来解决这个问题。我们可以调用内建的 $emit 方法并传入事件的名字，来向父级组件触发一个事件：</p>
+</li>
+<li><p>slot插槽：组件中加内容的地方</p>
+</li>
+<li><p>is特性：值为要显示的组件名，实现类选项卡</p>
+</li>
+</ul>
+<h2 id="局部注册组件"><a href="#局部注册组件" class="headerlink" title="局部注册组件"></a>局部注册组件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ComponentA = &#123;<span class="attr">template</span>:<span class="string">&quot;&lt;h1&gt;我是局部组件A&lt;/h1&gt;&quot;</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> ComponentB = &#123;<span class="attr">template</span>:<span class="string">&quot;&lt;h1&gt;我是局部组件B&lt;/h1&gt;&quot;</span>&#125;;</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span></span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;component-a&#x27;</span>: ComponentA,</span><br><span class="line">    <span class="string">&#x27;component-b&#x27;</span>: ComponentB，</span><br><span class="line">    <span class="string">&#x27;component-c&#x27;</span>:&#123;<span class="comment">//C可用组件A方式</span></span><br><span class="line">        <span class="attr">components</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;component-a&#x27;</span>: ComponentA</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>对于 components 选项中的每个属性来说，其属性名就是自定义元素的名字，其属性值就是这个组件的选项对象</p>
+</li>
+<li><p>局部注册的组件在其子组件中不可用（A不能用B）</p>
+</li>
+<li><p>tips： this.$refs 子组件引用信息</p>
+</li>
+</ul>
+<h1 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h1><p>过渡的类名<br>在进入/离开的过渡中，会有 6 个 class 切换。</p>
+<p>v-enter：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。</p>
+<p>v-enter-active：定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。</p>
+<p>v-enter-to: 2.1.8版及以上 定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 v-enter 被移除)，在过渡/动画完成之后移除。</p>
+<p>v-leave: 定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。</p>
+<p>v-leave-active：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。</p>
+<p>v-leave-to: 2.1.8版及以上 定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave 被删除)，在过渡/动画完成之后移除。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2578597686p@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>vue</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="egg">egg</a></p>
+    <p><span class="copy-title">发布时间:</span>2018-05-10, 00:00:00</p>
+    <p><span class="copy-title">最后更新:</span>2023-03-12, 21:04:04</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/05/10/jsLibrary/vue/" title="vue">http://yoursite.com/2018/05/10/jsLibrary/vue/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 yeg</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': [],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
