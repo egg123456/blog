@@ -32,6 +32,43 @@ npm publish --access=public | 以公有模式发布以私有方式命名的包
 npm version [newversion, major, minor, patch] | 变更包的版本
 npm publish --tag beta ｜ 发布测试版
 npm unpublish --force packageName | delete package
+npm link | 为本地项目生成全局链接、在用户bin录下生成项目命令软链 /usr/local/bin/custom-command -> /usr/local/lib/node_modules/bintest/bin/index.js
+/usr/local/lib/node_modules/bintest -> /Users/zcy/Documents/doc/package/bintest
+npm link packageName | 当前项目使用本地包的全局链接
+npm unlink packageName ｜ 当前项目删除本地包的全局链接
+npm ls --global --depth 0 | 查看所有全局链接
+sudo npm rm --global packageName ｜ 强制解除某个全局链接
+
+
+## npm install run map
+```flow
+st=>start: Start
+op1=>operation: 检查和获取 npm的配置，这里的优先级为项目的.mpmrc文件 > 用户级的 > 全局级的 > npm内置的.npmrc文件
+hasLockFile=>condition: 检查项目中是否有package-lock.json文件
+unanimous=>condition: 检查package.json 与 package-lock.json文件 是否一致
+op2=>operation: 一致，直接使用lock文件中的信息，从网络或缓存中加载依赖
+op3=>operation: 没有lock文件，则根据package.json 递归构建依赖树，然后根据依赖树加载依赖
+op4=>operation: 生成lock文件
+cond=>condition: Yes or No?
+e=>end
+st->op1->hasLockFile(yes)->unanimous(yes)->op2->e
+hasLockFile(no)->op3->op4->e
+unanimous(no)->op3->op4->e
+cond(yes)->e
+cond(no)->op1
+```
+
+## yarn 
+```flow
+st=>start: Start
+checkProject=>operation: 检测当前项目配置与系统os、cup信息
+parsePackage=>operation: 会以首层依赖为根，遍历获取跟多层级的依赖信息
+InCache=>condition: 检查缓存是否有依赖包
+noInCache=>operation: 没有就将依赖包下载到缓存目录
+getPackage=>operation: 从缓存中拷贝依赖到项目的node_modules
+e=>end
+st->checkProject->parsePackage->InCache(no)->noInCache->getPackage->e
+```
 
 ## 版本的格式
 major.minor.patch-tags

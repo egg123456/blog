@@ -121,6 +121,14 @@ $ git branch -m <branchName> //rename branch
 $ git checkout --orphan <branch> //Create branch without commit record(code still exist) 
 
 $ git push origin --delete <branch> //deleter remote branch
+$ git for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | sort -k5n -k2M -k3n -k4n // 查看分支所属人
+```
+
+# 变基 rebase
+> 改变目标分支的基底
+```base
+$ git rebase <baseBranch> <targetBranch> // 将目标分支变为以 baseBranch 分支为基础开发的分支
+$ git rebase --onto master server client // 将分支client 与 master 的差异应用在 master分支上
 ```
 
 # 储藏 stash
@@ -217,6 +225,17 @@ $ git remote rm origin      //移除远程库
 $ git remote rename origin origin_blog      //重命名远程库
 $ git remote show origin_blog     //远程库信息
 $ git remote set-url origin_blog https://github.com/egg123456/blog.git    //修改本地仓库指向的远程库
+```
+
+# ssh setting
+```shell
+# generate secret-key
+$ ssh-keygen -t rsa -C "youremail@example.com"
+# into secret-key deirect
+$ cd ~/.ssh
+# look xx.pub file and copy it
+$ cat id_rsa.pub
+# paste it to github
 ```
 
 
