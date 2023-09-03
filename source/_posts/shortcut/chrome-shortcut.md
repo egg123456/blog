@@ -19,4 +19,6 @@ ctrl + o | 在当前变迁也中打开文件
 ctrl + shift + o | 书签管理
 alt + right | 前进
 alt + left | 后退
-Esc | 停止网页加载 
+Esc | 停止网页加载
+ctrl + pgDn | 切换到下一个标签页（command + option + ->）
+ctrl + pgUp | 切换到上一个标签页（command + option + <-）

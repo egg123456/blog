@@ -17,14 +17,103 @@ categories:
 
 > css主要解决样式问题，html标签解决内嵌问题，二者相互联系
 
-#在标准文档流里面，块级元素具有以下特点：
+# 在标准文档流里面，块级元素具有以下特点：
 + ①总是在新行上开始，占据一整行；
 + ②高度，行高以及外边距和内边距都可控制；
 + ③宽带始终是与浏览器宽度一样，与内容无关；
 + ④它可以容纳内联元素和其他块元素。
-#行内元素的特点：
+# 行内元素的特点：
 + ①和其他元素都在一行上；
 + ②高，行高及外边距和内边距部分可改变；
 + ③宽度只与内容有关；
 + ④行内元素只能容纳文本或者其他行内元素。
 + 不可以设置宽高，其宽度随着内容增加，高度随字体大小而改变，内联元素可以设置外边界，但是外边界不对上下起作用，只能对左右起作用，也可以设置内边界，但是内边界在ie6中不对上下起作用，只能对左右起作用
+
+
+# 响应式文字
+1. 媒体查询
+```css
+html {
+  /* 默认字体尺寸 16px */
+  font-size: 16px;
+}
+/* 屏幕大于2000px 时, 根元素字体大小设为 32px */
+@media screen and (min-width: 2000px) {
+  html {
+    font-size: 32px;
+  }
+}
+```
+缺点：屏幕大小种类繁多，需要写很多的媒体查询且体验不够丝滑。
+
+2. 视口法
+```css
+h1 {
+  /* 字体大小为视窗宽度的 6%，跟随视窗宽度变化 */
+  font-size: 6vw;
+}
+```
+缺点：当屏幕大/小到一定程度时，字体将会无限大/小。最好的体验应是屏幕大/小大一定屏幕时字体大小将不再变化。
+
+3. clamp 方法
+```css
+h1 {
+  /* 最小字体大小为2rem, 最大为2.75rem。其他随最小、最大值确定的线段取值 */
+  /* 1.799rem 为直线的截距，0.98为斜率。取值根据视窗宽度vw变化 */
+  font-size: clamp(2rem, 1.799rem + 0.98vw, 2.75rem);
+}
+```
+缺点：网页放大/缩小时，实际导致的是视口大小改变。放大页面等于缩小视窗口。字体可能反而变小了
+
+
+# 响应式图片
+1. 等比缩放
+```css
+img {
+  width: 100%;
+  height: auto;
+}
+```
+
+2. 缩放到自身原始宽度时不缩放
+```css
+img {
+    max-width: 100%;
+    height: auto;
+}
+```
+
+3. 不同设备尺寸显示不同图片
+```css
+/* 媒体查询 */
+/* For width smaller than 400px: */
+body {
+    background-image: url('img_smallflower.jpg');
+}
+
+/* For width 400px and larger: */
+@media only screen and (min-width: 400px) {
+    body {
+        background-image: url('img_flowers.jpg');
+    }
+}
+
+/* html 5 picture */
+<picture>
+  <source srcset="img_smallflower.jpg" media="(max-width: 400px)">
+  <source srcset="img_flowers.jpg">
+  <img src="img_flowers.jpg" alt="Flowers">
+</picture>
+```
+
+4. 背景图铺满
+```css
+div {
+    width: 100%;
+    height: 400px;
+    background-image: url('img_flowers.jpg');
+    /* 宽高都变为容器宽高 */
+    background-size: 100% 100%;
+    border: 1px solid red;
+}
+```

@@ -194,10 +194,44 @@ server.listen(8080, '127.0.0.1', () => {
 });
 ```
 
-# webpack 加快打包速度，减少打包体积
+## webpack 加快打包速度，减少打包体积
 1. 减小文件搜索范围/处理范围 如：load 时使用include exclude来限定缩小处理范围
 2. 充分利用cpu 如：
   + 使用 webpack-parallel-uglify-plugin 插件并行运行uglifyjs插件
   + Happypack插件 的处理思路是：将原有的 webpack 对 loader 的执行过程，从单一进程的形式扩展多进程模式，从而加速代码构建；原本的流程保持不变，这样可以在不修改原有配置的基础上，来完成对编译过程的优化
 
 3. 避免引而不用 tree-shaking
+
+
+## webpack 5 类 hook
+1. compiler类hook
+run
+compiler
+compilation
+shouldEmit
+emit
+done
+2. compilation类hook
+buildModule
+succeedModule
+finishModules
+normalModuleLoader
+3. ContextModuleFactory类hook
+beforeResolve
+afterResolve
+createModule
+module
+4. NormalModuleFactory类hook
+beforeResolve
+afterResolve
+createModule
+module
+5. JavascriptParser类hook
+import
+call
+
+
+## plugin
+1. webpack规定插件必须是一个javascript对象，且对象上必须有一个apply方法，这个apply方法会在webpack进行编译的时候进行调用.
+
+2. 

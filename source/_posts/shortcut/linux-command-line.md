@@ -16,9 +16,9 @@ cat -n filePath | 带行号显示文件
 less filePath | 分页显示文件
 head -n 5 filepath | 只显示文件前5行
 tail -n 5 filepath | 只显示文件最后5行
-touch filename ｜ 创建文件
-mkdir foldername ｜ 创建目录
-mkdir -p one/two/three ｜ 递归创建目录
+touch filename | 创建文件
+mkdir foldername | 创建目录
+mkdir -p one/two/three | 递归创建目录
 mv *.txt folder | 文件或目录移动
 cp -r folderone foldertwo | 复制整个目录
 rm -r folder | 递归删除整个目录
@@ -38,11 +38,15 @@ find . -name "syslog"	| 当前目录以及子目录下通过名称查找文件
 find /var -size 10M | /var 目录下查找文件等于 10M 的文件
 find /var -size +10M | /var 目录下查找文件大小超过 10M 的文件
 find /var -size -10M | /var 目录下查找文件大小不超过 10M 的文件
-find . -name "file" -type f ｜ 只查找当前目录下的file文件
-find . -name "file" -type d ｜ 只查找当前目录下的file目录
-find -name "*.jpg" -delete ｜ 删除当前目录以及子目录下所有.jpg为后缀的文件，不会有删除提示，因此要慎用
+find . -name "file" -type f | 只查找当前目录下的file文件
+find . -name "file" -type d | 只查找当前目录下的file目录
+find -name "*.jpg" -delete | 删除当前目录以及子目录下所有.jpg为后缀的文件，不会有删除提示，因此要慎用
 find . -type f | 列出当前目录及子目录下的所有文件
+find . -type f -atime +365 | 查找最后访问时间草果 365 天的文件
 find . -type f -mtime -7 | 找出7天内修改过的文件
+find . -type f -perm 777 | 按权限找文件
+find -type f -user yang | 按文件所属的用户搜索
+find . -type f -atime +365 -exec rm -rf {} \; | 删除最后访问时间超过 365 天的文件，{}是查找结果的占位符
 
 
 ### origin manage

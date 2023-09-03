@@ -30,3 +30,12 @@ app.listen(1024, function() {
 
 # 路由
 路由是指确定应用程序如何响应客户端对特定端点的请求
+
+
+***
+
+# quickly start
+```shell
+npm install -g express-generator
+express myApp
+```
