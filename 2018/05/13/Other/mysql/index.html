@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>mysql | egg</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="mysql | egg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="web.js文档 https:&#x2F;&#x2F;web3.tryblockchain.org&#x2F;Web3.js-api-refrence.html  ethers.js文档地址 https:&#x2F;&#x2F;learnblockchain.cn&#x2F;docs&#x2F;ethers.js&#x2F;  ahooks https:&#x2F;&#x2F;ahooks.js.org&#x2F;zh-CN&#x2F;guide&#x2F;  ens 地址 https:&#x2F;&#x2F;ens.domains&#x2F;  js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="egg">
+<meta property="og:url" content="http://yoursite.com/2024/09/22/ProjectTools/temp/index.html">
+<meta property="og:site_name" content="egg">
+<meta property="og:description" content="web.js文档 https:&#x2F;&#x2F;web3.tryblockchain.org&#x2F;Web3.js-api-refrence.html  ethers.js文档地址 https:&#x2F;&#x2F;learnblockchain.cn&#x2F;docs&#x2F;ethers.js&#x2F;  ahooks https:&#x2F;&#x2F;ahooks.js.org&#x2F;zh-CN&#x2F;guide&#x2F;  ens 地址 https:&#x2F;&#x2F;ens.domains&#x2F;  js">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-09-22T09:38:25.186Z">
+<meta property="article:modified_time" content="2024-09-22T09:38:25.343Z">
+<meta property="article:author" content="egg">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>egg</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2578597686&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(58)</small></div></li>
+    
+        
+            
+            <li><div data-rel="base">base<small>(9)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="OS">OS<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Other">Other<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="programming">programming<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="ProjectTools">ProjectTools<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="crossPlatform">crossPlatform<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="css">css<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="jsLibrary">jsLibrary<small>(11)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="node">node<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="protocol">protocol<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="backend">backend<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="shortcut">shortcut<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="58">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="base "
+           href="/2018/05/02/Base/Page-optimization/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Page-optimization">Page-optimization</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/SVG/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Svg">Svg</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/fileDownload/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fileDownload">fileDownload</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/formdata/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="formdata">formdata</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/fromBrowser/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fromBrowser">fromBrowser</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/html+css/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="html+css">html+css</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/04/Base/js-essentials/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS - Essentials">JS - Essentials</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/04/Base/richText/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="richText">richText</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/urlEncode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="urlEncode">urlEncode</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/02/OS/jumpserver/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jumpserver">jumpserver</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/14/OS/registry/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="registry">registry</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/04/OS/make/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="make">make</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/14/OS/shell/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="shell">shell</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/12/OS/ubuntu16-lamp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="搭建LAMP">搭建LAMP</span>
+            <span class="post-date" title="2018-05-12 00:00:00">2018/05/12</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/13/Other/PHP/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="php">php</span>
+            <span class="post-date" title="2018-05-13 00:00:00">2018/05/13</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/git/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git">Git</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/01/Other/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-05-01 00:00:00">2018/05/01</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/microFrontend/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="micro frontend">micro frontend</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/13/Other/mysql/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mysql">mysql</span>
+            <span class="post-date" title="2018-05-13 00:00:00">2018/05/13</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/02/Other/self-media/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="self-media">self-media</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2024/09/22/Other/vscode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2024-09-22 17:37:18">2024/09/22</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/webAssembly/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webAssembly">webAssembly</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="programming "
+           href="/2018/05/05/Programming/DesignPrincipleAndDesignMode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Design principle and design mode">Design principle and design mode</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/11/ProjectTools/babel/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="babel">babel</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2024/09/22/ProjectTools/electron/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2024-09-22 17:38:24">2024/09/22</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2012/05/11/ProjectTools/docker/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker">Docker</span>
+            <span class="post-date" title="2012-05-11 00:00:00">2012/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/10/ProjectTools/eslint/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="eslint">eslint</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/09/ProjectTools/grunt/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="grunt">grunt</span>
+            <span class="post-date" title="2018-05-09 00:00:00">2018/05/09</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2022/05/11/ProjectTools/jsdoc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jsdoc">jsdoc</span>
+            <span class="post-date" title="2022-05-11 00:00:00">2022/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/11/ProjectTools/ts/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ts">ts</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2024/09/22/ProjectTools/temp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2024-09-22 17:38:25">2024/09/22</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2012/05/11/ProjectTools/vite/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vite">vite</span>
+            <span class="post-date" title="2012-05-11 00:00:00">2012/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/07/ProjectTools/webpack/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webpack">webpack</span>
+            <span class="post-date" title="2018-05-07 00:00:00">2018/05/07</span>
+        </a>
+        
+        <a  class="crossPlatform "
+           href="/2018/05/18/crossPlatfrom/uni-app/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="uni-app">uni-app</span>
+            <span class="post-date" title="2018-05-18 00:00:00">2018/05/18</span>
+        </a>
+        
+        <a  class="css "
+           href="/2018/05/06/cssLibrary/bootstrap3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="bootstrap3">bootstrap3</span>
+            <span class="post-date" title="2018-05-06 00:00:00">2018/05/06</span>
+        </a>
+        
+        <a  class="css "
+           href="/2018/05/06/cssLibrary/bootstrap4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="bootstrap4">bootstrap4</span>
+            <span class="post-date" title="2018-05-06 00:00:00">2018/05/06</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/dva/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dva">dva</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/echarts/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="echarts">echarts</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/fabric/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Fabric">Fabric</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/02/jsLibrary/laya/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="laya">laya</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/mockjs/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mockjs">mockjs</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/moment/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="moment">moment</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/express/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="node express">node express</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/npm/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="npm">npm</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/node/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="node">node</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="protocol "
+           href="/2018/05/05/protocol/fileTransferProtocol/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fileTransferProtocol">fileTransferProtocol</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="protocol "
+           href="/2018/05/05/protocol/http%E5%8F%8A%E5%90%84%E5%8D%8F%E8%AE%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="http及各协议">http及各协议</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="backend "
+           href="/2022/05/02/py/py/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="python">python</span>
+            <span class="post-date" title="2022-05-02 00:00:00">2022/05/02</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/chrome-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="chrom-shortcutKeys">chrom-shortcutKeys</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/linux-command-line/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux-command-line">linux-command-line</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/excel-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="excel-shortcut">excel-shortcut</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/webstorm-ShortcutKeys/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webstorm-shortcutKeys">webstorm-shortcutKeys</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/windows-command-line/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="windows-command-line">windows-command-line</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/react/react/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="react">react</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/react/react-router/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="react-router">react-router</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/react/redux/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="redux">redux</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/vue/vue3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vue3">vue3</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/11/jsLibrary/vue/vue-router/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vue-router">vue-router</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Other/mysql" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">mysql</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="Other">Other</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2024-09-22 17:37:04'>2018-05-13 00:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#information-schema-%E5%AD%98%E5%82%A8%E6%95%B4%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%A6%82%E4%BD%A0%E5%88%9B%E5%BB%BA%E7%9A%84-database-%E7%9A%84%E8%A1%A8%E5%90%8D%E3%80%81%E8%A1%A8%E7%B1%BB%E5%9E%8B"><span class="toc-text">information_schema 存储整个数据库相关信息，如你创建的 database 的表名、表类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#login"><span class="toc-text">login</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#databases"><span class="toc-text">databases</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#table"><span class="toc-text">table</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#use-and-grant"><span class="toc-text">use and grant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#timezone"><span class="toc-text">timezone</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#configure-env-variable-for-mac"><span class="toc-text">configure env variable for mac</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dataType"><span class="toc-text">dataType</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#export-data"><span class="toc-text">export data</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84ACID%E5%8E%9F%E5%88%99"><span class="toc-text">事务的ACID原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E6%9C%BA%E5%88%B6%E5%88%86%E4%B8%BA%E4%BA%86%E5%9B%9B%E4%B8%AA%E7%BA%A7%E5%88%AB"><span class="toc-text">事务隔离机制分为了四个级别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tool-all-mysql-client"><span class="toc-text">tool all-mysql-client</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>mysql 数据库中不仅有你创建的 database，还有其他保存整个数据库信息的相关 database。</p>
+</blockquote>
+<h1 id="information-schema-存储整个数据库相关信息，如你创建的-database-的表名、表类型"><a href="#information-schema-存储整个数据库相关信息，如你创建的-database-的表名、表类型" class="headerlink" title="information_schema 存储整个数据库相关信息，如你创建的 database 的表名、表类型"></a>information_schema 存储整个数据库相关信息，如你创建的 database 的表名、表类型</h1><p>tables 表 - 保存所有表的表名、类型。。。<br>columns 表 - 保存所有表的列名、数据类型。。。</p>
+<h3 id="login"><a href="#login" class="headerlink" title="login"></a>login</h3><p>mysql -h localhost -u root －p<br>quit &#x2F; exit</p>
+<h3 id="databases"><a href="#databases" class="headerlink" title="databases"></a>databases</h3><p>show databases</p>
+<p>create database <databaseName></p>
+<p>drop database <databaseName></p>
+<p>use <databaseName></p>
+<p>select database()   &#x2F;&#x2F; 其他语言的 print 功能 - 当前选择的数据库<br>select version()  &#x2F;&#x2F; 其他语言的 print 功能 - 数据库版本<br>select now()    &#x2F;&#x2F; 其他语言的 print 功能 - 当前时间<br>select ((4 * 4) &#x2F; 10 ) + 25     &#x2F;&#x2F; 计算器</p>
+<hr>
+<h3 id="table"><a href="#table" class="headerlink" title="table"></a>table</h3><p>show tables &#x2F;&#x2F; 显示当前使用的数据库中的所有表<br>select table_name from information_schema.tables where table_schema&#x3D;’database_name’ and table_type&#x3D;’base table’;</p>
+<p>CREATE TABLE <tableName>(<br>    &gt; id int(10) not null AUTO_INCREMENT,<br>    &gt; name char(20) not null,<br>    &gt; sex int(4) not null default ‘0’,<br>    &gt; PRIMARY KEY (id)<br>);</p>
+<p>select table_name from information_schema.tables where table_schema&#x3D;’csdb’ and table_type&#x3D;’base table’;</p>
+<p>desc <tableName> &#x2F; show columns from <tableName> &#x2F;&#x2F; 表中的列信息<br>select column_name,data_type from information_schema.columns where table_schema&#x3D;’database_name’ and table_name&#x3D;’table_name’;</p>
+<p>drop table <tableName></p>
+<p>insert into MyClass(id,name,score) values (1,’Tom’,96.45),(2,’Joan’,82.99), (2,’Wang’, 96.59);</p>
+<p>select * from <tableName> where id &gt; 1 &amp;&amp; sex &#x3D; 1<br>SELECT * FROM students ORDER BY score DESC LIMIT 3 OFFSET 9; &#x2F;&#x2F; paged query<br>SELECT * FROM students ORDER BY score DESC LIMIT 9,3; &#x2F;&#x2F; paged query</p>
+<p>delete from <tableName> where name &#x3D; ‘egg’</p>
+<p>update <tableName> set name &#x3D; ‘yeg’<br>update <tableName> set name &#x3D; ‘liuZhi’ where id&#x3D;1;</p>
+<p>alter table <tableName> add age int(1) not null default 18<br>alter table <tableName> modify password char(20);<br>alter table <tableName> drop age</p>
+<p>rename table <oldTableName> to <newTableName></p>
+<hr>
+<h3 id="use-and-grant"><a href="#use-and-grant" class="headerlink" title="use and grant"></a>use and grant</h3><p>CREATE USER ‘egg‘@’localhost’ IDENTIFIED BY ‘password’;<br>GRANT SELECT ON test.* TO ‘egg‘@’localhost’;</p>
+<h3 id="timezone"><a href="#timezone" class="headerlink" title="timezone"></a>timezone</h3><p>SELECT TIMEDIFF(NOW(), UTC_TIMESTAMP); &#x2F;&#x2F; look timeDiff(chian standard timeDiff is +8)</p>
+<p>show variables like “%time_zone”; &#x2F;&#x2F; look timezone variable value</p>
+<p>set global time_zone&#x3D;”+8:00”; &#x2F;&#x2F; 设置全局时区为北京时区，即东8区<br>set time_zone&#x3D;”+8:00”; &#x2F;&#x2F; 修改当前会话时区<br>flush privileges; &#x2F;&#x2F; 立即生效</p>
+<h3 id="configure-env-variable-for-mac"><a href="#configure-env-variable-for-mac" class="headerlink" title="configure env variable for mac"></a>configure env variable for mac</h3><!-- configure env variable -->
+<p>sudo vim .bash_profile<br>export PATH&#x3D;${PATH}:&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin</p>
+<!-- run env variable -->
+<p>source .base_profile</p>
+<!-- zsh: command not found: mysql -->
+<p>sudo ln -fs &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin&#x2F;mysql mysql</p>
+<h3 id="dataType"><a href="#dataType" class="headerlink" title="dataType"></a>dataType</h3><blockquote>
+<p>MySQL 支持多种类型，大致可以分为三类：数值、日期&#x2F;时间和字符串(字符)类型。</p>
+</blockquote>
+<ol>
+<li>数值类型</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>范围（有符号）</th>
+<th>范围（无符号）</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TINYINT</td>
+<td>1 Bytes</td>
+<td>(-128，127)</td>
+<td>(0，255)</td>
+<td>小整数值</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>2 Bytes</td>
+<td>(-32 768，32 767)</td>
+<td>(0，65 535)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td>3 Bytes</td>
+<td>(-8 388 608，8 388 607)</td>
+<td>(0，16 777 215)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>INT或INTEGER</td>
+<td>4 Bytes</td>
+<td>(-2 147 483 648，2 147 483 647)</td>
+<td>(0，4 294 967 295)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>8 Bytes</td>
+<td>(-9,223,372,036,854,775,808，9 223 372 036 854 775 807)</td>
+<td>(0，18 446 744 073 709 551 615)</td>
+<td>极大整数值</td>
+</tr>
+<tr>
+<td>FLOAT</td>
+<td>4 Bytes</td>
+<td>(-3.402 823 466 E+38，-1.175 494 351 E-38)，0，(1.175 494 351 E-38，3.402 823 466 351 E+38)</td>
+<td>0，(1.175 494 351 E-38，3.402 823 466 E+38)</td>
+<td>单精度 浮点数值</td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td>8 Bytes</td>
+<td>(-1.797 693 134 862 315 7 E+308，-2.225 073 858 507 201 4 E-308)，0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td>0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td>双精度 浮点数值</td>
+</tr>
+<tr>
+<td>DECIMAL</td>
+<td>对DECIMAL(M,D) ，如果M&gt;D，为M+2否则为D+2</td>
+<td>依赖于M和D的值</td>
+<td>依赖于M和D的值</td>
+<td>小数值</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>日期和时间类型</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小( bytes)</th>
+<th>范围</th>
+<th>格式</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DATE</td>
+<td>3</td>
+<td>1000-01-01&#x2F;9999-12-31</td>
+<td>YYYY-MM-DD</td>
+<td>日期值</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>3</td>
+<td>‘-838:59:59’&#x2F;‘838:59:59’</td>
+<td>HH:MM:SS</td>
+<td>时间值或持续时间</td>
+</tr>
+<tr>
+<td>YEAR</td>
+<td>1</td>
+<td>1901&#x2F;2155</td>
+<td>YYYY</td>
+<td>年份值</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>8</td>
+<td>‘1000-01-01 00:00:00’ 到 ‘9999-12-31 23:59:59’</td>
+<td>YYYY-MM-DD hh:mm:ss</td>
+<td>混合日期和时间值</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>4</td>
+<td>‘1970-01-01 00:00:01’ UTC 到 ‘2038-01-19 03:14:07’ UTC 结束时间是第 2147483647 秒，北京时间 2038-1-19 11:14:07，格林尼治时间 2038年1月19日 凌晨 03:14:07</td>
+<td>YYYY-MM-DD hh:mm:ss</td>
+<td>混合日期和时间值时间戳</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>字符串</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CHAR</td>
+<td>0-255 bytes</td>
+<td>定长字符串</td>
+</tr>
+<tr>
+<td>VARCHAR</td>
+<td>0-65535 bytes</td>
+<td>变长字符串</td>
+</tr>
+<tr>
+<td>TINYBLOB</td>
+<td>0-255 bytes</td>
+<td>不超过 255 个字符的二进制字符串</td>
+</tr>
+<tr>
+<td>TINYTEXT</td>
+<td>0-255 bytes</td>
+<td>短文本字符串</td>
+</tr>
+<tr>
+<td>BLOB</td>
+<td>0-65 535 bytes</td>
+<td>二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>0-65 535 bytes</td>
+<td>长文本数据</td>
+</tr>
+<tr>
+<td>MEDIUMBLOB</td>
+<td>0-16 777 215 bytes</td>
+<td>二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td>MEDIUMTEXT</td>
+<td>0-16 777 215 bytes</td>
+<td>中等长度文本数据</td>
+</tr>
+<tr>
+<td>LONGBLOB</td>
+<td>0-4 294 967 295 bytes</td>
+<td>二进制形式的极大文本数据</td>
+</tr>
+<tr>
+<td>LONGTEXT</td>
+<td>0-4 294 967 295 bytes</td>
+<td>极大文本数据</td>
+</tr>
+</tbody></table>
+<h1 id="export-data"><a href="#export-data" class="headerlink" title="export data"></a>export data</h1><ol>
+<li>export table data<br>  SELECT * FROM runoob_tbl INTO OUTFILE ‘&#x2F;tmp&#x2F;runoob.txt’</li>
+<li>export database data</li>
+</ol>
+<ul>
+<li>导出整个数据库结构和数据<br>mysqldump -h localhost -P 3306 -uroot -p123456 database &gt; test.sql</li>
+<li>导出单个数据表结构和数据<br>mysqldump -h localhost -P 3306 -uroot -p123456 database table &gt; test.sql</li>
+<li>导出整个数据库结构（不包含数据）<br>mysqldump -h localhost -P 3306 -uroot -p123456 -d database &gt; test.sql</li>
+<li>导出单个数据表结构（不包含数据）<br>mysqldump -h localhost -P 3306 -uroot -p123456 -d database table &gt; test.sql</li>
+<li>说明：<ul>
+<li>如果是本机操作，其中 -h localhost -P 3306 可以不需要</li>
+<li>-P 参数，是大P，且有空格；不同于后面密码的小p，没有空格</li>
+</ul>
+</li>
+</ul>
+<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h3 id="事务的ACID原则"><a href="#事务的ACID原则" class="headerlink" title="事务的ACID原则"></a>事务的ACID原则</h3><p>A&#x2F;Atomicity：原子性<br>C&#x2F;Consistency：一致性<br>I&#x2F;Isolation：独立性&#x2F;隔离性<br>D&#x2F;Durability：持久性</p>
+<h3 id="事务隔离机制分为了四个级别"><a href="#事务隔离机制分为了四个级别" class="headerlink" title="事务隔离机制分为了四个级别"></a>事务隔离机制分为了四个级别</h3><p>①Read uncommitted&#x2F;RU：读未提交<br>②Read committed&#x2F;RC：读已提交<br>③Repeatable read&#x2F;RR：可重复读<br>④Serializable：序列化&#x2F;串行化</p>
+<h2 id="tool-all-mysql-client"><a href="#tool-all-mysql-client" class="headerlink" title="tool all-mysql-client"></a>tool all-mysql-client</h2>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2578597686p@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>mysql</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="egg">egg</a></p>
+    <p><span class="copy-title">发布时间:</span>2018-05-13, 00:00:00</p>
+    <p><span class="copy-title">最后更新:</span>2024-09-22, 17:37:04</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/05/13/Other/mysql/" title="mysql">http://yoursite.com/2018/05/13/Other/mysql/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 yeg</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': [],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

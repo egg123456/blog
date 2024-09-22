@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>php | egg</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="php | egg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="web.js文档 https:&#x2F;&#x2F;web3.tryblockchain.org&#x2F;Web3.js-api-refrence.html  ethers.js文档地址 https:&#x2F;&#x2F;learnblockchain.cn&#x2F;docs&#x2F;ethers.js&#x2F;  ahooks https:&#x2F;&#x2F;ahooks.js.org&#x2F;zh-CN&#x2F;guide&#x2F;  ens 地址 https:&#x2F;&#x2F;ens.domains&#x2F;  js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="egg">
+<meta property="og:url" content="http://yoursite.com/2024/09/22/ProjectTools/temp/index.html">
+<meta property="og:site_name" content="egg">
+<meta property="og:description" content="web.js文档 https:&#x2F;&#x2F;web3.tryblockchain.org&#x2F;Web3.js-api-refrence.html  ethers.js文档地址 https:&#x2F;&#x2F;learnblockchain.cn&#x2F;docs&#x2F;ethers.js&#x2F;  ahooks https:&#x2F;&#x2F;ahooks.js.org&#x2F;zh-CN&#x2F;guide&#x2F;  ens 地址 https:&#x2F;&#x2F;ens.domains&#x2F;  js">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-09-22T09:38:25.186Z">
+<meta property="article:modified_time" content="2024-09-22T09:38:25.343Z">
+<meta property="article:author" content="egg">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>egg</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2578597686&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(58)</small></div></li>
+    
+        
+            
+            <li><div data-rel="base">base<small>(9)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="OS">OS<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Other">Other<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="programming">programming<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="ProjectTools">ProjectTools<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="crossPlatform">crossPlatform<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="css">css<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="jsLibrary">jsLibrary<small>(11)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="node">node<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="protocol">protocol<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="backend">backend<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="shortcut">shortcut<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="58">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="base "
+           href="/2018/05/02/Base/Page-optimization/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Page-optimization">Page-optimization</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/SVG/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Svg">Svg</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/fileDownload/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fileDownload">fileDownload</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/formdata/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="formdata">formdata</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/fromBrowser/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fromBrowser">fromBrowser</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/html+css/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="html+css">html+css</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/04/Base/js-essentials/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS - Essentials">JS - Essentials</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/04/Base/richText/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="richText">richText</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/urlEncode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="urlEncode">urlEncode</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/02/OS/jumpserver/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jumpserver">jumpserver</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/14/OS/registry/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="registry">registry</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/04/OS/make/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="make">make</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/14/OS/shell/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="shell">shell</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/12/OS/ubuntu16-lamp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="搭建LAMP">搭建LAMP</span>
+            <span class="post-date" title="2018-05-12 00:00:00">2018/05/12</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/13/Other/PHP/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="php">php</span>
+            <span class="post-date" title="2018-05-13 00:00:00">2018/05/13</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/git/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git">Git</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/01/Other/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-05-01 00:00:00">2018/05/01</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/microFrontend/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="micro frontend">micro frontend</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/13/Other/mysql/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mysql">mysql</span>
+            <span class="post-date" title="2018-05-13 00:00:00">2018/05/13</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/02/Other/self-media/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="self-media">self-media</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2024/09/22/Other/vscode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2024-09-22 17:37:18">2024/09/22</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/webAssembly/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webAssembly">webAssembly</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="programming "
+           href="/2018/05/05/Programming/DesignPrincipleAndDesignMode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Design principle and design mode">Design principle and design mode</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/11/ProjectTools/babel/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="babel">babel</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2024/09/22/ProjectTools/electron/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2024-09-22 17:38:24">2024/09/22</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2012/05/11/ProjectTools/docker/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker">Docker</span>
+            <span class="post-date" title="2012-05-11 00:00:00">2012/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/10/ProjectTools/eslint/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="eslint">eslint</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/09/ProjectTools/grunt/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="grunt">grunt</span>
+            <span class="post-date" title="2018-05-09 00:00:00">2018/05/09</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2022/05/11/ProjectTools/jsdoc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jsdoc">jsdoc</span>
+            <span class="post-date" title="2022-05-11 00:00:00">2022/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/11/ProjectTools/ts/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ts">ts</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2024/09/22/ProjectTools/temp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2024-09-22 17:38:25">2024/09/22</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2012/05/11/ProjectTools/vite/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vite">vite</span>
+            <span class="post-date" title="2012-05-11 00:00:00">2012/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/07/ProjectTools/webpack/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webpack">webpack</span>
+            <span class="post-date" title="2018-05-07 00:00:00">2018/05/07</span>
+        </a>
+        
+        <a  class="crossPlatform "
+           href="/2018/05/18/crossPlatfrom/uni-app/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="uni-app">uni-app</span>
+            <span class="post-date" title="2018-05-18 00:00:00">2018/05/18</span>
+        </a>
+        
+        <a  class="css "
+           href="/2018/05/06/cssLibrary/bootstrap3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="bootstrap3">bootstrap3</span>
+            <span class="post-date" title="2018-05-06 00:00:00">2018/05/06</span>
+        </a>
+        
+        <a  class="css "
+           href="/2018/05/06/cssLibrary/bootstrap4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="bootstrap4">bootstrap4</span>
+            <span class="post-date" title="2018-05-06 00:00:00">2018/05/06</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/dva/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dva">dva</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/echarts/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="echarts">echarts</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/fabric/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Fabric">Fabric</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/02/jsLibrary/laya/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="laya">laya</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/mockjs/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mockjs">mockjs</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/moment/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="moment">moment</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/express/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="node express">node express</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/npm/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="npm">npm</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/node/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="node">node</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="protocol "
+           href="/2018/05/05/protocol/fileTransferProtocol/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fileTransferProtocol">fileTransferProtocol</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="protocol "
+           href="/2018/05/05/protocol/http%E5%8F%8A%E5%90%84%E5%8D%8F%E8%AE%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="http及各协议">http及各协议</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="backend "
+           href="/2022/05/02/py/py/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="python">python</span>
+            <span class="post-date" title="2022-05-02 00:00:00">2022/05/02</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/chrome-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="chrom-shortcutKeys">chrom-shortcutKeys</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/linux-command-line/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux-command-line">linux-command-line</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/excel-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="excel-shortcut">excel-shortcut</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/webstorm-ShortcutKeys/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webstorm-shortcutKeys">webstorm-shortcutKeys</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/windows-command-line/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="windows-command-line">windows-command-line</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/react/react/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="react">react</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/react/react-router/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="react-router">react-router</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/react/redux/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="redux">redux</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/vue/vue3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vue3">vue3</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/11/jsLibrary/vue/vue-router/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vue-router">vue-router</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Other/PHP" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">php</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="Other">Other</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2024-09-21 21:55:06'>2018-05-13 00:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PHP-person-home-page-%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5"><span class="toc-text">PHP(person home page)个人主页</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E7%A8%8B%E5%BA%8F"><span class="toc-text">关闭占用端口的程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Apache%E6%98%AF%E4%B8%80%E6%AC%BEweb%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BD%AF%E4%BB%B6%EF%BC%8C%E5%87%A0%E4%B9%8E%E5%8F%AF%E4%BB%A5%E8%BF%90%E8%A1%8C%E5%9C%A8%E6%89%80%E6%9C%89%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%B9%B3%E5%8F%B0%E4%B8%8A"><span class="toc-text">Apache是一款web服务器软件，几乎可以运行在所有的计算机平台上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#content"><span class="toc-text">content</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#function"><span class="toc-text">function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="toc-text">面向对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AD%94%E6%9C%AF%E5%B8%B8%E9%87%8F"><span class="toc-text">魔术常量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B6%85%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-text">超全局变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-text">命名空间</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E7%A9%BA%E9%97%B4"><span class="toc-text">全局空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98"><span class="toc-text">乱码问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#session"><span class="toc-text">session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie"><span class="toc-text">cookie</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.itcast.cn/index.html">http://www.itcast.cn:80/index.html</a><br>protocol hostname  port  sourcename</p>
+<h1 id="PHP-person-home-page-个人主页"><a href="#PHP-person-home-page-个人主页" class="headerlink" title="PHP(person home page)个人主页"></a>PHP(person home page)个人主页</h1><blockquote>
+<p>helloworld</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;helloworld!&#x27;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>LAMP(WEB应用程序平台)由Linux Apache MySQL PHP组成与Javaee和.net形成三足鼎立之势</p>
+<h2 id="关闭占用端口的程序"><a href="#关闭占用端口的程序" class="headerlink" title="关闭占用端口的程序"></a>关闭占用端口的程序</h2><ul>
+<li>查询对应端口号的占用情况： $ netstat -ano”80”</li>
+<li>ctrl + c 结束当前操作</li>
+<li>输入tasklist命令会显示所有的进程和对应对的PID</li>
+<li>在任务管理器中找到这个程序，关闭掉或者taskkill &#x2F;F &#x2F;PID 4896</li>
+</ul>
+<h2 id="Apache是一款web服务器软件，几乎可以运行在所有的计算机平台上"><a href="#Apache是一款web服务器软件，几乎可以运行在所有的计算机平台上" class="headerlink" title="Apache是一款web服务器软件，几乎可以运行在所有的计算机平台上"></a>Apache是一款web服务器软件，几乎可以运行在所有的计算机平台上</h2><ul>
+<li>Apache服务设置：使用windows服务来管理，<ul>
+<li>右击我的电脑–管理–服务和应用程序–服务 找到Apache服务</li>
+</ul>
+</li>
+</ul>
+<h2 id="content"><a href="#content" class="headerlink" title="content"></a>content</h2><ul>
+<li><p>PHP中的标识符是区分大小写的，但函数名例外</p>
+</li>
+<li><p>定义常量  define(“name”,”value”,true); true表示不区分大小false则区分</p>
+</li>
+<li><p>datatype: String（字符串）, Integer（整型）, Float（浮点型）, Boolean（布尔型）, Array（数组）, Object（对象）, NULL（空值）。</p>
+</li>
+<li><p>PHP也是一中弱语言</p>
+<ul>
+<li>定义变量<ul>
+<li>定义整形  $a&#x3D;123 $b&#x3D;0123(8进制) $c&#x3D;0x123c(16进制)</li>
+<li>定义float  $a &#x3D; 3.1415 </li>
+<li>定义string   $a &#x3D; ‘abc$c’ (单引号模式不解析)     $b &#x3D; “abc$c” (双引号莫斯，$c会看成其变量值与其他字符相加，且双引号中的{$a},${a}形式也会被解析，多一个空格将看成字符串)</li>
+<li>变量一般为传值赋值，但将 &amp; 符号加到要赋值的变量钱就可变为引用传值（共同指向同一值）   <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$text</span> = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="variable">$new</span> = &amp;<span class="variable">$text</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>变量检测  is_*(var) 返回true or false   eg：is_bool(true) true</p>
+</li>
+<li><p>php中并没有字符串连接符“+”，但有点运算符将数值拼接成字符串</p>
+</li>
+</ul>
+<h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><blockquote>
+<p>function内部不以变量名的形式直接访问外部变量，需如下使用global $var 或直接使用全局变量组中的$GLOBALS[“var”]</p>
+</blockquote>
+<ul>
+<li>内置函数<ul>
+<li>字符串相关函数<ul>
+<li>字符串分割函数array explode(“,”,$str)    以逗号分割字符串并以数组形式返回</li>
+<li>数组转字符串函数 string implode(“&amp;”,$arr)</li>
+<li>字符串比较函数 int strcmp($str1,$str2)</li>
+<li>字符串替换 mixed str_replace($search,$replace,$str,$count可选)</li>
+<li>字符串截取 string substr($source,开始下标,长度)</li>
+<li>字符长度 int strlen($str) 注：一个中文字符长度为3</li>
+<li>string trim(%str) 去除两端空白符</li>
+</ul>
+</li>
+<li>时间<ul>
+<li>int time(void) 获得70年到现在的毫秒数</li>
+<li>格式化时间 string date(Y年m月d日H时i分s秒,time())</li>
+<li>字符串转换时间戳 int strtotime(“2014-5-14 17:20:55”)</li>
+<li>自定义时间戳 int mktime($hour,$minute,$second,$month,$day,$year,1&#x2F;0);参数可省略，从左至右，省略的部分由，系统时间的对应项补充，也就是说不传参数时，即是系统时间</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>tips：<a href="http://www.php.net/manual/zh/index.php">手册</a></p>
+</blockquote>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><ul>
+<li>数组<ul>
+<li>索引数组：下标为整数的数组</li>
+<li>关系数组：键值为字符串</li>
+<li>数组定义 <ul>
+<li>$arr[0]&#x3D;123;$arr[‘id’]&#x3D;15;  </li>
+<li>$arr &#x3D; array(key1&#x3D;&gt;value,key2&#x3D;&gt;value)</li>
+<li>注意当没有键值时，使用默认键，即“键”从零开始，依次递增</li>
+</ul>
+</li>
+<li>输出数组：print_r($arr);&#x2F;var_dump($arr);两者的区别在于var_dump连带数组元素中的值得类型打印出来</li>
+<li>PHP是弱类型语言，所以PHP数组具备动态增长的特性$arr[num]&#x3D;val;</li>
+<li>删除<ul>
+<li>unset($arr[1]);删除$arr[1]</li>
+<li>unset($arr);删除数组$arr;</li>
+<li>注意：PHP中的删除数组某一个元素时，其他元素下标不会自动改变</li>
+</ul>
+</li>
+<li>数组操作符<ul>
+<li>操作符 + &#x3D;&#x3D; &#x3D;&#x3D;&#x3D; !&#x3D; !&#x3D;&#x3D;&#x3D;  &lt;&gt;</li>
+<li>$c &#x3D; $arr1+$arr2; 数组1 2 中有相同下标的元素，以1位准合并为一个数组给$c</li>
+</ul>
+</li>
+<li>数组指针操作函数<ul>
+<li>mixed current($arr)获取数组当前下标的值</li>
+<li>mixed key($arr)获取当前元素的key值</li>
+<li>mixed next($arr)将数组的内部指针向前移动一位（当前下标值移动）</li>
+<li>mixed pre($arr)将数组的内部指针向后移动一位</li>
+<li>mixed end($arr)将数组的内部指针指向最后一个元素</li>
+<li>mixed reset($arr)重置指针，即数组的指针指向第一个元素</li>
+</ul>
+</li>
+<li>数组遍历<ul>
+<li>foreach($arr as $value){$value……}值遍历</li>
+<li>foreach($arr as $key&#x3D;&gt;$value){$key……;$value……}键值对一起遍历</li>
+</ul>
+</li>
+<li>数组常用函数<ul>
+<li>bool is_arr($arr)判别数组</li>
+<li>int count($arr)数组长度，当统计二维数组时，要加上一维数组名的个数</li>
+<li>array array_unique($arr)去重，保留前面的</li>
+<li>array array_keys($arr,”11”,true);查询字符串11，的键值</li>
+<li>array array_keys($arr,”11”,false);查询11，的键值</li>
+<li>bool sort($arr,SORT_NUMERIC);按数字排序</li>
+<li>array array_merge($arr1,$arr2);数组合并</li>
+<li>array array_chunk($arr,length);分为length长度的数组，不足length的也是一个数组</li>
+<li>array array_rand($arr,num);随机去除num个数组元素</li>
+<li>array array_reverse($arr,true);返回保留原始键名的颠倒数组</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><blockquote>
+<p>特征：封装性、继承性、多态性</p>
+</blockquote>
+<ul>
+<li>类是对某一类事物的抽象描述，描述一组对象的共同特征，而对象用于表示现实中该事物的个体</li>
+<li>修饰符<ul>
+<li>public    外部可以访问</li>
+<li>protect   外部不可以访问，子类可以访问</li>
+<li>private   外部和子类都不可以访问</li>
+</ul>
+</li>
+<li>$this 在对象内部指向当前对象 $this.name</li>
+<li>访问： <ul>
+<li>对象-属性访问： obj-&gt;property</li>
+<li>类-属性访问： ClassName::property</li>
+</ul>
+</li>
+<li>魔术方法：无需手动调用的对象方法  eg： __get() __set()  __costruct()</li>
+<li>类常量：const PI&#x3D;3.1415926<ul>
+<li>访问类常量</li>
+<li>类内部： ClassName::PI&#x2F;self::PI</li>
+<li>外部： ClassName::PI</li>
+</ul>
+</li>
+<li>类静态成员<ul>
+<li>静态属性： public static $schoolname&#x3D;”name”</li>
+<li>静态方法： public static function show(){}</li>
+<li>访问方法与类常量一致</li>
+<li>一个类的所有实例，共用类中的静态属性，即在内存中即使有多个实例，静态的属性也只有一份。</li>
+</ul>
+</li>
+<li>类继承<ul>
+<li>class dog extends animal {  }</li>
+<li>重写父类方法： 同名、同参、更大访问权限（public……）就可覆盖父类方法</li>
+<li>在重写情况下调用父类方法： parent::function()</li>
+</ul>
+</li>
+<li>final:确定类或类方法的最终形式，即使用final修饰的类将不可被继承、使用final修饰的类方法将不可重写</li>
+<li>抽象类：通过abstract修饰的类，且其类方法有被abstract修饰的只有方法名而无具体内容</li>
+<li>接口： 如果一个抽象类中的所有方法都是抽象的，则可以将这个类用接口表示<ul>
+<li>接口：interface animal { }其内部都是抽象方法，无需使用abstract特地声明</li>
+</ul>
+</li>
+</ul>
+<h1 id="魔术常量"><a href="#魔术常量" class="headerlink" title="魔术常量"></a>魔术常量</h1><blockquote>
+<p>PHP 向它运行的任何脚本提供了大量的预定义常量。不过很多常量都是由不同的扩展库定义的，只有在加载了这些扩展库时才会出现，或者动态加载后，或者在编译时已经包括进去了。</p>
+</blockquote>
+<p>有八个魔术常量它们的值随着它们在代码中的位置改变而改变。<a href="http://php.net/manual/zh/language.constants.predefined.php">魔术常量</a></p>
+<table class="doctable table">
+    <caption><几个 PHP 的“魔术常量”</caption>
+    <thead>
+       <tr>
+        <th>名称</th>
+        <th>说明</th>
+       </tr>
+    </thead>
+
+<pre><code>  &lt;tbody class=&quot;tbody&quot;&gt;
+   &lt;tr id=&quot;constant.line&quot;&gt;
+    &lt;td&gt;&lt;strong&gt;&lt;code&gt;__LINE__&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;
+     文件中的当前行号。
+    &lt;/td&gt;
+   &lt;/tr&gt;
+
+   &lt;tr id=&quot;constant.file&quot;&gt;
+    &lt;td&gt;&lt;strong&gt;&lt;code&gt;__FILE__&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;
+     文件的完整路径和文件名。如果用在被包含文件中，则返回被包含的文件名。自
+     PHP 4.0.2 起，&lt;strong&gt;&lt;code&gt;__FILE__&lt;/code&gt;&lt;/strong&gt;
+     总是包含一个绝对路径（如果是符号连接，则是解析后的绝对路径），而在此之前的版本有时会包含一个相对路径。
+    &lt;/td&gt;
+   &lt;/tr&gt;
+
+   &lt;tr id=&quot;constant.dir&quot;&gt;
+    &lt;td&gt;&lt;strong&gt;&lt;code&gt;__DIR__&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;
+     文件所在的目录。如果用在被包括文件中，则返回被包括的文件所在的目录。它等价于
+     &lt;em&gt;dirname(__FILE__)&lt;/em&gt;。除非是根目录，否则目录中名不包括末尾的斜杠。（PHP 5.3.0中新增）
+   &lt;/td&gt;
+   &lt;/tr&gt;
+   
+   &lt;tr id=&quot;constant.function&quot;&gt;
+    &lt;td&gt;&lt;strong&gt;&lt;code&gt;__FUNCTION__&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;
+     函数名称（PHP 4.3.0 新加）。自 PHP 5
+     起本常量返回该函数被定义时的名字（区分大小写）。在
+     PHP 4 中该值总是小写字母的。
+    &lt;/td&gt;
+   &lt;/tr&gt;
+
+   &lt;tr id=&quot;constant.class&quot;&gt;
+    &lt;td&gt;&lt;strong&gt;&lt;code&gt;__CLASS__&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;
+     类的名称（PHP 4.3.0 新加）。自 PHP 5
+     起本常量返回该类被定义时的名字（区分大小写）。在
+     PHP 4 中该值总是小写字母的。类名包括其被声明的作用区域（例如
+     &lt;em&gt;Foo\Bar&lt;/em&gt;）。注意自 PHP 5.4 起 __CLASS__
+     对 trait 也起作用。当用在 trait 方法中时，__CLASS__
+     是调用 trait 方法的类的名字。
+    &lt;/td&gt;
+   &lt;/tr&gt;
+
+   &lt;tr id=&quot;constant.trait&quot;&gt;
+    &lt;td&gt;&lt;strong&gt;&lt;code&gt;__TRAIT__&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;
+     Trait 的名字（PHP 5.4.0 新加）。自 PHP 5.4 起此常量返回 trait
+     被定义时的名字（区分大小写）。Trait 名包括其被声明的作用区域（例如
+     &lt;em&gt;Foo\Bar&lt;/em&gt;）。
+    &lt;/td&gt;
+   &lt;/tr&gt;
+
+   &lt;tr id=&quot;constant.method&quot;&gt;
+    &lt;td&gt;&lt;strong&gt;&lt;code&gt;__METHOD__&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;
+     类的方法名（PHP 5.0.0 新加）。返回该方法被定义时的名字（区分大小写）。
+    &lt;/td&gt;
+   &lt;/tr&gt;
+
+   &lt;tr id=&quot;constant.namespace&quot;&gt;
+    &lt;td&gt;&lt;strong&gt;&lt;code&gt;__NAMESPACE__&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;
+     当前命名空间的名称（区分大小写）。此常量是在编译时定义的（PHP 5.3.0 新增）。
+    &lt;/td&gt;
+   &lt;/tr&gt;
+
+  &lt;/tbody&gt;
+ 
+</code></pre>
+</table>
+
+<h1 id="超全局变量"><a href="#超全局变量" class="headerlink" title="超全局变量"></a>超全局变量</h1><blockquote>
+<p>超级全局变量在PHP 4.1.0之后被启用, 是PHP系统中自带的变量，在一个脚本的全部作用域中都可用。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Super global variable</th>
+<th>content</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$GLOBALS</td>
+<td>是一个包含了全部变量的全局组合数组。变量的名字就是数组的键。</td>
+</tr>
+<tr>
+<td>$_SERVER</td>
+<td>是一个包含了诸如头信息(header)、路径(path)、以及脚本位置(script locations)等等信息的数组。</td>
+</tr>
+<tr>
+<td>$_REQUEST</td>
+<td>用于收集HTML表单提交的数据。</td>
+</tr>
+<tr>
+<td>$_POST</td>
+<td>被广泛应用于收集表单数据，在HTML form标签的指定该属性：”method&#x3D;”post”。</td>
+</tr>
+<tr>
+<td>$_GET</td>
+<td>同样被广泛应用于收集表单数据，在HTML form标签的指定该属性：”method&#x3D;”get”</td>
+</tr>
+<tr>
+<td>$_FILES</td>
+<td>包含上传文件信息的数组</td>
+</tr>
+<tr>
+<td>$_ENV</td>
+<td></td>
+</tr>
+<tr>
+<td>$_COOKIE</td>
+<td>用于取回 cookie 的值。<a href="http://www.runoob.com/php/php-cookies.html">cookie</a></td>
+</tr>
+<tr>
+<td>$_SESSION</td>
+<td>用于存储关于用户会话（session）的信息</td>
+</tr>
+</tbody></table>
+<h1 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h1><blockquote>
+<p>PHP 命名空间(namespace)是在PHP 5.3中加入的，如果你学过C#和Java，那命名空间就不算什么新事物。 不过在PHP当中还是有着相当重要的意义。</p>
+</blockquote>
+<ul>
+<li>PHP 命名空间可以解决以下两类问题：<ul>
+<li>用户编写的代码与PHP内部的类&#x2F;函数&#x2F;常量或第三方类&#x2F;函数&#x2F;常量之间的名字冲突。</li>
+<li>为很长的标识符名称(通常是为了缓解第一类问题而定义的)创建一个别名（或简短）的名称，提高源代码的可读性。</li>
+</ul>
+</li>
+</ul>
+<h2 id="全局空间"><a href="#全局空间" class="headerlink" title="全局空间"></a>全局空间</h2><p>如果没有定义任何命名空间，所有的类与函数的定义都是在全局空间，与 PHP 引入命名空间概念前一样。在名称前加上前缀 \ 表示该名称是全局空间中的名称，即使该名称位于其它的命名空间中时也是如此。</p>
+<h2 id="乱码问题"><a href="#乱码问题" class="headerlink" title="乱码问题"></a><a href="http://www.php.cn/php-weizijiaocheng-361604.html">乱码问题</a></h2><h3 id="session"><a href="#session" class="headerlink" title="session"></a>session</h3><p>&#x2F;&#x2F; 初始化session<br>session_start();<br>$sid&#x3D;session_id();</p>
+<h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><p>setcookie()    — 发送 Cookie<br>参数</p>
+<ul>
+<li><p>name          Cookie 名称。</p>
+</li>
+<li><p>value         Cookie 值。 这个值储存于用户的电脑里，请勿储存敏感信息。 比如 name 是 ‘cookiename’， 可通过 $_COOKIE[‘cookiename’] 获取它的值。</p>
+</li>
+<li><p>expire        Cookie 的过期时间。 这是个 Unix 时间戳，即 Unix 纪元以来（格林威治时间 1970 年 1 月 1 日 00:00:00）的秒数。 也就是说，基本可以用 time() 函数的结果加上希望过期的秒数。 或者也可以用 mktime()。 time()+60<em>60</em>24*30 就是设置 Cookie 30 天后过期。 如果设置成零，或者忽略参数， Cookie 会在会话结束时过期（也就是关掉浏览器时）。</p>
+</li>
+<li><p>path          Cookie 有效的服务器路径。 设置成 ‘&#x2F;‘ 时，Cookie 对整个域名 domain 有效。 如果设置成 ‘&#x2F;foo&#x2F;‘， Cookie 仅仅对 domain 中 &#x2F;foo&#x2F; 目录及其子目录有效（比如 &#x2F;foo&#x2F;bar&#x2F;）。 默认值是设置 Cookie 时的当前目录。</p>
+</li>
+<li><p>domain        Cookie 的有效域名&#x2F;子域名。 设置成子域名（例如 ‘<a href="http://www.example.com'),会使/">www.example.com&#39;），会使</a> Cookie 对这个子域名和它的三级域名有效（例如 w2.<a href="http://www.example.com)./">www.example.com）。</a> 要让 Cookie 对整个域名有效（包括它的全部子域名），只要设置成域名就可以了（这个例子里是 ‘example.com’）。</p>
+</li>
+</ul>
+<p>旧版浏览器仍然在使用废弃的 » RFC 2109， 需要一个前置的点 . 来匹配所有子域名。</p>
+<ul>
+<li><p>secure        设置这个 Cookie 是否仅仅通过安全的 HTTPS 连接传给客户端。 设置成 TRUE 时，只有安全连接存在时才会设置 Cookie。 如果是在服务器端处理这个需求，程序员需要仅仅在安全连接上发送此类 Cookie （通过 $_SERVER[“HTTPS”] 判断）。</p>
+</li>
+<li><p>httponly      设置成 TRUE，Cookie 仅可通过 HTTP 协议访问。 这意思就是 Cookie 无法通过类似 JavaScript 这样的脚本语言访问。 要有效减少 XSS 攻击时的身份窃取行为，可建议用此设置（虽然不是所有浏览器都支持），不过这个说法经常有争议。 PHP 5.2.0 中添加。 TRUE 或 FALSE</p>
+</li>
+<li><p>返回值         如果在调用本函数以前就产生了输出，setcookie() 会调用失败并返回 FALSE。 如果 setcookie() 成功运行，返回 TRUE。当然，它的意思并非用户是否已接受 Cookie。</p>
+</li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2578597686p@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>php</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="egg">egg</a></p>
+    <p><span class="copy-title">发布时间:</span>2018-05-13, 00:00:00</p>
+    <p><span class="copy-title">最后更新:</span>2024-09-21, 21:55:06</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/05/13/Other/PHP/" title="php">http://yoursite.com/2018/05/13/Other/PHP/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 yeg</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': [],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>webpack | egg</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="webpack | egg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="web.js文档 https:&#x2F;&#x2F;web3.tryblockchain.org&#x2F;Web3.js-api-refrence.html  ethers.js文档地址 https:&#x2F;&#x2F;learnblockchain.cn&#x2F;docs&#x2F;ethers.js&#x2F;  ahooks https:&#x2F;&#x2F;ahooks.js.org&#x2F;zh-CN&#x2F;guide&#x2F;  ens 地址 https:&#x2F;&#x2F;ens.domains&#x2F;  js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="egg">
+<meta property="og:url" content="http://yoursite.com/2024/09/22/ProjectTools/temp/index.html">
+<meta property="og:site_name" content="egg">
+<meta property="og:description" content="web.js文档 https:&#x2F;&#x2F;web3.tryblockchain.org&#x2F;Web3.js-api-refrence.html  ethers.js文档地址 https:&#x2F;&#x2F;learnblockchain.cn&#x2F;docs&#x2F;ethers.js&#x2F;  ahooks https:&#x2F;&#x2F;ahooks.js.org&#x2F;zh-CN&#x2F;guide&#x2F;  ens 地址 https:&#x2F;&#x2F;ens.domains&#x2F;  js">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-09-22T09:38:25.186Z">
+<meta property="article:modified_time" content="2024-09-22T09:38:25.343Z">
+<meta property="article:author" content="egg">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>egg</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2578597686&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(58)</small></div></li>
+    
+        
+            
+            <li><div data-rel="base">base<small>(9)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="OS">OS<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Other">Other<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="programming">programming<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="ProjectTools">ProjectTools<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="crossPlatform">crossPlatform<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="css">css<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="jsLibrary">jsLibrary<small>(11)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="node">node<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="protocol">protocol<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="backend">backend<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="shortcut">shortcut<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="58">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="base "
+           href="/2018/05/02/Base/Page-optimization/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Page-optimization">Page-optimization</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/SVG/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Svg">Svg</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/fileDownload/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fileDownload">fileDownload</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/formdata/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="formdata">formdata</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/fromBrowser/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fromBrowser">fromBrowser</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/html+css/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="html+css">html+css</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/04/Base/js-essentials/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS - Essentials">JS - Essentials</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/04/Base/richText/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="richText">richText</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/urlEncode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="urlEncode">urlEncode</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/02/OS/jumpserver/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jumpserver">jumpserver</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/14/OS/registry/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="registry">registry</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/04/OS/make/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="make">make</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/14/OS/shell/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="shell">shell</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/12/OS/ubuntu16-lamp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="搭建LAMP">搭建LAMP</span>
+            <span class="post-date" title="2018-05-12 00:00:00">2018/05/12</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/13/Other/PHP/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="php">php</span>
+            <span class="post-date" title="2018-05-13 00:00:00">2018/05/13</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/git/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git">Git</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/01/Other/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-05-01 00:00:00">2018/05/01</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/microFrontend/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="micro frontend">micro frontend</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/13/Other/mysql/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mysql">mysql</span>
+            <span class="post-date" title="2018-05-13 00:00:00">2018/05/13</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/02/Other/self-media/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="self-media">self-media</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2024/09/22/Other/vscode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2024-09-22 17:37:18">2024/09/22</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/webAssembly/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webAssembly">webAssembly</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="programming "
+           href="/2018/05/05/Programming/DesignPrincipleAndDesignMode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Design principle and design mode">Design principle and design mode</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/11/ProjectTools/babel/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="babel">babel</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2024/09/22/ProjectTools/electron/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2024-09-22 17:38:24">2024/09/22</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2012/05/11/ProjectTools/docker/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker">Docker</span>
+            <span class="post-date" title="2012-05-11 00:00:00">2012/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/10/ProjectTools/eslint/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="eslint">eslint</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/09/ProjectTools/grunt/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="grunt">grunt</span>
+            <span class="post-date" title="2018-05-09 00:00:00">2018/05/09</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2022/05/11/ProjectTools/jsdoc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jsdoc">jsdoc</span>
+            <span class="post-date" title="2022-05-11 00:00:00">2022/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/11/ProjectTools/ts/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ts">ts</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2024/09/22/ProjectTools/temp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2024-09-22 17:38:25">2024/09/22</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2012/05/11/ProjectTools/vite/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vite">vite</span>
+            <span class="post-date" title="2012-05-11 00:00:00">2012/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/07/ProjectTools/webpack/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webpack">webpack</span>
+            <span class="post-date" title="2018-05-07 00:00:00">2018/05/07</span>
+        </a>
+        
+        <a  class="crossPlatform "
+           href="/2018/05/18/crossPlatfrom/uni-app/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="uni-app">uni-app</span>
+            <span class="post-date" title="2018-05-18 00:00:00">2018/05/18</span>
+        </a>
+        
+        <a  class="css "
+           href="/2018/05/06/cssLibrary/bootstrap3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="bootstrap3">bootstrap3</span>
+            <span class="post-date" title="2018-05-06 00:00:00">2018/05/06</span>
+        </a>
+        
+        <a  class="css "
+           href="/2018/05/06/cssLibrary/bootstrap4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="bootstrap4">bootstrap4</span>
+            <span class="post-date" title="2018-05-06 00:00:00">2018/05/06</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/dva/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dva">dva</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/echarts/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="echarts">echarts</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/fabric/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Fabric">Fabric</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/02/jsLibrary/laya/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="laya">laya</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/mockjs/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mockjs">mockjs</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/moment/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="moment">moment</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/express/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="node express">node express</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/npm/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="npm">npm</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/node/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="node">node</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="protocol "
+           href="/2018/05/05/protocol/fileTransferProtocol/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fileTransferProtocol">fileTransferProtocol</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="protocol "
+           href="/2018/05/05/protocol/http%E5%8F%8A%E5%90%84%E5%8D%8F%E8%AE%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="http及各协议">http及各协议</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="backend "
+           href="/2022/05/02/py/py/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="python">python</span>
+            <span class="post-date" title="2022-05-02 00:00:00">2022/05/02</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/chrome-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="chrom-shortcutKeys">chrom-shortcutKeys</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/linux-command-line/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux-command-line">linux-command-line</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/excel-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="excel-shortcut">excel-shortcut</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/webstorm-ShortcutKeys/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webstorm-shortcutKeys">webstorm-shortcutKeys</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/windows-command-line/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="windows-command-line">windows-command-line</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/react/react/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="react">react</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/react/react-router/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="react-router">react-router</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/react/redux/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="redux">redux</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/vue/vue3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vue3">vue3</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/11/jsLibrary/vue/vue-router/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vue-router">vue-router</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-ProjectTools/webpack" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">webpack</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="ProjectTools">ProjectTools</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2024-09-22 17:38:27'>2018-05-07 00:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#repuire-and-import"><span class="toc-text">repuire and import</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#export-and-export-default"><span class="toc-text">export and export default</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#import"><span class="toc-text">import()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#webpack-require-%E5%A4%9A%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5"><span class="toc-text">webpack require 多模块导入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#require-context-directory-useSubdiruseectories-regExp"><span class="toc-text">require.context(directory, useSubdiruseectories, regExp)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#install"><span class="toc-text">install</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#four-core-concepts"><span class="toc-text">four core concepts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#deploy"><span class="toc-text">deploy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#command"><span class="toc-text">command</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#webpack-dev-server-%E5%BC%80%E5%8F%91%E6%9C%8D%E5%8A%A1"><span class="toc-text">webpack-dev-server 开发服务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9package-config-js"><span class="toc-text">修改package.config.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9html"><span class="toc-text">修改html</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C"><span class="toc-text">运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-dev-server-api%E5%BD%A2%E5%BC%8F"><span class="toc-text">webpack-dev-server api形式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack-%E5%8A%A0%E5%BF%AB%E6%89%93%E5%8C%85%E9%80%9F%E5%BA%A6%EF%BC%8C%E5%87%8F%E5%B0%91%E6%89%93%E5%8C%85%E4%BD%93%E7%A7%AF"><span class="toc-text">webpack 加快打包速度，减少打包体积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack-5-%E7%B1%BB-hook"><span class="toc-text">webpack 5 类 hook</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#plugin"><span class="toc-text">plugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack-hot-module-replace"><span class="toc-text">webpack hot module replace</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-require"><span class="toc-text">webpack_require</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。</p>
+</blockquote>
+<h1 id="repuire-and-import"><a href="#repuire-and-import" class="headerlink" title="repuire and import"></a>repuire and import</h1><ul>
+<li>let { stat, exists, readFile } &#x3D; require(‘fs’);<br>整体加载fs模块（即加载fs所有方法），生成一个对象”_fs”，然后再从这个对象上读取三个方法，这叫“运行时加载”，因为只有运行时才能得到这个对象，不能在编译时做到静态化。</li>
+<li>import { stat, exists, readFile } from ‘fs’;<br>从fs加载“stat, exists, readFile” 三个方法，其他方法不加载，<br>tips: import命令具有提升效果，会提升到整个模块的头部，首先执行。（是在编译阶段执行的）因为import是静态执行的，不能使用表达式和变量，即在运行时才能拿到结果的语法结构（e.g. if…else…）所以不能实现按需加载</li>
+</ul>
+<h1 id="export-and-export-default"><a href="#export-and-export-default" class="headerlink" title="export and export default"></a>export and export default</h1><p>export时，使用import导入，都需要知道模块中所要加载的变量名或函数名，用户可能不想阅读源码，只想直接使用接口，就可以用export default命令<br>tips：export default 一般用于导出一个function或class（如：react 的组件与reducer)</p>
+<h1 id="import"><a href="#import" class="headerlink" title="import()"></a>import()</h1><p>解决import按需加载问题</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (condition) &#123;</span><br><span class="line">  <span class="keyword">import</span>(<span class="string">&#x27;moduleA&#x27;</span>).<span class="title function_">then</span>(...);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">import</span>(<span class="string">&#x27;moduleB&#x27;</span>).<span class="title function_">then</span>(...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="webpack-require-多模块导入"><a href="#webpack-require-多模块导入" class="headerlink" title="webpack require 多模块导入"></a>webpack require 多模块导入</h1><h2 id="require-context-directory-useSubdiruseectories-regExp"><a href="#require-context-directory-useSubdiruseectories-regExp" class="headerlink" title="require.context(directory, useSubdiruseectories, regExp)"></a>require.context(directory, useSubdiruseectories, regExp)</h2><p>useSubdiruseectories决定是否遍历子目录，regExP匹配文件的正则</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> r = <span class="built_in">require</span>.<span class="title function_">context</span>(<span class="string">&#x27;./&#x27;</span>, <span class="literal">true</span>, process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&#x27;production&#x27;</span> ? <span class="regexp">/^\.\/(?!demo\/)[a-z\-]+\/index\.js$/</span> : <span class="regexp">/^\.\/[a-z\-]+\/index\.js$/</span>) <span class="comment">//返回function</span></span><br><span class="line">r.<span class="title function_">keys</span>().<span class="title function_">forEach</span>(<span class="function"><span class="params">key</span> =&gt;</span> &#123;   <span class="comment">//r.keys()返回匹配成功模块的名字组成的数组</span></span><br><span class="line">        <span class="keyword">let</span> m = <span class="title function_">r</span>(key).<span class="property">default</span>; <span class="comment">// r(key)返回的是一个模块,这个模块才是真正我们需要的</span></span><br><span class="line">    &#125;); </span><br></pre></td></tr></table></figure>
+
+<h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><p>$ cnpm install webpack -g</p>
+<h3 id="four-core-concepts"><a href="#four-core-concepts" class="headerlink" title="four core concepts"></a>four core concepts</h3><ol>
+<li>入口(entry)：哪里作为关系图的起点</li>
+<li>输出(output)：属性告诉 webpack 在哪里输出它所创建的 bundles</li>
+<li>loader：loader 可以将所有类型的文件转换为 webpack 能够处理的有效模块，然后你就可以利用 webpack 的打包能力，对它们进行处理。</li>
+<li>插件(plugins)：用来处理各种各样的任务</li>
+</ol>
+<h3 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//app/webpack.config.js 文件</span></span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;<span class="title class_">DefinePlugin</span>, <span class="title class_">HashedModuleIdsPlugin</span>&#125; = webpack;<span class="comment">//webpack内置插件</span></span><br><span class="line"><span class="keyword">const</span> &#123;version&#125; = <span class="built_in">require</span>(<span class="string">&#x27;../package.json&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> options = &#123;<span class="attr">env</span>: <span class="string">&#x27;dev&#x27;</span>&#125;</span><br><span class="line"> </span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="comment">// target: &#x27;web&#x27;, //构建目标，默认web，编译为类浏览器环境里可用</span></span><br><span class="line">    <span class="attr">mode</span>: options.<span class="property">env</span> === <span class="string">&#x27;dev&#x27;</span> ? <span class="string">&#x27;development&#x27;</span> : <span class="string">&#x27;production&#x27;</span>,<span class="comment">// 打包模式</span></span><br><span class="line">    <span class="attr">entry</span>: &#123;<span class="attr">index1</span>: <span class="string">&#x27;./src/js/entry.js&#x27;</span>, <span class="attr">index2</span>: <span class="string">&#x27;./src/js/entry2.js&#x27;</span>&#125;,<span class="comment">//多入口</span></span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        path : __dirname + <span class="string">&#x27;/out&#x27;</span>,</span><br><span class="line">        <span class="attr">publicPath</span>: __dirname + <span class="string">&#x27;/out&#x27;</span>,<span class="comment">//添加静态资源, 否则会出现路径错误</span></span><br><span class="line">        filename : <span class="string">&#x27;[name].js&#x27;</span>,<span class="comment">//这样就可以生成两个js文件, 名字分别为index1.js, 和index2.js</span></span><br><span class="line">        <span class="attr">chunkFilename</span>: options.<span class="property">env</span> === <span class="string">&#x27;dev&#x27;</span> ? <span class="string">`chunks/[name].js?v=[chunkhash:6]`</span> : <span class="string">`s/[name].js?v=[chunkhash:6]_<span class="subst">$&#123;v.localVersion&#125;</span>`</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">module</span>: &#123;<span class="comment">//loader css jpg。。</span></span><br><span class="line">        <span class="attr">loaders</span>: [</span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>: <span class="string">&quot;style-loader!css-loader&quot;</span> &#125;,</span><br><span class="line">            &#123;<span class="attr">test</span>: <span class="regexp">/.(jpg|png|gif|svg)$/</span>, <span class="attr">use</span>: [<span class="string">&#x27;url-loader?limit=8192&amp;name=./[name].[ext]&#x27;</span>]&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">plugins</span>:[</span><br><span class="line">        <span class="comment">// 项目中的 __VERSION__ 替换为 version 值</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">DefinePlugin</span>(&#123;</span><br><span class="line">            <span class="string">&quot;__VERSION__&quot;</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(version)</span><br><span class="line">        &#125;)</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">resolve</span>:&#123;</span><br><span class="line">        <span class="comment">// 告诉 webpack 解析模块时应该搜索的目录(默认[&quot;node_modules&quot;])</span></span><br><span class="line">        <span class="attr">modules</span>: [<span class="string">&quot;node_modules&quot;</span>, <span class="string">&quot;custom_modules&quot;</span>],</span><br><span class="line">        <span class="comment">// 解析目录时要使用的文件名。构建目标 target： “web” 时默认：mainFiles: [&quot;index&quot;]</span></span><br><span class="line">        <span class="attr">mainFiles</span>: [<span class="string">&quot;index&quot;</span>],</span><br><span class="line">        <span class="comment">// 模块扩展名</span></span><br><span class="line">        <span class="attr">extensions</span>: [<span class="string">&quot;.js&quot;</span>, <span class="string">&quot;.jsx&quot;</span>, <span class="string">&quot;.json&quot;</span>],</span><br><span class="line">        <span class="comment">//配置别名，在项目中可缩减引用路径</span></span><br><span class="line">        <span class="attr">alias</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;@&#x27;</span>: <span class="title function_">resolve</span>(<span class="string">&#x27;src/components&#x27;</span>),</span><br><span class="line">            <span class="string">&#x27;api&#x27;</span>: <span class="title function_">resolve</span>(<span class="string">&#x27;src/api&#x27;</span>),</span><br><span class="line">            <span class="string">&#x27;assets&#x27;</span>: <span class="title function_">resolve</span>(<span class="string">&#x27;src/assets&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">devServer</span>: &#123;</span><br><span class="line">       <span class="attr">contentBase</span>: path.<span class="title function_">join</span>(__dirname, <span class="string">&quot;dist&quot;</span>),  <span class="comment">//服务器资源目录</span></span><br><span class="line">       <span class="attr">port</span>: <span class="number">7000</span>, <span class="comment">//服务端口号</span></span><br><span class="line">       <span class="attr">host</span>:<span class="string">&#x27;0.0.0.0&#x27;</span>, <span class="comment">//服务器主机号，</span></span><br><span class="line">       <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,  <span class="comment">//任意的 404 响应都可能需要被替代为 index.html</span></span><br><span class="line">       <span class="attr">hot</span>: <span class="literal">true</span>, <span class="comment">//启用webpack热替换</span></span><br><span class="line">       <span class="attr">stats</span>: <span class="string">&quot;errors-only&quot;</span>, <span class="comment">//errors-only表示只打印错误：还有&quot;minimal&quot;，&quot;normal&quot;，&quot;verbose&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/c_kite/article/details/71279853">reference</a></p>
+<h3 id="command"><a href="#command" class="headerlink" title="command"></a>command</h3><p>$ webpack –progress –colors<br>当项目逐渐变大，webpack 的编译时间会变长，可以通过参数让编译的输出内容带有进度和颜色</p>
+<p>$ webpack –progress –colors –watch<br>如果不想每次修改模块后都重新编译，那么可以启动监听模式。开启监听模式后，没有变化的模块会在编译后缓存到内存中，而不会每次都被重新编译，所以监听模式的整体速度是很快的。</p>
+<ol>
+<li><p>配置相关的参数<br>–env：设置环境变量<br>–config：配置文件路径   如：–config webpack.dist.config.js<br>–mode：开发模式   如：–mode production or –mode developement</p>
+</li>
+<li><p>输出相关的参数<br>–output-path：输出文件路径<br>–output-filename：输出文件名按照自己的格式输出<br>–output-source-map-filename：映射文件名，文件打包后与源文件有一个映射关系，可以通过map找到源文件</p>
+</li>
+<li><p>Debug参数：<br>–debug:  打开debug模式<br>–progress: 打印编译的进度<br>–devtool: 定义source map类型<br>–display-error-details： 显示错误详情</p>
+</li>
+<li><p>Module 参数<br>–module-bind： 绑定一个拓展程序 如：–module-bind js&#x3D;babel-loader</p>
+</li>
+<li><p>watch参数<br>–watch：监听文件变化</p>
+</li>
+<li><p>Optimize 参数<br>–optimize-max-chunks：设置代码块最大数量<br>–optimize-max-chunks 10<br>–optimize-min-chunk-size：设置代码块最小值<br>–optimize-min-chunk-size 10000<br>–optimize-minimize：压缩js文件</p>
+</li>
+<li><p>Stats 参数<br>–display： 显示打包信息，将具体信息可参考这里<br>–color, –colors：console里面显示颜色</p>
+</li>
+<li><p>高级参数<br>–bail:  如果编译过程一有error，立马停止编译<br>–hot： 热替换，在config文件中也可配置<br>–provide：提供一些模块，做全局使用 如：–provide jQuery&#x3D;jquery<br>–profile: 提供每一步编译的具体时间</p>
+</li>
+</ol>
+<p><a href="https://webpack.js.org/api/cli/#src/components/Sidebar/Sidebar.jsx">more</a></p>
+<h1 id="webpack-dev-server-开发服务"><a href="#webpack-dev-server-开发服务" class="headerlink" title="webpack-dev-server 开发服务"></a>webpack-dev-server 开发服务</h1><blockquote>
+<p>使用 webpack-dev-server 开发服务,这样我们就能通过 localhost:8080 启动一个 express 静态资源 web 服务器，并且会以监听模式自动运行 webpack，在浏览器打开 <a href="http://localhost:8080/">http://localhost:8080/</a> 或 <a href="http://localhost:8080/webpack-dev-server/">http://localhost:8080/webpack-dev-server/</a> 可以浏览项目中的页面和编译后的资源输出，并且通过一个 socket.io 服务实时监听它们的变化并自动刷新页面。</p>
+</blockquote>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>cnpm install webpack-dev-server -g</p>
+<h2 id="修改package-config-js"><a href="#修改package-config-js" class="headerlink" title="修改package.config.js"></a>修改package.config.js</h2><p>publicPath: ‘<a href="http://localhost:8080/out">http://localhost:8080/out</a>‘,</p>
+<h2 id="修改html"><a href="#修改html" class="headerlink" title="修改html"></a>修改html</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- &lt;script src=&quot;./out/index.js&quot;&gt;&lt;/script&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://localhost:8080/out/index.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>webpack-dev-server –progress –colors</p>
+<p>“inline”选项会为入口页面添加“热加载”功能，<br>“hot”选项则开启“热替换（Hot Module Reloading）”，即尝试重新加载组件改变的部分（而不是重新加载整个页面）。<br>如果两个参数都传入，当资源改变时，webpack-dev-server将会先尝试HRM（即热替换），如果失败则重新加载整个入口页面。</p>
+<h3 id="webpack-dev-server-api形式"><a href="#webpack-dev-server-api形式" class="headerlink" title="webpack-dev-server api形式"></a>webpack-dev-server api形式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Webpack</span> = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">WebpackDevServer</span> = <span class="built_in">require</span>(<span class="string">&#x27;webpack-dev-server&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> webpackConfig = <span class="built_in">require</span>(<span class="string">&#x27;./webpack.config&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> compiler = <span class="title class_">Webpack</span>(webpackConfig);</span><br><span class="line"><span class="keyword">const</span> devServerOptions = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, webpackConfig.<span class="property">devServer</span>, &#123;</span><br><span class="line">  <span class="attr">open</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">stats</span>: &#123;</span><br><span class="line">    <span class="attr">colors</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> server = <span class="keyword">new</span> <span class="title class_">WebpackDevServer</span>(compiler, devServerOptions);</span><br><span class="line"></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">8080</span>, <span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Starting server on http://localhost:8080&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="webpack-加快打包速度，减少打包体积"><a href="#webpack-加快打包速度，减少打包体积" class="headerlink" title="webpack 加快打包速度，减少打包体积"></a>webpack 加快打包速度，减少打包体积</h2><ol>
+<li>减小文件搜索范围&#x2F;处理范围 如：load 时使用include exclude来限定缩小处理范围</li>
+<li>充分利用cpu 如：</li>
+</ol>
+<ul>
+<li>使用 webpack-parallel-uglify-plugin 插件并行运行uglifyjs插件</li>
+<li>Happypack插件 的处理思路是：将原有的 webpack 对 loader 的执行过程，从单一进程的形式扩展多进程模式，从而加速代码构建；原本的流程保持不变，这样可以在不修改原有配置的基础上，来完成对编译过程的优化</li>
+</ul>
+<ol start="3">
+<li>避免引而不用 tree-shaking</li>
+</ol>
+<h2 id="webpack-5-类-hook"><a href="#webpack-5-类-hook" class="headerlink" title="webpack 5 类 hook"></a>webpack 5 类 hook</h2><ol>
+<li>compiler类hook<br>run<br>compiler<br>compilation<br>shouldEmit<br>emit<br>done</li>
+<li>compilation类hook<br>buildModule<br>succeedModule<br>finishModules<br>normalModuleLoader</li>
+<li>ContextModuleFactory类hook<br>beforeResolve<br>afterResolve<br>createModule<br>module</li>
+<li>NormalModuleFactory类hook<br>beforeResolve<br>afterResolve<br>createModule<br>module</li>
+<li>JavascriptParser类hook<br>import<br>call</li>
+</ol>
+<h2 id="plugin"><a href="#plugin" class="headerlink" title="plugin"></a>plugin</h2><ol>
+<li>webpack规定插件必须是一个javascript对象，且对象上必须有一个apply方法，这个apply方法会在webpack进行编译的时候进行调用.</li>
+</ol>
+<h2 id="webpack-hot-module-replace"><a href="#webpack-hot-module-replace" class="headerlink" title="webpack hot module replace"></a>webpack hot module replace</h2><ol>
+<li><p>在配置中配置启用webpack热替换</p>
+</li>
+<li><p>在需要热替换的文件中加入module.hot.accept，或直接使用第三方工具，如style-load里就帮我们做了热更新的事情</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="variable language_">module</span>.<span class="property">hot</span>) &#123;</span><br><span class="line">  <span class="variable language_">module</span>.<span class="property">hot</span>.<span class="title function_">accept</span>(); <span class="comment">// 当前文件即依赖模块变更后都会热替换</span></span><br><span class="line">  <span class="comment">// module.hot.accept(&#x27;./child.js&#x27;); // 当./child.js文件即依赖模块变更后都会热替换</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="webpack-require"><a href="#webpack-require" class="headerlink" title="webpack_require"></a><strong>webpack_require</strong></h3><ol>
+<li><p><strong>webpack_require</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">  receiptModuleId(接收moduleId)</span><br><span class="line">  ifCachedModule&#123;&quot;__webpack_module_cache__中否缓存了模块&quot;&#125;</span><br><span class="line">  useCachedModule&#123;&quot;直接使用__webpack_module_cache__中已缓存的模块&quot;&#125;</span><br><span class="line">  definedModule(&quot;通过moduleId定义一个空模块并放入到__webpack_module_cache__[moduleId]&quot;)</span><br><span class="line">  executeStringCode(&quot;执行__webpack_module__[moduleId], 传入__webpack_require__和刚刚定义的空模块，再通过eval执行模块的字符串代码，将模块导出内容赋值给定义的空模块的module.exports, 完成模块缓存&quot;)</span><br><span class="line">  returnModuleContent(&quot;将模块内容返回，完成__webpack_require__&quot;)</span><br><span class="line">  executeEnd(end)</span><br><span class="line"></span><br><span class="line">  receiptModuleId--&gt;ifCachedModule--YES--&gt;definedModule--&gt;executeStringCode--&gt;returnModuleContent--&gt;executeEnd</span><br><span class="line">  ifCachedModule--NO--&gt;useCachedModule--&gt;executeEnd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>webpack_require</strong>.e</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">  receiptModuleId(接收moduleId)</span><br><span class="line">  definedAcceptArr(定义模块加载promise的接收数组)</span><br><span class="line">  ifCachedModule&#123;&quot;installedChunks中否已经存在了模块加载promise&quot;&#125;</span><br><span class="line">  useLoadPromise&#123;&quot;将installedChunks[moduleId][2]（即模块加载的promise）数据放入接收数组&quot;&#125;</span><br><span class="line">  definedLoadModulePromise(定义promise将其赋值给installedChunks和接收数组)</span><br><span class="line">  ifLoadingModule&#123;&quot;inProgress[moduleId]是否已经存在（即模块已经在加载中了）&quot;&#125;</span><br><span class="line">  notInProgress[&quot;inProgress[moduleId] = [done]&quot;]</span><br><span class="line">  yesInProgress[&quot;存在则将回调push进inProgress[moduleId]&quot;]</span><br><span class="line">  executeStringCode(&quot;执行_webpack_require__.l，其内通过script标签加载远程模块内容&quot;)</span><br><span class="line">  returnModuleContent(&quot;模块内容返回后，执行模块对应的所有回调&quot;)</span><br><span class="line">  executeEnd(end)</span><br><span class="line"></span><br><span class="line">  receiptModuleId--&gt;definedAcceptArr--&gt;ifCachedModule--NO--&gt;definedLoadModulePromise--&gt;ifLoadingModule--NO--&gt;notInProgress--&gt;executeStringCode--&gt;returnModuleContent--&gt;executeEnd</span><br><span class="line">  ifCachedModule--YES--&gt;useLoadPromise--&gt;returnModuleContent</span><br><span class="line">  ifLoadingModule--YES--&gt;yesInProgress--&gt;returnModuleContent</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2578597686p@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>webpack</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="egg">egg</a></p>
+    <p><span class="copy-title">发布时间:</span>2018-05-07, 00:00:00</p>
+    <p><span class="copy-title">最后更新:</span>2024-09-22, 17:38:27</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/05/07/ProjectTools/webpack/" title="webpack">http://yoursite.com/2018/05/07/ProjectTools/webpack/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 yeg</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': [],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

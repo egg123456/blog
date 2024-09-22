@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>npm | egg</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="npm | egg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="web.js文档 https:&#x2F;&#x2F;web3.tryblockchain.org&#x2F;Web3.js-api-refrence.html  ethers.js文档地址 https:&#x2F;&#x2F;learnblockchain.cn&#x2F;docs&#x2F;ethers.js&#x2F;  ahooks https:&#x2F;&#x2F;ahooks.js.org&#x2F;zh-CN&#x2F;guide&#x2F;  ens 地址 https:&#x2F;&#x2F;ens.domains&#x2F;  js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="egg">
+<meta property="og:url" content="http://yoursite.com/2024/09/22/ProjectTools/temp/index.html">
+<meta property="og:site_name" content="egg">
+<meta property="og:description" content="web.js文档 https:&#x2F;&#x2F;web3.tryblockchain.org&#x2F;Web3.js-api-refrence.html  ethers.js文档地址 https:&#x2F;&#x2F;learnblockchain.cn&#x2F;docs&#x2F;ethers.js&#x2F;  ahooks https:&#x2F;&#x2F;ahooks.js.org&#x2F;zh-CN&#x2F;guide&#x2F;  ens 地址 https:&#x2F;&#x2F;ens.domains&#x2F;  js">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-09-22T09:38:25.186Z">
+<meta property="article:modified_time" content="2024-09-22T09:38:25.343Z">
+<meta property="article:author" content="egg">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>egg</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=2578597686&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(58)</small></div></li>
+    
+        
+            
+            <li><div data-rel="base">base<small>(9)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="OS">OS<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Other">Other<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="programming">programming<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="ProjectTools">ProjectTools<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="crossPlatform">crossPlatform<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="css">css<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="jsLibrary">jsLibrary<small>(11)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="node">node<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="protocol">protocol<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="backend">backend<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="shortcut">shortcut<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="58">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="base "
+           href="/2018/05/02/Base/Page-optimization/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Page-optimization">Page-optimization</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/SVG/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Svg">Svg</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/fileDownload/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fileDownload">fileDownload</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/formdata/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="formdata">formdata</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/fromBrowser/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fromBrowser">fromBrowser</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/html+css/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="html+css">html+css</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/04/Base/js-essentials/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JS - Essentials">JS - Essentials</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/04/Base/richText/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="richText">richText</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="base "
+           href="/2018/05/02/Base/urlEncode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="urlEncode">urlEncode</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/02/OS/jumpserver/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jumpserver">jumpserver</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/14/OS/registry/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="registry">registry</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/04/OS/make/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="make">make</span>
+            <span class="post-date" title="2018-05-04 00:00:00">2018/05/04</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/14/OS/shell/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="shell">shell</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="OS "
+           href="/2018/05/12/OS/ubuntu16-lamp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="搭建LAMP">搭建LAMP</span>
+            <span class="post-date" title="2018-05-12 00:00:00">2018/05/12</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/13/Other/PHP/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="php">php</span>
+            <span class="post-date" title="2018-05-13 00:00:00">2018/05/13</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/git/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git">Git</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/01/Other/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2018-05-01 00:00:00">2018/05/01</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/microFrontend/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="micro frontend">micro frontend</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/13/Other/mysql/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mysql">mysql</span>
+            <span class="post-date" title="2018-05-13 00:00:00">2018/05/13</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/02/Other/self-media/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="self-media">self-media</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2024/09/22/Other/vscode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2024-09-22 17:37:18">2024/09/22</span>
+        </a>
+        
+        <a  class="Other "
+           href="/2018/05/03/Other/webAssembly/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webAssembly">webAssembly</span>
+            <span class="post-date" title="2018-05-03 00:00:00">2018/05/03</span>
+        </a>
+        
+        <a  class="programming "
+           href="/2018/05/05/Programming/DesignPrincipleAndDesignMode/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Design principle and design mode">Design principle and design mode</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/11/ProjectTools/babel/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="babel">babel</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2024/09/22/ProjectTools/electron/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2024-09-22 17:38:24">2024/09/22</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2012/05/11/ProjectTools/docker/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker">Docker</span>
+            <span class="post-date" title="2012-05-11 00:00:00">2012/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/10/ProjectTools/eslint/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="eslint">eslint</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/09/ProjectTools/grunt/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="grunt">grunt</span>
+            <span class="post-date" title="2018-05-09 00:00:00">2018/05/09</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2022/05/11/ProjectTools/jsdoc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="jsdoc">jsdoc</span>
+            <span class="post-date" title="2022-05-11 00:00:00">2022/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/11/ProjectTools/ts/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ts">ts</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+        <a  class=""
+           href="/2024/09/22/ProjectTools/temp/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2024-09-22 17:38:25">2024/09/22</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2012/05/11/ProjectTools/vite/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vite">vite</span>
+            <span class="post-date" title="2012-05-11 00:00:00">2012/05/11</span>
+        </a>
+        
+        <a  class="ProjectTools "
+           href="/2018/05/07/ProjectTools/webpack/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webpack">webpack</span>
+            <span class="post-date" title="2018-05-07 00:00:00">2018/05/07</span>
+        </a>
+        
+        <a  class="crossPlatform "
+           href="/2018/05/18/crossPlatfrom/uni-app/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="uni-app">uni-app</span>
+            <span class="post-date" title="2018-05-18 00:00:00">2018/05/18</span>
+        </a>
+        
+        <a  class="css "
+           href="/2018/05/06/cssLibrary/bootstrap3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="bootstrap3">bootstrap3</span>
+            <span class="post-date" title="2018-05-06 00:00:00">2018/05/06</span>
+        </a>
+        
+        <a  class="css "
+           href="/2018/05/06/cssLibrary/bootstrap4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="bootstrap4">bootstrap4</span>
+            <span class="post-date" title="2018-05-06 00:00:00">2018/05/06</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/dva/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="dva">dva</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/echarts/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="echarts">echarts</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/fabric/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Fabric">Fabric</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/02/jsLibrary/laya/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="laya">laya</span>
+            <span class="post-date" title="2018-05-02 00:00:00">2018/05/02</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/mockjs/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mockjs">mockjs</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/10/jsLibrary/moment/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="moment">moment</span>
+            <span class="post-date" title="2018-05-10 00:00:00">2018/05/10</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/express/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="node express">node express</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/npm/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="npm">npm</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="node "
+           href="/2018/05/08/node/node/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="node">node</span>
+            <span class="post-date" title="2018-05-08 00:00:00">2018/05/08</span>
+        </a>
+        
+        <a  class="protocol "
+           href="/2018/05/05/protocol/fileTransferProtocol/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="fileTransferProtocol">fileTransferProtocol</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="protocol "
+           href="/2018/05/05/protocol/http%E5%8F%8A%E5%90%84%E5%8D%8F%E8%AE%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="http及各协议">http及各协议</span>
+            <span class="post-date" title="2018-05-05 00:00:00">2018/05/05</span>
+        </a>
+        
+        <a  class="backend "
+           href="/2022/05/02/py/py/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="python">python</span>
+            <span class="post-date" title="2022-05-02 00:00:00">2022/05/02</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/chrome-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="chrom-shortcutKeys">chrom-shortcutKeys</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/linux-command-line/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux-command-line">linux-command-line</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/excel-shortcut/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="excel-shortcut">excel-shortcut</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/webstorm-ShortcutKeys/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="webstorm-shortcutKeys">webstorm-shortcutKeys</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="shortcut "
+           href="/2018/05/14/shortcut/windows-command-line/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="windows-command-line">windows-command-line</span>
+            <span class="post-date" title="2018-05-14 00:00:00">2018/05/14</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/react/react/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="react">react</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/react/react-router/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="react-router">react-router</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/react/redux/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="redux">redux</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2022/05/10/jsLibrary/vue/vue3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vue3">vue3</span>
+            <span class="post-date" title="2022-05-10 00:00:00">2022/05/10</span>
+        </a>
+        
+        <a  class="jsLibrary "
+           href="/2018/05/11/jsLibrary/vue/vue-router/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vue-router">vue-router</span>
+            <span class="post-date" title="2018-05-11 00:00:00">2018/05/11</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-node/npm" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">npm</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="node">node</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2024-09-21 21:55:06'>2018-05-08 00:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#npm-command"><span class="toc-text">npm command</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#publish-package-comand"><span class="toc-text">publish package comand</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-install-run-map"><span class="toc-text">npm install run map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#yarn"><span class="toc-text">yarn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="toc-text">版本的格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#version"><span class="toc-text">~version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#version-1"><span class="toc-text">^version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E6%A0%87%E7%AD%BE"><span class="toc-text">版本标签</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#yarn-1"><span class="toc-text">yarn</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><a href="/2018/05/08/node/">node</a> <a href="http://www.jianshu.com/p/1aa925e3f0d6">nvm</a> <a href="http://www.fly63.com/article/detial/2636">NPM版本控制</a></p>
+</blockquote>
+<h1 id="npm-command"><a href="#npm-command" class="headerlink" title="npm command"></a>npm command</h1><table>
+<thead>
+<tr>
+<th>command</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$ npm init</td>
+<td>创建package.json</td>
+</tr>
+<tr>
+<td>$ npm install</td>
+<td>安装package.json中的依赖模块</td>
+</tr>
+<tr>
+<td>$ npm install packagename@latest</td>
+<td>安装最新模块</td>
+</tr>
+<tr>
+<td>$ npm install <a href="mailto:&#x70;&#97;&#x63;&#x6b;&#97;&#x67;&#x65;&#110;&#97;&#x6d;&#101;&#x40;&#48;&#x2e;&#x30;&#x2e;&#x31;">&#x70;&#97;&#x63;&#x6b;&#97;&#x67;&#x65;&#110;&#97;&#x6d;&#101;&#x40;&#48;&#x2e;&#x30;&#x2e;&#x31;</a></td>
+<td>安装指定版模块</td>
+</tr>
+<tr>
+<td>$ npm ls packgename</td>
+<td>查看本地模块的版本a</td>
+</tr>
+<tr>
+<td>$ npm view <a href="mailto:&#x70;&#97;&#x63;&#x6b;&#97;&#x67;&#x65;&#110;&#x61;&#x6d;&#101;&#x40;&#x34;&#46;&#x33;&#x2e;&#49;">&#x70;&#97;&#x63;&#x6b;&#97;&#x67;&#x65;&#110;&#x61;&#x6d;&#101;&#x40;&#x34;&#46;&#x33;&#x2e;&#49;</a></td>
+<td>查看模块指定版本的依赖等信息</td>
+</tr>
+<tr>
+<td>$ npm view packagename repository.url</td>
+<td>查看模块的原文加地址</td>
+</tr>
+<tr>
+<td>$ npm list</td>
+<td>查看已安装的模块(-g 可查看全局已安装的模块)</td>
+</tr>
+<tr>
+<td>$ npm list –depth&#x3D;0 packagename</td>
+<td>限制输入的模块层级和模块</td>
+</tr>
+<tr>
+<td>$ npm root -g</td>
+<td>查看全局包的安装目录</td>
+</tr>
+<tr>
+<td>$ npm install packagename –save 或 -S</td>
+<td>安装模块并把模块的版本信息保存到dependencies（生产环境依赖）中，即你的package.json文件的dependencies字段中；</td>
+</tr>
+<tr>
+<td>$ npm install packagename –save-dev 或 -D</td>
+<td>安装模块并把模块版本信息保存到devDependencies（开发环境依赖）中，即你的package.json文件的devDependencies字段中；</td>
+</tr>
+<tr>
+<td>$ npm install packagename –save-optional 或 -O</td>
+<td>安装模块并把把模块安装到optionalDependencies（可选环境依赖）中，即你的package.json文件的optionalDependencies字段中。</td>
+</tr>
+<tr>
+<td>$ npm uninstall packagename</td>
+<td>删除包</td>
+</tr>
+</tbody></table>
+<h2 id="publish-package-comand"><a href="#publish-package-comand" class="headerlink" title="publish package comand"></a>publish package comand</h2><table>
+<thead>
+<tr>
+<th>command</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>npm login</td>
+<td>login npm register</td>
+</tr>
+<tr>
+<td>npm publish –access&#x3D;public</td>
+<td>以公有模式发布以私有方式命名的包</td>
+</tr>
+<tr>
+<td>npm version [newversion, major, minor, patch]</td>
+<td>变更包的版本</td>
+</tr>
+<tr>
+<td>npm publish –tag beta ｜ 发布测试版</td>
+<td></td>
+</tr>
+<tr>
+<td>npm unpublish –force packageName</td>
+<td>delete package</td>
+</tr>
+<tr>
+<td>npm link</td>
+<td>为本地项目生成全局链接、在用户bin录下生成项目命令软链 &#x2F;usr&#x2F;local&#x2F;bin&#x2F;custom-command -&gt; &#x2F;usr&#x2F;local&#x2F;lib&#x2F;node_modules&#x2F;bintest&#x2F;bin&#x2F;index.js</td>
+</tr>
+<tr>
+<td>&#x2F;usr&#x2F;local&#x2F;lib&#x2F;node_modules&#x2F;bintest -&gt; &#x2F;Users&#x2F;zcy&#x2F;Documents&#x2F;doc&#x2F;package&#x2F;bintest</td>
+<td></td>
+</tr>
+<tr>
+<td>npm link packageName</td>
+<td>当前项目使用本地包的全局链接</td>
+</tr>
+<tr>
+<td>npm unlink packageName ｜ 当前项目删除本地包的全局链接</td>
+<td></td>
+</tr>
+<tr>
+<td>npm ls –global –depth 0</td>
+<td>查看所有全局链接</td>
+</tr>
+<tr>
+<td>sudo npm rm –global packageName ｜ 强制解除某个全局链接</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="npm-install-run-map"><a href="#npm-install-run-map" class="headerlink" title="npm install run map"></a>npm install run map</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: Start</span><br><span class="line">op1=&gt;operation: 检查和获取 npm的配置，这里的优先级为项目的.mpmrc文件 &gt; 用户级的 &gt; 全局级的 &gt; npm内置的.npmrc文件</span><br><span class="line">hasLockFile=&gt;condition: 检查项目中是否有package-lock.json文件</span><br><span class="line">unanimous=&gt;condition: 检查package.json 与 package-lock.json文件 是否一致</span><br><span class="line">op2=&gt;operation: 一致，直接使用lock文件中的信息，从网络或缓存中加载依赖</span><br><span class="line">op3=&gt;operation: 没有lock文件，则根据package.json 递归构建依赖树，然后根据依赖树加载依赖</span><br><span class="line">op4=&gt;operation: 生成lock文件</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line">st-&gt;op1-&gt;hasLockFile(yes)-&gt;unanimous(yes)-&gt;op2-&gt;e</span><br><span class="line">hasLockFile(no)-&gt;op3-&gt;op4-&gt;e</span><br><span class="line">unanimous(no)-&gt;op3-&gt;op4-&gt;e</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op1</span><br></pre></td></tr></table></figure>
+
+<h2 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: Start</span><br><span class="line">checkProject=&gt;operation: 检测当前项目配置与系统os、cup信息</span><br><span class="line">parsePackage=&gt;operation: 会以首层依赖为根，遍历获取跟多层级的依赖信息</span><br><span class="line">InCache=&gt;condition: 检查缓存是否有依赖包</span><br><span class="line">noInCache=&gt;operation: 没有就将依赖包下载到缓存目录</span><br><span class="line">getPackage=&gt;operation: 从缓存中拷贝依赖到项目的node_modules</span><br><span class="line">e=&gt;end</span><br><span class="line">st-&gt;checkProject-&gt;parsePackage-&gt;InCache(no)-&gt;noInCache-&gt;getPackage-&gt;e</span><br></pre></td></tr></table></figure>
+
+<h2 id="版本的格式"><a href="#版本的格式" class="headerlink" title="版本的格式"></a>版本的格式</h2><p>major.minor.patch-tags<br>主版本号.次版本号.修补版本号-标签或扩展<br>patch：修复bug，兼容老版本<br>minor：新增功能，兼容老版本<br>major：新的架构调整，不兼容老版本<br>tags：来说明是预发布版本或者测试版本等</p>
+<h3 id="version"><a href="#version" class="headerlink" title="~version"></a>~version</h3><p>~ 版本号 —– 指定主版本号或者次版本号相同</p>
+<ul>
+<li><p>只含主版本 — 主版本相同；</p>
+</li>
+<li><p>含有次版本 — 主版本和次版本号相同</p>
+<ul>
+<li><p>~1.1.2，表示&gt;&#x3D;1.1.2 &lt;1.2.0，可以是1.1.2，1.1.3，1.1.4，…..，1.1.n</p>
+</li>
+<li><p>~1.1，表示&gt;&#x3D;1.1.0 &lt;1.2.0，可以是同上</p>
+</li>
+<li><p>~1，表示&gt;&#x3D;1.0.0 &lt;2.0.0，可以是1.0.0，1.0.1，1.0.2，…..，1.0.n，1.1.n，1.2.n，…..，1.n.n</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="version-1"><a href="#version-1" class="headerlink" title="^version"></a>^version</h3><p>^ 版本号 —– 第一个非零 版本号相同</p>
+<ul>
+<li><p>^1.1.2 ，表示&gt;&#x3D;1.1.2 &lt;2.0.0，可以是1.1.2，1.1.3，…..，1.1.n，1.2.n，…..，1.n.n</p>
+</li>
+<li><p>^0.2.3 ，表示&gt;&#x3D;0.2.3 &lt;0.3.0，可以是0.2.3，0.2.4，…..，0.2.n</p>
+</li>
+<li><p>^0.0，表示 &gt;&#x3D;0.0.0 &lt;0.1.0，可以是0.0.0，0.0.1，…..，0.0.n</p>
+</li>
+</ul>
+<h3 id="版本标签"><a href="#版本标签" class="headerlink" title="版本标签"></a>版本标签</h3><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>意义</th>
+<th>补充</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>demo</td>
+<td>demo版本</td>
+<td>可能用于验证问题的版本</td>
+</tr>
+<tr>
+<td>dev</td>
+<td>开发版</td>
+<td>开发阶段用的，bug 多，体积较大等特点，功能不完善</td>
+</tr>
+<tr>
+<td>alpha</td>
+<td>α版本</td>
+<td>用于内部交流或者测试人员测试，bug较多</td>
+</tr>
+<tr>
+<td>beta</td>
+<td>测试版(β版本)</td>
+<td>较α版本，有较大的改进，但是还是有bug</td>
+</tr>
+<tr>
+<td>gamma</td>
+<td>（γ）伽马版本</td>
+<td>较α和β版本有很大的改进，与稳定版相差无几，用户可使用</td>
+</tr>
+<tr>
+<td>trial</td>
+<td>试用版本</td>
+<td>本软件通常都有时间限制，过期之后用户如果希望继续使用，一般得交纳一定的费用进行注册或购买。有些试用版软件还在功能上做了一定的限制。</td>
+</tr>
+<tr>
+<td>stable</td>
+<td>稳定版</td>
+<td></td>
+</tr>
+<tr>
+<td>csp</td>
+<td>内容安全装版</td>
+<td>js库常用</td>
+</tr>
+<tr>
+<td>latest</td>
+<td>最新版本</td>
+<td>不指定版本和标签，默认安装新版</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="yarn-1"><a href="#yarn-1" class="headerlink" title="yarn"></a>yarn</h1><table>
+<thead>
+<tr>
+<th>command</th>
+<th>discription</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>yarn init</td>
+<td>初始化项目</td>
+</tr>
+<tr>
+<td>yarn add packgename</td>
+<td>添加依赖包</td>
+</tr>
+<tr>
+<td>yarn upgrade packagename</td>
+<td>升级依赖包</td>
+</tr>
+<tr>
+<td>yarn remove packgename</td>
+<td>移除依赖包</td>
+</tr>
+<tr>
+<td>yarn &#x2F; yarn install</td>
+<td>安装项目全部依赖</td>
+</tr>
+<tr>
+<td>yarn run start</td>
+<td>运行packge.json中定义的脚本</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Dependency category</th>
+<th>discription</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>yarn add [package] –dev</td>
+<td>devDependencies</td>
+</tr>
+<tr>
+<td>yarn add [package] –peer</td>
+<td>peerDependencies</td>
+</tr>
+<tr>
+<td>yarn add [package] –optional</td>
+<td>optionalDependencies</td>
+</tr>
+</tbody></table>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 2578597686p@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>npm</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="egg">egg</a></p>
+    <p><span class="copy-title">发布时间:</span>2018-05-08, 00:00:00</p>
+    <p><span class="copy-title">最后更新:</span>2024-09-21, 21:55:06</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/05/08/node/npm/" title="npm">http://yoursite.com/2018/05/08/node/npm/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 yeg</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': [],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
