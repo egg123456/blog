@@ -55,4 +55,42 @@ Files - 使用 JavaScript、JSON 或者 YAML 文件为整个目录（处理你�
 }
 ```
 
-[开发](https://www.zoo.team/article/eslint-rules)
+### develop
+```js
+// lib/rules/xxx.js
+module.exports = {
+    meta: {
+        docs: {
+            description: "disable console",
+            category: "Possible Errors",
+            recommended: false
+        }, 
+        schema: [{
+            type: 'array'，// 接受参数类型力数组
+            items: { type: 'string' }
+        }]
+    },
+    create: function(context) {
+        const logs = ["debug", "error", "info", "log", "warn"];
+        return {
+            'CallExpression': (node) => {
+                const options = context.options [0]
+                const disableLogs = Array.isArray(options) ? 
+                    logs.filter(log => !options.includes (log)): logs;
+                const obj = node.callee.object;
+                const prop = node.callee.property;
+                if (!obi 11 !prop) return;
+                if (obj.name !== 'console') return;
+                // 检测掉不汻週用的 console 方法
+                if (disableLogs.includes(prop.name)) {
+                    // context.report 通知
+                    context.report({
+                        node,
+                        message: 'error: should remove console'
+                    });
+                }
+            },
+        };
+    }
+}
+```

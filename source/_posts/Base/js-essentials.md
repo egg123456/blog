@@ -60,15 +60,15 @@ categories:
 
 + Array的length属性不是只读的，所以他有修改数组的功能，修改其值数组会自行增加undefined或移除已有值
 
-+ Array迭代方法：arr.every(fn) arr.some(fn) arr.fliter(fn) arr.map(fn) arr.foreach(fn)
++ Array迭代方法：arr.every(fn) arr.some(fn) arr.filter(fn) arr.map(fn) arr.forEach(fn)
 
 + Array归并方法：arr.reduce(fn) 前两项操作完后的结果在与下一项操作
 ------
 ## regexp
-+ 实例属性：gim、lastindex、source
++ 实例属性：gim、lastIndex、source
 + 实例方法：注意.exec()返回的数组对象
 + 过早函数属性：其属性包含了正则对象使用的具体信息，他们基于所有正则对象所执行的最近一次操作而变化 eg Regexp.input表示最近一次要匹配的字符串
-+ 由于gim表全局匹配lastindex属性表示下一次匹配的开始位置--因此引发实例属性不重置问题
++ 由于gim表全局匹配lastIndex属性表示下一次匹配的开始位置--因此引发实例属性不重置问题
 
 ## 机制
 + 函数机制
@@ -101,3 +101,23 @@ categories:
 ```
 
 
+## XHR, axios, fetch
+### XHR
+访问和操作 HTTP 管道（发出HTTP请求与接收HTTP响应），是解决动态网页的技术方案
+
+### axios
+Axios是一个基于promise的HTTP库，可以用在浏览器和 node.js 中。他本质也是对原生XMLHttpRequest的封装，只不过是promise的实现版本，符合最新的ES规范。
+优点：
+支持 Promise API
+支持取消请求（超时控制或主动取消）
+检测请求进度
+
+### fetch
++ 优点
+fetch更加底层，提供的API丰富（request和response）
+fetch基于标准promise实现，支持async/await
++ 缺点
+只有网络错误（如断网）才会调用reject，而对404、500这种错误并不会reject
+默认不会带cookie，需要添加配置项：fetch(url, { credentials: 'include' })
+不支持abort，不支持超时控制或主动取消（XHR支持xhr.ontimeout超时自动取消，也支持xhr.abort()主动取消请求）
+无法检测请求的进度（XHR可以）

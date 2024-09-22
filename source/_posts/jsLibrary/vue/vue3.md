@@ -70,3 +70,12 @@ export default {
 }
 </script>
 ```
+
+## 响应式
+reactive 响应式实现原理是proxy
+ref 当属为基本类型时，使用getter、setter劫持。为引用类型时通过reactive创建响应式
+
+### ref与reactive的不同
+1. ref 主要用于包装基础数据类型（如字符串、数字、布尔），当数据是个数组或对象时，该数组将通过 reactive 转为具有深层次响应式。
+2. ref 返回一个对象（RefImpl），该对象中 value 属性为数据的值，读取或修改该值时，必须通过该对象的 value 属性，但在模板中使用时，直接调用，不能加 value，vue3已经帮我们处理了
+3. reactive 只能包装部分引用类型（如数组、对象），且具有深层次响应式。

@@ -118,6 +118,22 @@ mySearch = function(src: string, sub: string): boolean {
   return result > -1;
 }
 
+// 构造函数
+interface Point {
+  new (x: number, y: number): Point;
+  x: number;
+  y: number;
+}
+class Point2D implements Point {
+  readonly x: number;
+  readonly y: number;
+
+  constructor(x: number, y: number) {
+    this.x = x;
+    this.y = y;
+  }
+}
+
 // 可索引类型
 interface StringArray {
   readonly [index: number]: string; // 索引只读 禁止给索引赋值 如 myArray[0] = 'egg'
@@ -168,11 +184,13 @@ interface Foo {
   age: number
 }
 
+// keyof 操作符是在 TypeScript 2.1 版本引入的，该操作符可以用于获取某种类型的所有键，其返回类型是联合类型
 type T =  keyof Foo
 type Keys = "name" | "sex";
 
 
 type Obj = {
+  // in 操作符用于遍历目标类型的公开属性名。类似for ...in
   [p in Keys]: p extends T ? Foo[p] : never
 }
 
@@ -181,6 +199,24 @@ const obj: Obj = {
   sex: true,
   age: 520, // age does not exist in type Obj
 }
+
+// typeof 用于获取目标变量的类型
+const objOne: typeof obj = {
+  name: 'yeg',
+  sex: false,
+}
+
+// infer 表示在 extends 条件语句中待推断的类型变量
+// 在下面的第一条类型语句中 infer P 表示待推断的函数参数, 如果 T 能赋值给 (arg: infer P) => any，则结果是 (arg: infer P) => any 类型中的参数 P，否则返回为 T。
+/**
+ * Obtain the parameters of a function type in a tuple
+ */
+type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never;
+
+/**
+ * Obtain the return type of a function type
+ */
+type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any;
 
 // 封装
 type Pick<T, k extends keyof T> = {
