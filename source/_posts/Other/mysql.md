@@ -70,6 +70,16 @@ rename table <oldTableName> to <newTableName>
 
 CREATE USER 'egg'@'localhost' IDENTIFIED BY 'password';
 GRANT SELECT ON test.* TO 'egg'@'localhost';
+<!-- modify password -->
+ALTER USER root@localhost IDENTIFIED BY 'new_password';
+<!-- modify password IDENTIFIED-->
+ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'qwer1234';
+<!-- refresh PRIVILEGES -->
+FLUSH PRIVILEGES;
+
+
+### plugin
+INSTALL PLUGIN pluginName SONAME pluginName.os;
 
 
 ### timezone
@@ -149,6 +159,8 @@ LONGTEXT | 0-4 294 967 295 bytes | 极大文本数据
     + 如果是本机操作，其中 -h localhost -P 3306 可以不需要
     + -P 参数，是大P，且有空格；不同于后面密码的小p，没有空格
 
+# import data
+source test.sql
 
 # 事务
 ### 事务的ACID原则
@@ -165,3 +177,39 @@ D/Durability：持久性
 
 
 ## tool all-mysql-client 
+
+
+# my.ini database config file
+```txt
+[mysqld]
+; 设置3306端口
+port=3306
+; 设置mysql的安装目录
+basedir=D:\programFile\mysql-9.0.1-winx64
+; 设置mysql数据库的数据的存放目录
+datadir=D:\programFile\mysql-data
+; 允许最大连接数
+max_connections=200
+; 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统
+max_connect_errors=10
+; 服务端使用的字符集默认为UTF8
+character-set-server=utf8
+; 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+; 默认使用“mysql_native_password”插件认证
+default_authentication_plugin=mysql_native_password
+[mysql]
+; 设置mysql客户端默认字符集
+default-character-set=utf8
+[client]
+; 设置mysql客户端连接服务端时默认使用的端口
+port=3306
+default-character-set=utf8
+```
+
+ root@localhost: tLibUX(sT1BB
+
+ D:\doc\myApp\text.sql
+
+
+ INSTALL PLUGIN mysql_native_password SONAME 'mysql_native_password.so';
