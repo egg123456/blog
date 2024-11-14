@@ -218,6 +218,17 @@ type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) 
  */
 type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any;
 
+// 提取数组元素类型
+type TYPE2<T> = T extends Array<infer U> ? U : T;
+type A = TYPE2<string>; // string
+type B = TYPE2<string[]>; // string
+type C = TYPE2<(string | number)[]>; // string | number
+
+// 提取对象属性类型
+type PropertyType<T> = T extends { id: infer U, name: infer R } ? [U, R] : T;
+type User = { id: number; name: string; };
+type UserProperties = PropertyType<User>; // [number, string]
+
 // 封装
 type Pick<T, k extends keyof T> = {
   [p in k]: T[p]
@@ -269,3 +280,19 @@ type Record<K extends string | number | symbol, T> = {
   ]
 }
 ```
+
+### .d.ts and .ts
+#### 用途和功能
+1. .ts文件‌：
+
++ 用途‌：.ts文件是TypeScript的源代码文件，包含实际的可执行代码和类型注解。这些文件会被TypeScript编译器编译成JavaScript，然后在支持JavaScript的环境中运行。
++ ‌功能‌：.ts文件可以包含函数、类、接口、类型别名、变量声明等所有TypeScript的语法结构‌12。
+
+2. .d.ts文件‌：
+
++ 用途‌：.d.ts文件是TypeScript的声明文件，专门用来定义类型信息，不包含任何可执行代码。这些文件提供类型信息，帮助TypeScript编译器理解没有类型信息的代码库（如纯JavaScript库）的结构。
++ 功能‌：.d.ts文件通常包含类型声明，如接口、类型别名、命名空间、模块声明等，但不会包含实现细节。它们不会被编译器编译成JavaScript，而是用于静态类型检查和编辑器的智能感知（如自动补全、跳转到定义等）‌12。
+
+#### 使用场景
++ ‌.ts文件‌：主要用于编写实际的程序代码，包含可执行逻辑和类型注解。
++ ‌.d.ts文件‌：主要用于为没有类型信息的代码库（如纯JavaScript库）提供类型信息，以便在TypeScript环境中进行静态类型检查和智能提示。

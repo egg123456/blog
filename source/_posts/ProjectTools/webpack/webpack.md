@@ -7,29 +7,30 @@ categories:
 
 > 本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。
 
-# repuire and import
+# module function
+## require and import
 + let { stat, exists, readFile } = require('fs'); 
 整体加载fs模块（即加载fs所有方法），生成一个对象"_fs"，然后再从这个对象上读取三个方法，这叫“运行时加载”，因为只有运行时才能得到这个对象，不能在编译时做到静态化。
 + import { stat, exists, readFile } from 'fs';
 从fs加载“stat, exists, readFile” 三个方法，其他方法不加载，
 tips: import命令具有提升效果，会提升到整个模块的头部，首先执行。（是在编译阶段执行的）因为import是静态执行的，不能使用表达式和变量，即在运行时才能拿到结果的语法结构（e.g. if...else...）所以不能实现按需加载
 
-# export and export default
+## export and export default
 export时，使用import导入，都需要知道模块中所要加载的变量名或函数名，用户可能不想阅读源码，只想直接使用接口，就可以用export default命令
 tips：export default 一般用于导出一个function或class（如：react 的组件与reducer)
 
-# import()
+## import()
 解决import按需加载问题
 ```js
 if (condition) {
   import('moduleA').then(...);
 } else {
   import('moduleB').then(...);
-}
+}D
 ```
 
-# webpack require 多模块导入
-## require.context(directory, useSubdiruseectories, regExp) 
+## webpack提供的多模块导入
+require.context(directory, useSubDirUseActories, regExp) 
 useSubdiruseectories决定是否遍历子目录，regExP匹配文件的正则
 ```js
 var r = require.context('./', true, process.env.NODE_ENV === 'production' ? /^\.\/(?!demo\/)[a-z\-]+\/index\.js$/ : /^\.\/[a-z\-]+\/index\.js$/) //返回function
@@ -38,22 +39,27 @@ r.keys().forEach(key => {   //r.keys()返回匹配成功模块的名字组成的
     }); 
 ```
 
-# install
-$ cnpm install webpack -g
-
-### four core concepts
+# four core concepts
 1. 入口(entry)：哪里作为关系图的起点
 2. 输出(output)：属性告诉 webpack 在哪里输出它所创建的 bundles
 3. loader：loader 可以将所有类型的文件转换为 webpack 能够处理的有效模块，然后你就可以利用 webpack 的打包能力，对它们进行处理。
 4. 插件(plugins)：用来处理各种各样的任务
 
-### deploy
+# getting start
+```shell
+npm install webpack -g
+```
+
+## config
 ```js
-//app/webpack.config.js 文件
+// webpack.config.js 文件
 const webpack = require('webpack');
-const {DefinePlugin, HashedModuleIdsPlugin} = webpack;//webpack内置插件
+//webpack内置插件
+const {DefinePlugin, HashedModuleIdsPlugin} = webpack;
+// 读取版本
 const {version} = require('../package.json');
-const options = {env: 'dev'}
+/** 设置环境等选项 */
+const options = { env: 'dev'}
  
 module.exports = {
     // target: 'web', //构建目标，默认web，编译为类浏览器环境里可用
@@ -65,6 +71,8 @@ module.exports = {
         filename : '[name].js',//这样就可以生成两个js文件, 名字分别为index1.js, 和index2.js
         chunkFilename: options.env === 'dev' ? `chunks/[name].js?v=[chunkhash:6]` : `s/[name].js?v=[chunkhash:6]_${v.localVersion}`
     },
+    // 设置 devtool = 'source-map' 即可同时打包出代码产物 xxx.js 文件与同名 xxx.js.map 文件，Map 文件通常为 JSON 格式
+    devtool: 'source-map',
     module: {//loader css jpg。。
         loaders: [
             { test: /\.css$/, loader: "style-loader!css-loader" },
@@ -75,8 +83,45 @@ module.exports = {
         // 项目中的 __VERSION__ 替换为 version 值
         new DefinePlugin({
             "__VERSION__": JSON.stringify(version)
+        }),
+        // 入口html文件输出（自动创建包含打包后的js的index.html）
+        new HtmlWebpackPlugin({
+          title: '管理输出',
+        }),
+        // 配置CommonsChunkPlugin插件来提取出多个入口文件共同依赖的部分，形成一个公共模块
+        new webpack.optimize.CommonsChunkPlugin({
+          name: 'common', // 指定公共模块的名称
+          filename: 'common.bundle.js', // 输出的公共模块文件名
         })
     ],
+    optimization: {
+      // 代码分割
+      splitChunks: {
+        chunks: 'async', // 只对异步请求的块进行分割
+        minSize: 30000, // 最小块大小（以字节为单位）
+        maxSize: 0, // 最大块大小（以字节为单位），0表示不限制
+        minChunks: 1, // 最小共享次数
+        maxAsyncRequests: 5, // 最大异步请求数
+        maxInitialRequests: 3, // 最大初始化请求数
+        automaticNameDelimiter: '~', // 分割后的块名称分隔符
+        name: true, // 是否使用块名称
+        cacheGroups: {
+          vendors: {
+            test: /[\\/]node_modules[\\/]/, // 匹配node_modules目录下的文件
+            priority: -10 // 优先级
+          },
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true // 如果已经有了一个共享的块，就复用它
+          }
+        }
+      }
+    },
+    // externals选项来指定某些模块是外部依赖，不需要打包进bundle文件中。这通常用于引入CDN或者全局变量形式的库。
+    externals: {
+      jquery: 'jquery',
+    },
     resolve:{
         // 告诉 webpack 解析模块时应该搜索的目录(默认["node_modules"])
         modules: ["node_modules", "custom_modules"],
@@ -203,37 +248,6 @@ server.listen(8080, '127.0.0.1', () => {
 3. 避免引而不用 tree-shaking
 
 
-## webpack 5 类 hook
-1. compiler类hook
-run
-compiler
-compilation
-shouldEmit
-emit
-done
-2. compilation类hook
-buildModule
-succeedModule
-finishModules
-normalModuleLoader
-3. ContextModuleFactory类hook
-beforeResolve
-afterResolve
-createModule
-module
-4. NormalModuleFactory类hook
-beforeResolve
-afterResolve
-createModule
-module
-5. JavascriptParser类hook
-import
-call
-
-
-## plugin
-1. webpack规定插件必须是一个javascript对象，且对象上必须有一个apply方法，这个apply方法会在webpack进行编译的时候进行调用.
-
 ## webpack hot module replace
 1. 在配置中配置启用webpack热替换
 
@@ -243,41 +257,4 @@ if (module.hot) {
   module.hot.accept(); // 当前文件即依赖模块变更后都会热替换
   // module.hot.accept('./child.js'); // 当./child.js文件即依赖模块变更后都会热替换
 }
-```
-
-
-### __webpack_require__
-1. __webpack_require__
-```mermaid
-flowchart TD
-  receiptModuleId(接收moduleId)
-  ifCachedModule{"__webpack_module_cache__中否缓存了模块"}
-  useCachedModule{"直接使用__webpack_module_cache__中已缓存的模块"}
-  definedModule("通过moduleId定义一个空模块并放入到__webpack_module_cache__[moduleId]")
-  executeStringCode("执行__webpack_module__[moduleId], 传入__webpack_require__和刚刚定义的空模块，再通过eval执行模块的字符串代码，将模块导出内容赋值给定义的空模块的module.exports, 完成模块缓存")
-  returnModuleContent("将模块内容返回，完成__webpack_require__")
-  executeEnd(end)
-
-  receiptModuleId-->ifCachedModule--YES-->definedModule-->executeStringCode-->returnModuleContent-->executeEnd
-  ifCachedModule--NO-->useCachedModule-->executeEnd
-```
-
-2. __webpack_require__.e
-```mermaid
-flowchart TD
-  receiptModuleId(接收moduleId)
-  definedAcceptArr(定义模块加载promise的接收数组)
-  ifCachedModule{"installedChunks中否已经存在了模块加载promise"}
-  useLoadPromise{"将installedChunks[moduleId][2]（即模块加载的promise）数据放入接收数组"}
-  definedLoadModulePromise(定义promise将其赋值给installedChunks和接收数组)
-  ifLoadingModule{"inProgress[moduleId]是否已经存在（即模块已经在加载中了）"}
-  notInProgress["inProgress[moduleId] = [done]"]
-  yesInProgress["存在则将回调push进inProgress[moduleId]"]
-  executeStringCode("执行_webpack_require__.l，其内通过script标签加载远程模块内容")
-  returnModuleContent("模块内容返回后，执行模块对应的所有回调")
-  executeEnd(end)
-
-  receiptModuleId-->definedAcceptArr-->ifCachedModule--NO-->definedLoadModulePromise-->ifLoadingModule--NO-->notInProgress-->executeStringCode-->returnModuleContent-->executeEnd
-  ifCachedModule--YES-->useLoadPromise-->returnModuleContent
-  ifLoadingModule--YES-->yesInProgress-->returnModuleContent
 ```

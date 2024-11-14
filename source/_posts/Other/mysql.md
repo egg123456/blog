@@ -40,6 +40,7 @@ CREATE TABLE <tableName>(
     > sex int(4) not null default '0',
     > PRIMARY KEY (id)
 );
+create table algorithm (id int(10) not null auto_increment, titleDesc TEXT not null, inputDesc TEXT not null, outputDesc TEXT not null, useCase TEXT not null, titleAnalysis TEXT not null, code TEXT not null, PRIMARY KEY (id));
 
 select table_name from information_schema.tables where table_schema='csdb' and table_type='base table';
 
@@ -213,3 +214,5 @@ default-character-set=utf8
 
 
  INSTALL PLUGIN mysql_native_password SONAME 'mysql_native_password.so';
+
+D:\doc\myApp\text.sql
