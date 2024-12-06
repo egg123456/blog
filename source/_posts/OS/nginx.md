@@ -37,12 +37,46 @@ sudo systemctl restart nginx
 
 ### nginx config
 ```shell
-server {
-  listen 80;
-	server_name www.egg.com;
+events {}
 
-	location / {
-		proxy_pass http://localhost:4000
+http {
+	server {
+		listen 80;
+		# server_name www.egg.com;
+
+		location /api/ {
+			proxy_pass http://express-server:4000/api/;
+			proxy_http_version 1.1;
+			proxy_set_header Upgrade $http_upgrade;
+			proxy_set_header Connection 'upgrade';
+			proxy_set_header Host $host;
+			proxy_cache_bypass $http_upgrade;
+		}
+		location /view/ {
+			proxy_pass http://express-server:4000/view/;
+			proxy_http_version 1.1;
+			proxy_set_header Upgrade $http_upgrade;
+			proxy_set_header Connection 'upgrade';
+			proxy_set_header Host $host;
+			proxy_cache_bypass $http_upgrade;
+		}
+		# 单页应用独立文件夹nginx代理配置
+		location /devView/ {
+			alias /usr/share/nginx/html/devView/;
+			index index.html index.htm;
+			try_files $uri $uri/ /devView/index.html;
+		}
+		location /users/ {
+			proxy_pass http://express-server:4000/users/;
+			proxy_http_version 1.1;
+			proxy_set_header Upgrade $http_upgrade;
+			proxy_set_header Connection 'upgrade';
+			proxy_set_header Host $host;
+			proxy_cache_bypass $http_upgrade;
+		}
+		location / {
+			root /usr/share/nginx/html;
+		}
 	}
 }
 ```

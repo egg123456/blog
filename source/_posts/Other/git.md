@@ -218,9 +218,16 @@ $ git remote add origin https://github.com/egg123456/egg.git
 $ git push -u origin master
 ```
 
+## clone
+```shell
+git clone https://github.com/egg123456/egg.git
+# 或
+git clone git@github.com:egg123456/egg.git
+```
+
 # 远程库
 ```bash
-$ git reomte add origin https://github.com/egg123456/egg.git 
+$ git remote add origin https://github.com/egg123456/egg.git 
 $ git remote rm origin      //移除远程库
 $ git remote rename origin origin_blog      //重命名远程库
 $ git remote show origin_blog     //远程库信息

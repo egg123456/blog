@@ -42,3 +42,23 @@ tips：主要区别在于useRef的改变不会导致组件重新渲染
 tips1: 当set函数传入的更新值==原值时，不触发组件更新
 tips2: 直接修改state值不会触发组件更新，但state值是修改成功的
 
+
+## React中super()和super(props)的区别
+不传props时，组件props不会被挂在 this 上，但react内部
+```js
+// react 内部
+const instance = new YourComponent(props);
+instance.props = props;
+```
+所以实际的区别只有在构造函数执行期间使用 this.props 为 undefined
+```js
+class YourComponent extends React.Component {
+  construct(props) {
+    super(); // 不传props
+    console.log(props); // {...}
+    console.log(this.props); // undefined
+  }
+}
+```
+
+

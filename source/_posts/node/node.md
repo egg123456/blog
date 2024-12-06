@@ -136,6 +136,17 @@ uptime()|返回 Node 已经运行的秒数。
 cwd()|返回当前进程的工作目录
 memoryUsage()|输出内存使用情况
 
+## child_process
++ [child_process.spawn()] 函数会异步地衍生子进程，且不会阻塞 Node.js 事件循环。 
++ [child_process.spawnSync()] 函数则以同步的方式提供同样的功能，但会阻塞事件循环，直到衍生的子进程退出或被终止。
+### child_process 模块还提供的同步和异步的可选函数。 每个函数都是基于 [child_process.spawn()] 或 [child_process.spawnSync()] 实现的。
++ [child_process.exec()]: 衍生一个 shell 并在 shell 上运行命令，当完成时会传入 stdout 和 stderr 到回调函数。
++ [child_process.execFile()]: 类似 [child_process.exec()]，但直接衍生命令，且无需先衍生 shell。
++ [child_process.fork()]: 衍生一个新的 Node.js 进程，并通过建立 IPC 通讯通道来调用指定的模块，该通道允许父进程与子进程之间相互发送信息。
++ [child_process.execSync()]: [child_process.exec()] 的同步函数，会阻塞 Node.js 事件循环。
++ [child_process.execFileSync()]: [child_process.execFile()] 的同步函数，会阻塞 Node.js 事件循环。
+
+
 ## I/O
 什么是输入输出？
 两个层面：
@@ -159,6 +170,24 @@ fn(err,data)=>{
 }
 fn.readfile('url','code',callback1,callback2,callback3)
 ```
+
+## nodejs事件循环
+### 1、6个基本阶段（6个红任务队列）
+1. timers：执行定时器---setInterval()、setTimeout()的回调函数
+2. pending callbacks：执行某些系统级操作的回调函数，例如tcp错误等
+3. idle、prepare：---
+4. poll：poll是一个重要的阶段，这个阶段支撑了整个消息循环机制。该阶段执行I/O操作的回调、并检索是否有新的I/O操作的回调进入。
+5. check：执行 setImmediate() 的回调函数
+6. close callbacks：执行与关闭事件相关的回调函数，例如数据库连接、关闭网络连接等，用于资源清理。
+
+### 2、两个微任务队列
+1. nextTick队列：用于存储 process.nextTick() 的回调函数
+2. microTask队列：用于村粗 Promise（Promise.then(),Promise.catch(),Promise.final()）的回调函数。
+
+### 循环流程
+nextTick队列、microTask队列中的任务穿插于6个阶段之间进行，每个阶段进行前会先执行并清空nextTick队列、microTask队列中的回调任务（可以理解为一次循环迭代会至少询问并处理6次nextTick队列和microTask队列中的任务）；
+tips: node11之前微任务实在6个阶段执行之后在执行，node11之后是每个阶段进行前端处理微任务。
+
 
 ## file system
 文件I/O是由简单封装标准POSIX函数提供的，通过require('fs')使用该模块，所有的文件操作都有同步和异步的形式
