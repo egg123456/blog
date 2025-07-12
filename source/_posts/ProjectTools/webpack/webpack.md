@@ -137,12 +137,20 @@ module.exports = {
         }
     },
     devServer: {
-       contentBase: path.join(__dirname, "dist"),  //服务器资源目录
-       port: 7000, //服务端口号
-       host:'0.0.0.0', //服务器主机号，
-       historyApiFallback: true,  //任意的 404 响应都可能需要被替代为 index.html
-       hot: true, //启用webpack热替换
-       stats: "errors-only", //errors-only表示只打印错误：还有"minimal"，"normal"，"verbose"
+      contentBase: path.join(__dirname, "dist"),  //服务器资源目录
+      port: 7000, //服务端口号
+      host:'0.0.0.0', //服务器主机号，
+      historyApiFallback: true,  //任意的 404 响应都可能需要被替代为 index.html
+      hot: true, //启用webpack热替换
+      stats: "errors-only", //errors-only表示只打印错误：还有"minimal"，"normal"，"verbose"
+      proxy: [
+        {
+          context: ['/api', '/users'],
+          target: 'http://localhost:4000',
+          changeOrigin: true,
+          secure: false,
+        }
+      ]
     }
 };
 ```

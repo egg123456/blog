@@ -24,6 +24,29 @@ categories:
   + 在比较的是相同类型元素时，就只记录变化
   + 在比较的是不同类型元素时，就直接使用新的元素即新元素的子孙元素（即直接从这个元素开始的分支）
 
+## setState
+setState 是异步的，不会立即更新状态。React 会在合适的时机将多次setState调用组合成一次更新，及以**浅合并**的方式合并出最终的state后触发一次组件更新，从而提高性能。
+```js
+  // 下面逻辑执行后，只触发一次更新，state结果为多次set合并后的值 
+  // { num：3， name：2, obj: { id: 1 }, arr: ['egg'] }
+  handleClick = () => {
+    this.setState({ num: 2 }, () => {
+      console.log('one', this.state);
+    })
+    this.setState({ num: 3, name: 1 }, () => {
+      console.log('two', this.state);
+    })
+    this.setState({ name: 2, obj: { name: 'egg' }, arr: [1,2,3] }, () => {
+      console.log('three', this.state);
+    })
+    this.setState({ obj: { id: 1 }, arr: ['egg'] }, () => {
+      console.log('four', this.state);
+    })
+  }
+```
+setState 回调函数是更新完成后在依次执行，即状态更新并渲染完成之后。及当使用多setState并都传入回调函数时，在状态更新并渲染完成后，依次调用回调函数
+
+
 ## hooks
 1. useRef和useState的区别
 + useState‌：用于在组件中存储状态，当状态更新时，组件会重新渲染。它接受一个参数作为初始状态，返回当前状态和一个更新状态的函数。
@@ -60,5 +83,106 @@ class YourComponent extends React.Component {
   }
 }
 ```
+
+```js
+mountDom = {
+  __reactContainer: root.current,
+  _reactListening: true, // 已添加事件监听标记
+}
+
+// ReactDOMRoot
+const root = {
+  // FiberRootNode
+  internalRoot: {
+    containerInfo: mountDom,
+    // rootFiber
+    current: {
+      memoizedState: {
+        element: initialChildren,
+        isDehydrated: hydrate,
+        cache: null,
+        // not enabled yet
+        transitions: null,
+        pendingSuspenseBoundaries: null
+      },
+      updateQueue: {
+        baseState: fiber.memoizedState,
+        firstBaseUpdate: null,
+        lastBaseUpdate: null,
+        shared: {
+          pending: null,
+          interleaved: null,
+          lanes: NoLanes
+        },
+        effects: null
+      },
+    }
+  }
+}
+```
+
+### ReactElement
+```json
+{
+  "$$typeof": "Symbol(react.element)",
+  "key": "99",
+  "ref": null,
+  "props": {
+    "id": 1,
+    "children": "ReactElement"
+  },
+  "_owner": null,
+  "_store": { "validated": false }
+}
+
+```
+
+### update
+{
+    eventTime: eventTime,
+    lane: lane,
+    tag: UpdateState,
+    payload: <App />,
+    callback: null,
+    next: null
+}
+
+### callstack
+```js
+ReactDomRoot.proprotype.render = function render(children) {
+  updateContainer(children, fiberRoot, null, null) {
+    scheduleUpdateOnFiber(fiberRoot, rootFiber, lane, eventTime) {
+      ensureRootIsScheduled(fiberRoot, eventTime) {
+         root.callbackNode = scheduleCallback$1(schedulerPriorityLevel, performConcurrentWorkOnRoot.bind(null, fiberRoot))
+      }
+    }
+  }
+}
+
+function performConcurrentWorkOnRoot(fiberRoot, didTimeout) {
+  renderRootSync(root, lanes) {
+    workLoopSync() {
+      while (workInProgress !== null) {
+        performUnitOfWork(workInProgress) {
+          next = beginWork$1(current, unitOfWork, subtreeRenderLanes);
+          if (next === null) {
+            // If this doesn't spawn new work, complete the current work.
+            completeUnitOfWork(unitOfWork);
+          } else {
+            workInProgress = next;
+          }
+        }
+      }
+    }
+  }
+  finishConcurrentRender(fiberRoot, exitStatus = 5, lanes = 4) {
+    commitRoot(fiberRoot, null, null) {
+      commitRootImpl(fiberRoot, null, null, 0)
+    }
+  }
+}
+```
+
+众所周知，React为了保证一帧内有足够的时间渲染ui，使用了requestIdleCallback这个API。但实际上，由于requestIdleCallback工作帧率低，只有20FPS，还有兼容问题，React并没有使用它，而是用requestAnimationFrame和MessageChannel进行polyfill。
 
 
